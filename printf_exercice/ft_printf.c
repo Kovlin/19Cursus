@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printf.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rlinkov <marvin@42.fr>                     +#+  +:+       +#+        */
+/*   By: rlinkov <rlinkov@student.s19.be>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/29 16:38:39 by rlinkov           #+#    #+#             */
-/*   Updated: 2020/01/07 16:47:16 by rlinkov          ###   ########.fr       */
+/*   Updated: 2020/01/08 13:55:22 by rlinkov          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,23 +39,25 @@ int		ft_printf(const char *str, ...)
 
 int		ft_printf(const char *format, ...)
 {
+	int			index;
 	va_list		args; //liste des arguments
+	t_format	*content; //contients les informations necessaires au formattage de la variable
 	
 	va_start(args, format); //fait pointer args sur str (qui est le dernier argument fixe de la fonction):
-	while (*format != '\0')
+	content = (t_format*)malloc(sizeof(t_format));
+	index = 0;
+	while (format[index] != '\0')
 	{
-		if (*format == '%')
-			format++;
-		if (*format == '%')
-			ft_putchar_fd ('%', 1);
-		else if (*format == 'd')
+		if (format[index] == '%')
 		{
-			ft_putstr_fd(ft_itoa(va_arg(args, int)), 1);
+			index++;
+			handle_conversion(format + index, &index, content); //prend plusieurs parametres
 		}
 		else
 			ft_putchar_fd(*format, 1);
-		format++;
+		index++;
 	}
 	va_end(args);
-	return (0);
+	free(content);
+	return (index);
 }

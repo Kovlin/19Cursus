@@ -1,22 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   test.c                                             :+:      :+:    :+:   */
+/*   handle_conversion.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rlinkov <rlinkov@student.42.fr>            +#+  +:+       +#+        */
+/*   By: rlinkov <rlinkov@student.s19.be>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/12/11 13:24:07 by rlinkov           #+#    #+#             */
-/*   Updated: 2020/01/08 13:36:11 by rlinkov          ###   ########.fr       */
+/*   Created: 2020/01/08 12:22:13 by rlinkov           #+#    #+#             */
+/*   Updated: 2020/01/08 13:55:24 by rlinkov          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libftprintf.h"
-#include <stdio.h>
 
-int		main(int argc, char **argv)
+void    handle_conversion(char *format, int *index, t_format *content)
 {
-	//ft_printf("test : %d", 42);
-	printf("%*.1s", 10, "hello");
-
-	return (0);
+                                                
 }
