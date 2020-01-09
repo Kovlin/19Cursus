@@ -6,7 +6,7 @@
 /*   By: rlinkov <rlinkov@student.s19.be>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/08 14:23:39 by rlinkov           #+#    #+#             */
-/*   Updated: 2020/01/08 19:00:15 by rlinkov          ###   ########.fr       */
+/*   Updated: 2020/01/09 11:50:30 by rlinkov          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,4 +22,5 @@ void    handle_param(char *format, int *index, t_format *content, va_list args)
     handle_flags(format, index, content);
     handle_width(format, index, content, args);
     handle_prec(format, index, content, args);
+    handle_specifier(format, index, content, args);
 }

@@ -6,7 +6,7 @@
 #    By: rlinkov <rlinkov@student.s19.be>           +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/10/10 13:59:36 by rlinkov           #+#    #+#              #
-#    Updated: 2020/01/08 18:20:09 by rlinkov          ###   ########.fr        #
+#    Updated: 2020/01/09 19:22:52 by rlinkov          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,7 +16,8 @@ NAME		= libftprintf.a
 CFLAGS		= -Wall -Wextra -Werror
 LIBFT 		= libft
 
-SRCS		= ft_printf.c handle_conversion.c handle_parameters.c handle_flags.c handle_width.c handle_precision.c
+SRCS		= ft_printf.c handle_conversion.c handle_parameters.c handle_flags.c handle_width.c handle_precision.c\
+handle_specifier.c d_conversion.c u_conversion.c format_pos_nbr.c
 
 OBJECTS		= $(SRCS:.c=.o)
 
