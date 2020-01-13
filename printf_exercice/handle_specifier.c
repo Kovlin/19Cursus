@@ -6,7 +6,7 @@
 /*   By: rlinkov <rlinkov@student.s19.be>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/09 11:39:35 by rlinkov           #+#    #+#             */
-/*   Updated: 2020/01/09 19:21:01 by rlinkov          ###   ########.fr       */
+/*   Updated: 2020/01/13 17:03:53 by rlinkov          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,5 +18,5 @@ void    handle_specifier(char *format, int *index, t_format *content, va_list ar
         d_conversion(content, args);
     if (format[*index] == 'u')
         u_conversion(content, args);
-    *index = *index + 1;
+    (*index)++;
 }

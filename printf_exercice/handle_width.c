@@ -6,7 +6,7 @@
 /*   By: rlinkov <rlinkov@student.s19.be>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/08 15:25:49 by rlinkov           #+#    #+#             */
-/*   Updated: 2020/01/08 19:02:27 by rlinkov          ###   ########.fr       */
+/*   Updated: 2020/01/13 19:14:12 by rlinkov          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,11 @@
 void    var_width(int *index, t_format *content, va_list args)
 {
     content->width = va_arg(args, int);
+    if (content->width < 0)
+    {
+        content->width *= -1;
+        content->flags = 1;
+    }
     *index = *index + 1;
 }
 

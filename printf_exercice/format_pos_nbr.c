@@ -6,76 +6,114 @@
 /*   By: rlinkov <rlinkov@student.s19.be>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/09 18:52:56 by rlinkov           #+#    #+#             */
-/*   Updated: 2020/01/09 19:29:05 by rlinkov          ###   ########.fr       */
+/*   Updated: 2020/01/13 19:26:42 by rlinkov          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libftprintf.h"
 
-void ft_x_zero(int x)
+void    format_pos_nbr_right_next(t_format *content, int number)
 {
-    while (x > 0)
+    if (content->width > content->precision)
     {
-        ft_putchar_fd('0', 1);
-        x--;
+        ft_x_space(content->width - content->precision);
+        ft_x_zero(content->precision - (int)ft_strlen(ft_u_itoa(number)));
+        ft_putnbr_unsigned_fd(number, 1);
+    }
+    else
+    {
+        ft_x_zero(content->precision - (int)ft_strlen(ft_u_itoa(number)));
+        ft_putnbr_unsigned_fd(number, 1);        
     }
 }
 
-void ft_x_space(int x)
+void    format_pos_nbr_right(t_format *content, unsigned int number)
 {
-    while (x > 0)
+    if (content->width < (int)ft_strlen(ft_u_itoa(number)))
     {
-        ft_putchar_fd(' ', 1);
-        x--;
+        if (content->precision < (int)ft_strlen(ft_u_itoa(number)))
+            ft_putnbr_unsigned_fd(number, 1);
+        else
+        {
+            ft_x_zero(content->precision - (int)ft_strlen(ft_u_itoa(number)));
+            ft_putnbr_unsigned_fd(number, 1);
+        }
+    }
+    else if (content->precision < (int)ft_strlen(ft_u_itoa(number)))
+    {
+        ft_x_zero(content->width - (int)ft_strlen(ft_u_itoa(number)));
+        ft_putnbr_unsigned_fd(number, 1);
+    }
+    else
+        format_pos_nbr_right_next(content, number);
+}
+
+void    format_pos_nbr_left(t_format *content, unsigned int number)
+{
+    if (content->width < (int)ft_strlen(ft_u_itoa(number)))
+    {
+        if (content->precision < (int)ft_strlen(ft_u_itoa(number)))
+            ft_putnbr_unsigned_fd(number, 1);
+        else
+        {
+            ft_x_zero(content->precision - (int)ft_strlen(ft_u_itoa(number)));
+            ft_putnbr_unsigned_fd(number, 1);
+        }
+    }
+    else if (content->precision < (int)ft_strlen(ft_u_itoa(number)))
+    {
+        ft_putnbr_unsigned_fd(number, 1);
+        ft_x_space(content->width - (int)ft_strlen(ft_u_itoa(number)));
+    }
+    else
+    {
+        ft_x_zero(content->precision - (int)ft_strlen(ft_u_itoa(number)));
+        ft_putnbr_unsigned_fd(number, 1);
+        ft_x_space(content->width - content->precision);
     }
 }
 
-int     length_output(t_format *content, unsigned int number)
+void    format_pos_nbr_simple(t_format *content, unsigned int number)
 {
-    int length;
-
-    length = ft_strlen(ft_itoa(number));
-    if (content->width > length)
-        length = content->width;
-    if (content->precision > length)
-        length = content->precision;
-    return (length);
-}
-
-void	ft_putnbr_unsigned_fd(unsigned int n, int fd)
-{
-	if ((n / 10) != 0)
-		ft_putnbr_fd((n / 10), fd);
-	ft_putchar_fd((n % 10) + '0', fd);
+    if (content->width < (int)ft_strlen(ft_u_itoa(number)))
+    {
+        if (content->precision < (int)ft_strlen(ft_u_itoa(number)))
+            ft_putnbr_unsigned_fd(number, 1);
+        else
+        {
+            ft_x_zero(content->precision - (int)ft_strlen(ft_u_itoa(number)));
+            ft_putnbr_unsigned_fd(number, 1);
+        }
+    }
+    else if (content->precision < (int)ft_strlen(ft_u_itoa(number)))
+    {
+        ft_x_space(content->width - (int)ft_strlen(ft_u_itoa(number)));
+        ft_putnbr_unsigned_fd(number, 1);
+    }
+    else
+    {
+        ft_x_space(content->width - content->precision);
+        ft_x_zero(content->precision - (int)ft_strlen(ft_u_itoa(number)));
+        ft_putnbr_unsigned_fd(number, 1);
+    }
 }
 
 void    format_pos_nbr(t_format *content, unsigned int number)
 {
-    content->length_output = length_output(content, number);
-    if (content->flags == 0)
+    if (number == 0 && content->precision == 0)
     {
-        if (content->width < (int)ft_strlen(ft_itoa(number)))
-        {   
-            if (content->precision < (int)ft_strlen(ft_itoa(number)))
-            {    ft_putnbr_unsigned_fd(number, 1);
-            
-            }
-            else
-            {
-                ft_x_zero(content->precision - (int)ft_strlen(ft_itoa(number)));
-                ft_putnbr_unsigned_fd(number, 1);
-            }
-        }
-        else if (content->precision < (int)ft_strlen(ft_itoa(number)))
-        {
-            ft_x_space(content->width - (int)ft_strlen(ft_itoa(number)));
-            ft_putnbr_unsigned_fd(number, 1);
-        }
+        if (content->width > 0)
+            ft_x_space(content->width);
         else
-        {
-            ft_x_space(content->width - content->precision);
-            ft_x_zero(content->precision - (int)ft_strlen(ft_itoa(number)));
-            ft_putnbr_unsigned_fd(number, 1);
-        }
+            content->length_output--;
+        return ;
     }
+    else if (content->flags == 0)
+    {
+        format_pos_nbr_simple(content, number);
+    }
+    else if (content->flags == 1)
+        format_pos_nbr_left(content, number);
+    else
+        format_pos_nbr_right(content, number);
 }

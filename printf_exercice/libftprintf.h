@@ -6,7 +6,7 @@
 /*   By: rlinkov <rlinkov@student.s19.be>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/29 18:39:28 by rlinkov           #+#    #+#             */
-/*   Updated: 2020/01/09 18:53:48 by rlinkov          ###   ########.fr       */
+/*   Updated: 2020/01/13 17:31:36 by rlinkov          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,14 @@ void    handle_flags(char *format, int *index, t_format *content);
 void    handle_width(char *format, int *index, t_format *content, va_list args);
 void    handle_prec(char *format, int *index, t_format *content, va_list args);
 void	handle_specifier(char *format, int *index, t_format *content, va_list args);
+void	ft_x_zero(int x);
+void	ft_x_space(int x);
+int		length_output_u(t_format *content, unsigned int number);
+int		length_output(t_format *content, int number);
+void	ft_putnbr_unsigned_fd(unsigned int n, int fd);
+char	*ft_u_itoa(unsigned int number);
 void	format_pos_nbr(t_format *content, unsigned int nbr);
+void	format_neg_nbr(t_format *content, int nb);
 void	d_conversion(t_format *content, va_list args);
 void	u_conversion(t_format *content, va_list args);
 
