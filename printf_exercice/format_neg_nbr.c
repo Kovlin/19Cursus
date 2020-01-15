@@ -6,7 +6,7 @@
 /*   By: rlinkov <rlinkov@student.s19.be>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/13 16:48:29 by rlinkov           #+#    #+#             */
-/*   Updated: 2020/01/13 19:19:13 by rlinkov          ###   ########.fr       */
+/*   Updated: 2020/01/15 14:27:05 by rlinkov          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -117,7 +117,7 @@ void    format_neg_nbr_simple(t_format *content, int number)
 void    format_neg_nbr(t_format *content, int number)
 {
     number *= - 1;
-    if (number < 0) //cas de int min ou max int + 1
+    if (number < 0)
         content->precision++;
     if (content->flags == 0)
     {

@@ -6,7 +6,7 @@
 /*   By: rlinkov <rlinkov@student.s19.be>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/09 18:52:56 by rlinkov           #+#    #+#             */
-/*   Updated: 2020/01/13 19:26:42 by rlinkov          ###   ########.fr       */
+/*   Updated: 2020/01/15 15:20:10 by rlinkov          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -109,9 +109,7 @@ void    format_pos_nbr(t_format *content, unsigned int number)
         return ;
     }
     else if (content->flags == 0)
-    {
         format_pos_nbr_simple(content, number);
-    }
     else if (content->flags == 1)
         format_pos_nbr_left(content, number);
     else

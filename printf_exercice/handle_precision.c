@@ -6,7 +6,7 @@
 /*   By: rlinkov <rlinkov@student.s19.be>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/08 18:16:21 by rlinkov           #+#    #+#             */
-/*   Updated: 2020/01/13 17:42:47 by rlinkov          ###   ########.fr       */
+/*   Updated: 2020/01/15 16:55:02 by rlinkov          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,10 +21,7 @@ void    var_precision(int *index, t_format *content, va_list args)
 {
     content->precision = va_arg(args, int);
     if (content->precision < 0)
-    {
-        content->precision *= -1;
-        content->flags = 1;
-    }
+        content->precision = -1;
     *index = *index + 1;
 }
 

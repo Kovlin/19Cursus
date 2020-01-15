@@ -6,7 +6,7 @@
 /*   By: rlinkov <rlinkov@student.s19.be>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/29 16:38:39 by rlinkov           #+#    #+#             */
-/*   Updated: 2020/01/13 14:26:54 by rlinkov          ###   ########.fr       */
+/*   Updated: 2020/01/15 16:51:44 by rlinkov          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,6 @@ int		ft_printf(const char *format, ...)
 	int			index;
 	int			res;
 	va_list		args; //liste des arguments
-	
 	va_start(args, format); //fait pointer args sur str (qui est le dernier argument fixe de la fonction):
 	index	= 0;
 	res		= 0;
@@ -52,3 +51,5 @@ int		ft_printf(const char *format, ...)
 	va_end(args);
 	return (res);
 }
+
+//revoyer -1 erreur !!!

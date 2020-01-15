@@ -1,22 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   u_conversion.c                                     :+:      :+:    :+:   */
+/*   p_conversion.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rlinkov <rlinkov@student.s19.be>           +#+  +:+       +#+        */
+/*   By: rlinkov <rlinkov@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/01/09 18:10:30 by rlinkov           #+#    #+#             */
-/*   Updated: 2020/01/15 15:34:12 by rlinkov          ###   ########.fr       */
+/*   Created: 2020/01/15 18:50:27 by rlinkov           #+#    #+#             */
+/*   Updated: 2020/01/15 19:06:19 by rlinkov          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libftprintf.h"
 
-void    u_conversion(t_format *content, va_list args)
+void    p_conversion(t_format *content, va_list args)
 {
-    int number;
-    
-    number = va_arg(args, unsigned int);
-    content->length_output=length_output_u(content, number);
-    format_pos_nbr(content, number);
+    unsigned long p;
+
+    // /!\ p = NULL;
+    p = va_arg(args, unsigned long);
+    content->length_output = 5;
 }

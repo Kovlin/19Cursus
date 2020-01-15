@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   libftprintf.h                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rlinkov <rlinkov@student.s19.be>           +#+  +:+       +#+        */
+/*   By: rlinkov <rlinkov@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/29 18:39:28 by rlinkov           #+#    #+#             */
-/*   Updated: 2020/01/13 17:31:36 by rlinkov          ###   ########.fr       */
+/*   Updated: 2020/01/15 19:57:55 by rlinkov          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,14 @@ void	ft_putnbr_unsigned_fd(unsigned int n, int fd);
 char	*ft_u_itoa(unsigned int number);
 void	format_pos_nbr(t_format *content, unsigned int nbr);
 void	format_neg_nbr(t_format *content, int nb);
-void	d_conversion(t_format *content, va_list args);
+void	percent_conversion(t_format *content);
+void	c_conversion(t_format *content, va_list args);
+void	s_conversion(t_format *content, va_list args);
+void	x_conversion(t_format *content, va_list args, int check);
+void	p_conversion(t_format *content, va_list args);
 void	u_conversion(t_format *content, va_list args);
+void	d_conversion(t_format *content, va_list args);
+
+void	ft_putnbr_hexa(unsigned int nbr, int check);
 
 #endif
