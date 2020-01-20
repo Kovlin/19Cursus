@@ -6,7 +6,7 @@
 /*   By: rlinkov <rlinkov@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/08 18:16:21 by rlinkov           #+#    #+#             */
-/*   Updated: 2020/01/20 19:23:32 by rlinkov          ###   ########.fr       */
+/*   Updated: 2020/01/20 19:31:55 by rlinkov          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,7 @@ void    handle_prec(char *format, int *index, t_format *content, va_list args)
     char    *s;
     
     i = 0;
+    s = NULL;
     content->precision = -1;
     if (format[*index + i] == '.')
     {
@@ -44,8 +45,8 @@ void    handle_prec(char *format, int *index, t_format *content, va_list args)
                 i++;
             s = ft_substr(format, *index + 1, i);
             content->precision = ft_atoi(s);
-            free(s);
         }
     }
+    free(s);
     *index += i;
 }
