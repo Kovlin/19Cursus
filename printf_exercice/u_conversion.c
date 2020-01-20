@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   u_conversion.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rlinkov <rlinkov@student.s19.be>           +#+  +:+       +#+        */
+/*   By: rlinkov <rlinkov@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/09 18:10:30 by rlinkov           #+#    #+#             */
-/*   Updated: 2020/01/15 15:34:12 by rlinkov          ###   ########.fr       */
+/*   Updated: 2020/01/20 18:29:16 by rlinkov          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void    u_conversion(t_format *content, va_list args)
 {
-    int number;
+    unsigned int    number;
     
     number = va_arg(args, unsigned int);
     content->length_output=length_output_u(content, number);

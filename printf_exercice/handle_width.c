@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   handle_width.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rlinkov <rlinkov@student.s19.be>           +#+  +:+       +#+        */
+/*   By: rlinkov <rlinkov@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/08 15:25:49 by rlinkov           #+#    #+#             */
-/*   Updated: 2020/01/13 19:14:12 by rlinkov          ###   ########.fr       */
+/*   Updated: 2020/01/20 19:22:44 by rlinkov          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ void    var_width(int *index, t_format *content, va_list args)
 void    handle_width(char *format, int *index, t_format *content, va_list args)
 {
     int i;
-
+    char    *s;
     i = 0;
     content->width = 0;
     if (format[*index + i] == '*')
@@ -39,7 +39,9 @@ void    handle_width(char *format, int *index, t_format *content, va_list args)
     {
         while (ft_isdigit(format[*index + i]))
             i++;
-        content->width = ft_atoi(ft_substr(format, *index, i));
+        s = ft_substr(format, *index, i);
+        content->width = ft_atoi(s);
+        free(s);
     }
     *index += i;
 }

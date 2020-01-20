@@ -3,98 +3,93 @@
 /*                                                        :::      ::::::::   */
 /*   format_pos_nbr.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rlinkov <rlinkov@student.s19.be>           +#+  +:+       +#+        */
+/*   By: rlinkov <rlinkov@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/09 18:52:56 by rlinkov           #+#    #+#             */
-/*   Updated: 2020/01/15 15:20:10 by rlinkov          ###   ########.fr       */
+/*   Updated: 2020/01/20 18:25:04 by rlinkov          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libftprintf.h"
 
-void    format_pos_nbr_right_next(t_format *content, int number)
+void    format_u(unsigned int nbr, t_format *content)
 {
-    if (content->width > content->precision)
-    {
-        ft_x_space(content->width - content->precision);
-        ft_x_zero(content->precision - (int)ft_strlen(ft_u_itoa(number)));
-        ft_putnbr_unsigned_fd(number, 1);
-    }
+    if (content->width < ft_len_u(nbr))
+        if(content->precision <= ft_len_u(nbr))
+            ft_putnbr_unsigned_fd(nbr, 1);
+        else
+        {
+            ft_x_zero(content->precision - ft_len_u(nbr));
+            ft_putnbr_unsigned_fd(nbr, 1);
+        }
     else
     {
-        ft_x_zero(content->precision - (int)ft_strlen(ft_u_itoa(number)));
-        ft_putnbr_unsigned_fd(number, 1);        
+        if (content->precision <= ft_len_u(nbr))
+        {
+            ft_x_space(content->width - ft_len_u(nbr));
+            ft_putnbr_unsigned_fd(nbr, 1);
+        }
+        else 
+        {
+            ft_x_space(content->width - content->precision);
+            ft_x_zero(content->precision - ft_len_u(nbr));
+            ft_putnbr_unsigned_fd(nbr, 1);
+        }    
     }
 }
 
-void    format_pos_nbr_right(t_format *content, unsigned int number)
+void    format_u_left(unsigned int nbr, t_format *content)
 {
-    if (content->width < (int)ft_strlen(ft_u_itoa(number)))
-    {
-        if (content->precision < (int)ft_strlen(ft_u_itoa(number)))
-            ft_putnbr_unsigned_fd(number, 1);
+    if (content->width < ft_len_u(nbr))
+        if(content->precision <= ft_len_u(nbr))
+            ft_putnbr_unsigned_fd(nbr, 1);
         else
         {
-            ft_x_zero(content->precision - (int)ft_strlen(ft_u_itoa(number)));
-            ft_putnbr_unsigned_fd(number, 1);
+            ft_x_zero(content->precision - ft_len_u(nbr));
+            ft_putnbr_unsigned_fd(nbr, 1);
         }
-    }
-    else if (content->precision < (int)ft_strlen(ft_u_itoa(number)))
-    {
-        ft_x_zero(content->width - (int)ft_strlen(ft_u_itoa(number)));
-        ft_putnbr_unsigned_fd(number, 1);
-    }
     else
-        format_pos_nbr_right_next(content, number);
-}
-
-void    format_pos_nbr_left(t_format *content, unsigned int number)
-{
-    if (content->width < (int)ft_strlen(ft_u_itoa(number)))
     {
-        if (content->precision < (int)ft_strlen(ft_u_itoa(number)))
-            ft_putnbr_unsigned_fd(number, 1);
-        else
+        if (content->precision <= ft_len_u(nbr))
         {
-            ft_x_zero(content->precision - (int)ft_strlen(ft_u_itoa(number)));
-            ft_putnbr_unsigned_fd(number, 1);
+            ft_putnbr_unsigned_fd(nbr, 1);
+            ft_x_space(content->width - ft_len_u(nbr));
         }
-    }
-    else if (content->precision < (int)ft_strlen(ft_u_itoa(number)))
-    {
-        ft_putnbr_unsigned_fd(number, 1);
-        ft_x_space(content->width - (int)ft_strlen(ft_u_itoa(number)));
-    }
-    else
-    {
-        ft_x_zero(content->precision - (int)ft_strlen(ft_u_itoa(number)));
-        ft_putnbr_unsigned_fd(number, 1);
-        ft_x_space(content->width - content->precision);
+        else 
+        {
+            ft_x_zero(content->precision - ft_len_u(nbr));
+            ft_putnbr_unsigned_fd(nbr, 1);
+            ft_x_space(content->width - content->precision);
+        }    
     }
 }
 
-void    format_pos_nbr_simple(t_format *content, unsigned int number)
+void    format_u_right(unsigned int nbr, t_format *content)
 {
-    if (content->width < (int)ft_strlen(ft_u_itoa(number)))
-    {
-        if (content->precision < (int)ft_strlen(ft_u_itoa(number)))
-            ft_putnbr_unsigned_fd(number, 1);
+    if (content->width < ft_len_u(nbr))
+        if(content->precision <= ft_len_u(nbr))
+            ft_putnbr_unsigned_fd(nbr, 1);
         else
         {
-            ft_x_zero(content->precision - (int)ft_strlen(ft_u_itoa(number)));
-            ft_putnbr_unsigned_fd(number, 1);
+            ft_x_zero(content->precision - ft_len_u(nbr));
+            ft_putnbr_unsigned_fd(nbr, 1);
         }
-    }
-    else if (content->precision < (int)ft_strlen(ft_u_itoa(number)))
-    {
-        ft_x_space(content->width - (int)ft_strlen(ft_u_itoa(number)));
-        ft_putnbr_unsigned_fd(number, 1);
-    }
     else
     {
-        ft_x_space(content->width - content->precision);
-        ft_x_zero(content->precision - (int)ft_strlen(ft_u_itoa(number)));
-        ft_putnbr_unsigned_fd(number, 1);
+        if (content->precision <= ft_len_u(nbr))
+        {
+            if (content->precision == -1)
+                ft_x_zero(content->width - ft_len_u(nbr));
+            else
+                ft_x_space(content->width - ft_len_u(nbr));
+            ft_putnbr_unsigned_fd(nbr, 1);
+        }
+        else 
+        {
+            ft_x_space(content->width - content->precision);
+            ft_x_zero(content->precision - ft_len_u(nbr));
+            ft_putnbr_unsigned_fd(nbr, 1);
+        }    
     }
 }
 
@@ -109,9 +104,9 @@ void    format_pos_nbr(t_format *content, unsigned int number)
         return ;
     }
     else if (content->flags == 0)
-        format_pos_nbr_simple(content, number);
+        format_u(number, content);
     else if (content->flags == 1)
-        format_pos_nbr_left(content, number);
+        format_u_left(number, content);
     else
-        format_pos_nbr_right(content, number);
+        format_u_right(number, content);
 }

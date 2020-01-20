@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   handle_precision.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rlinkov <rlinkov@student.s19.be>           +#+  +:+       +#+        */
+/*   By: rlinkov <rlinkov@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/08 18:16:21 by rlinkov           #+#    #+#             */
-/*   Updated: 2020/01/15 16:55:02 by rlinkov          ###   ########.fr       */
+/*   Updated: 2020/01/20 19:23:32 by rlinkov          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,8 @@ void    var_precision(int *index, t_format *content, va_list args)
 void    handle_prec(char *format, int *index, t_format *content, va_list args)
 {
     int i;
-
+    char    *s;
+    
     i = 0;
     content->precision = -1;
     if (format[*index + i] == '.')
@@ -41,7 +42,9 @@ void    handle_prec(char *format, int *index, t_format *content, va_list args)
         {
             while (ft_isdigit(format[*index + i]))
                 i++;
-            content->precision = ft_atoi(ft_substr(format, *index + 1, i));
+            s = ft_substr(format, *index + 1, i);
+            content->precision = ft_atoi(s);
+            free(s);
         }
     }
     *index += i;

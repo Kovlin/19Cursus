@@ -6,7 +6,7 @@
 #    By: rlinkov <rlinkov@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/10/10 13:59:36 by rlinkov           #+#    #+#              #
-#    Updated: 2020/01/15 19:52:14 by rlinkov          ###   ########.fr        #
+#    Updated: 2020/01/20 19:11:16 by rlinkov          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,7 +17,7 @@ CFLAGS		= -Wall -Wextra -Werror
 LIBFT 		= libft
 
 SRCS		= ft_printf.c handle_conversion.c handle_parameters.c handle_flags.c handle_width.c handle_precision.c\
-handle_specifier.c d_conversion.c u_conversion.c format_pos_nbr.c ft_printf_utils.c ft_u_itoa.c format_neg_nbr.c\
+handle_specifier.c d_conversion.c u_conversion.c format_pos_nbr.c ft_printf_utils.c format_neg_nbr.c\
 c_conversion.c s_conversion.c percent_conversion.c x_conversion.c p_conversion.c ft_putnbr_hexa.c
 
 OBJECTS		= $(SRCS:.c=.o)

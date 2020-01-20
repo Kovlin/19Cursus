@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   percent_conversion.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rlinkov <rlinkov@student.s19.be>           +#+  +:+       +#+        */
+/*   By: rlinkov <rlinkov@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/15 16:57:45 by rlinkov           #+#    #+#             */
-/*   Updated: 2020/01/15 17:10:25 by rlinkov          ###   ########.fr       */
+/*   Updated: 2020/01/20 15:31:08 by rlinkov          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,5 +38,5 @@ void	percent_conversion(t_format *content)
         {
             ft_x_zero(content->width - 1);
             ft_putchar_fd('%', 1);
-        }    
+        }
 }
