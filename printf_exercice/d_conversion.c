@@ -6,44 +6,53 @@
 /*   By: rlinkov <rlinkov@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/09 11:53:16 by rlinkov           #+#    #+#             */
-/*   Updated: 2020/01/20 18:51:50 by rlinkov          ###   ########.fr       */
+/*   Updated: 2020/01/22 17:23:20 by rlinkov          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libftprintf.h"
 
-/*
-** handle the conversion and the formatting of d and i specifier (integer)
-*/
-
-int     length_output_neg(t_format *content, unsigned int number)
+int		ft_len_neg(unsigned int nbr)
 {
-    int length;
+	int i;
 
-    length = ft_len_neg(number);
-    if (content->width > length)
-        length = content->width;
-    if (content->precision > length)
-        length = content->precision;
-    if (content->precision == length)
-        length++;
-    return (length);
+	i = 0;
+	while (nbr / 10 != 0)
+	{
+		i++;
+		nbr = nbr / 10;
+	}
+	return (i + 2);
 }
 
-void    d_conversion(t_format *content, va_list args)
+int		length_output_neg(t_format *content, unsigned int number)
 {
-    int number;
-        
-    number = va_arg(args, int);
-    if (number >= 0)
-    {
-        content->length_output = length_output_u(content, (unsigned int)number);
-        format_pos_nbr(content, (unsigned int)number);
-    }
-    else
-    {
-        number *= -1;
-        content->length_output = length_output_neg(content, (unsigned int)number);
-        format_neg_nbr(content, (unsigned int)number);
-    }
+	int length;
+
+	length = ft_len_neg(number);
+	if (content->width > length)
+		length = content->width;
+	if (content->precision > length)
+		length = content->precision;
+	if (content->precision == length)
+		length++;
+	return (length);
+}
+
+void	d_conversion(t_format *content, va_list args)
+{
+	int nbr;
+
+	nbr = va_arg(args, int);
+	if (nbr >= 0)
+	{
+		content->length_output = length_output_u(content, (unsigned int)nbr);
+		format_pos_nbr(content, (unsigned int)nbr);
+	}
+	else
+	{
+		nbr *= -1;
+		content->length_output = length_output_neg(content, (unsigned int)nbr);
+		format_neg_nbr(content, (unsigned int)nbr);
+	}
 }

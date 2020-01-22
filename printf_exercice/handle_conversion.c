@@ -6,24 +6,24 @@
 /*   By: rlinkov <rlinkov@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/08 12:22:13 by rlinkov           #+#    #+#             */
-/*   Updated: 2020/01/20 19:19:01 by rlinkov          ###   ########.fr       */
+/*   Updated: 2020/01/22 17:55:44 by rlinkov          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libftprintf.h"
 
-/*
-** manage the conversion of arguments used with printf
-*/
-
-void    handle_conversion(char *format, int *index, int *res, va_list args)
+int		handle_conversion(char *format, int *index, int *res, va_list args)
 {
-    t_format	*content; //contients les informations necessaires au formattage de la variable
-    content = (t_format*)malloc(sizeof(t_format)); //-- ATTENTION PROTEGER LE MALLOC ET RETURN -1 A LA FIN SI ERREUR --//
-    handle_param(format, index, content, args);
-    *res += content->length_output; //pour enlever un warning
-    // !!!!!! la gestion de la longeur de l'output pour ne pas se retrouver decaler dans index !!!!!!!        
-    
-    //printf("FLAGS : %d\nWIDTH : %d\nPRECISION : %d", content->flags, content->width, content->precision);
-    free(content);
+	t_format	*content;
+
+	if (!(content = (t_format*)malloc(sizeof(t_format))))
+		return (-1);
+	if (handle_param(format, index, content, args) == -1)
+	{
+		free(content);
+		return (-1);
+	}
+	*res += content->length_output;
+	free(content);
+	return (0);
 }
