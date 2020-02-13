@@ -1,6 +1,6 @@
 FROM  	debian:buster
 
-RUN		apt-get update -y
-RUN		apt-get upgrade -y
+RUN		apt update -y  && apt upgrade -y && apt install nginx -y
 EXPOSE	80 443
-RUN 	apt-get install nginx -y
+#CMD		tail -f /dev/null
+CMD ["nginx", "-g", "daemon off;"]
