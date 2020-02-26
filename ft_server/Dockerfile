@@ -14,10 +14,18 @@ RUN     apt install unzip -y
 RUN     mkdir /utils
 COPY    srcs/default /etc/nginx/sites-available/default
 COPY    srcs/setup_server.sh /utils/setup_server.sh
+COPY    srcs/init.sql /utils/init.sql
 
 #téléchargement et agencement de phpMyAdmin
 RUN     wget https://files.phpmyadmin.net/phpMyAdmin/4.9.0.1/phpMyAdmin-4.9.0.1-all-languages.zip && unzip phpMyAdmin-4.9.0.1-all-languages.zip && rm phpMyAdmin-4.9.0.1-all-languages.zip
 RUN     mv phpMyAdmin-4.9.0.1-all-languages /var/www/html/phpmyadmin
+
+#initialisation du service wordpress
+RUN     wget https://wordpress.org/latest.tar.gz
+RUN     tar xf latest.tar.gz && rm latest.tar.gz 
+RUN     mv wordpress var/www/html
+COPY    srcs/wp-config.php var/www/html/wordpress/
+
 
 #ouverture des ports nécéssaires pour communiquer avec le serveur
 EXPOSE	80 443
