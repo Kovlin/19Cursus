@@ -2,13 +2,13 @@
 FROM  	debian:buster
 
 #installe tous les modules nécessaires au bon fonctionnement du serveur
-RUN		apt update -y  
-RUN     apt upgrade -y
-RUN     apt install nginx -y
-RUN     apt install mariadb-server mariadb-client -y
-RUN     apt install php-fpm php-mysql php-mbstring -y
-RUN     apt install wget -y
-RUN     apt install unzip -y
+RUN		apt-get update -y  
+RUN     apt-get upgrade -y
+RUN     apt-get install nginx -y
+RUN     apt-get install mariadb-server mariadb-client -y
+RUN     apt-get install php-fpm php-mysql php-mbstring -y
+RUN     apt-get install wget -y
+RUN     apt-get install unzip -y
 
 #crée le dossier qui contiendra les differentes sources et les mets dedans
 RUN     mkdir /utils
@@ -28,8 +28,13 @@ RUN     tar xf latest.tar.gz && rm latest.tar.gz
 RUN     mv wordpress var/www/html
 COPY    srcs/wp-config.php var/www/html/wordpress/
 
+#gestion de l'utilisation du protocole SSL si nécéssaire
+RUN openssl req -x509 -nodes -days 365 -newkey rsa:2048 \
+    -subj "/C=BE/ST=Brussels/L=Ixelles/0=19/CN=rlinkov" \
+    -keyout /etc/ssl/private/nginx-selfsigned.key -out /etc/ssl/certs/nginx-selfsigned.crt
 
 #ouverture des ports nécéssaires pour communiquer avec le serveur
 EXPOSE	80 443
+
 #lancement du script qui activera les differents services (Nginx, PHP, MySql)
 CMD ["bash", "/utils/setup_server.sh"]
