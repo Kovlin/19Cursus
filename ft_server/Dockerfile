@@ -13,7 +13,9 @@ RUN     apt install unzip -y
 #crée le dossier qui contiendra les differentes sources et les mets dedans
 RUN     mkdir /utils
 COPY    srcs/default /etc/nginx/sites-available/default
+COPY    srcs/default2 /etc/nginx/sites-available/default2
 COPY    srcs/setup_server.sh /utils/setup_server.sh
+COPY    srcs/autoindex.sh /utils/autoindex.sh
 COPY    srcs/init.sql /utils/init.sql
 
 #téléchargement et agencement de phpMyAdmin
