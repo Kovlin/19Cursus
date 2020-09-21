@@ -1,0 +1,1 @@
+ gcc -I ./minilibx_opengl_20191021 -g -L ./minilibx_opengl_20191021 -l mlx -framework OpenGL -framework AppKit test3d.c
