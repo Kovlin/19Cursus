@@ -1,2 +1,0 @@
-make && gcc -Wall -Werror -Wextra Cub3D.a main.c
-./a.out test.cub
