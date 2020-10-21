@@ -6,7 +6,7 @@
 /*   By: rlinkov <rlinkov@student.s19.be>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/25 17:10:53 by rlinkov           #+#    #+#             */
-/*   Updated: 2020/09/25 17:29:42 by rlinkov          ###   ########.fr       */
+/*   Updated: 2020/10/20 17:27:26 by rlinkov          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,19 +31,16 @@ typedef struct	s_data_file //en a t'on besoin ?
 	
 }				t_data;
 
-typedef struct	s_rgb_color
-{
-	int r;
-	int g;
-	int b;
-}				t_rgb;
-
 typedef struct	s_cube3d
 {
 	//structure globale du projet, contindra tout ce qui est nécéssaire
-	char	**file; //fichier .cub
-	t_rgb	**color; //tableau de couleur pour le sol et le plafond
+	char	*file; //fichier .cub /!\ surement pas besoin a voir
+	int		**color; //tableau de couleur pour le sol et le plafond
+	int		*res; //resolution de l'ecran
 	char 	**textures; //tableau des textures
+	int		*e_count; //tableau du nombre d'elements
+	char	**map; //carte
+	int		map_height;
 }				t_cube;
 
 #endif

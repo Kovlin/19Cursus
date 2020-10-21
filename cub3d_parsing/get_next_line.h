@@ -1,24 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   handle_error.c                                     :+:      :+:    :+:   */
+/*   get_next_line.h                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rlinkov <rlinkov@student.s19.be>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/09/25 16:31:39 by rlinkov           #+#    #+#             */
-/*   Updated: 2020/10/14 11:08:05 by rlinkov          ###   ########.fr       */
+/*   Created: 2019/11/05 17:57:13 by rlinkov           #+#    #+#             */
+/*   Updated: 2020/10/14 13:52:57 by rlinkov          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "cub3d.h"
+#ifndef _GET_NEXT_LINE_H
+# define _GET_NEXT_LINE_H
+# include <stdlib.h>
+# include <unistd.h>
+# include <limits.h>
+# ifndef BUFFER_SIZE
+#  define BUFFER_SIZE 32
+# endif
 
-void handle_error(char *err_tag, t_cube *cube)
-{
-    ft_putstr_fd(RED, 1);
-    ft_putendl_fd("Error", 1);
-    ft_putendl_fd(err_tag, 1);
-    ft_putstr_fd(RESET, 1);
-    if (cube) //TESTER SI EXIT NE SUFFIT PAS A EVITER LES LEAKS
-        free(cube); //sert a s'assurer de ne pas leak en cas d'erreur
-    exit (EXIT_FAILURE);
-}
+int		get_next_line(int fd, char **line);
+int		gnl_strlen(char *str);
+char	*gnl_strdup(char *str);
+char	*gnl_strjoin(char *line, char *buffer);
+int		gnl_strchr(char *str, char c);
+char	*gnl_substr(char *str, int start, int size);
+
+#endif

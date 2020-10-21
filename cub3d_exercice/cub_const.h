@@ -6,7 +6,7 @@
 /*   By: rlinkov <rlinkov@student.s19.be>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/25 17:10:53 by rlinkov           #+#    #+#             */
-/*   Updated: 2020/09/25 17:27:22 by rlinkov          ###   ########.fr       */
+/*   Updated: 2020/10/19 17:29:38 by rlinkov          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,9 +17,20 @@
 # define SOUTH 1
 # define EAST 2
 # define WEST 3
+# define SPRITE 4
 
+# define DECAL 5 //decalage entre les textures et les couleurs du sol et du plafond dans e_count
 # define FLOOR 0
 # define CEILING 1
+# define R 0
+# define G 1
+# define B 2
+
+# define RES 7 //position de la resolution dans e_count
+# define X 0
+# define Y 1
+
+# define NB_ELEM 8 //nombre d'elements contenu dans la carte avant la map
 
 
 #endif

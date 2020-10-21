@@ -6,7 +6,7 @@
 #    By: rlinkov <rlinkov@student.s19.be>           +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/09/21 12:33:19 by rlinkov           #+#    #+#              #
-#    Updated: 2020/09/25 16:50:24 by rlinkov          ###   ########.fr        #
+#    Updated: 2020/10/20 12:35:46 by rlinkov          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,7 +17,8 @@ CFLAGS		= -Wall -Wextra -Werror
 GRAPG		= -I ./minilibx_opengl_20191021 -g -L ./minilibx_opengl_20191021 -l mlx -framework OpenGL -framework AppKit
 LIBFT 		= libft
 
-SRCS		= handle_error.c check_args.c run_process.c
+SRCS		= get_next_line.c get_next_line_utils.c handle_error.c check_args.c run_process.c init_cube.c parsing_map.c store_elem.c\
+store_elem_bis.c handle_map.c
 
 OBJECTS		= $(SRCS:.c=.o)
 

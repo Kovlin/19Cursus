@@ -6,7 +6,7 @@
 /*   By: rlinkov <rlinkov@student.s19.be>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/25 11:05:50 by rlinkov           #+#    #+#             */
-/*   Updated: 2020/09/25 17:31:36 by rlinkov          ###   ########.fr       */
+/*   Updated: 2020/10/14 15:40:07 by rlinkov          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,12 @@ int main(int argc, char *argv[])
     check_map_ext(argv[1]);
     if (argc == 3)
         check_sec_arg(argv[2]);
-    //run_process(argc);
+    
+    //----------LANCEMENT DU PROCESS------------//
+    
+    //on lui passe le nombre d'argument pour savoir s'il faut save et
+    // le chemin vers le fichier .cub
+    run_process(argc, argv[1]);
+    
     exit (EXIT_SUCCESS);
 }
