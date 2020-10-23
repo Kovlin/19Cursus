@@ -1,28 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   check_args.c                                       :+:      :+:    :+:   */
+/*   cub_struct.h                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rlinkov <rlinkov@student.s19.be>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/09/25 13:13:39 by rlinkov           #+#    #+#             */
-/*   Updated: 2020/10/23 14:54:56 by rlinkov          ###   ########.fr       */
+/*   Created: 2020/09/25 17:10:53 by rlinkov           #+#    #+#             */
+/*   Updated: 2020/10/23 14:16:29 by rlinkov          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "./header/cub3d.h"
+#ifndef CUB_STRUCT_H
+# define CUB_STRUCT_H
 
-void	check_map_ext(char *path)
+typedef struct	s_cube3d
 {
-	if (ft_memcmp(path + (ft_strlen(path) - 4), ".cub", 4) == 0)
-		return ;
-	handle_error(ERR_EXT_FILE, NULL);
-}
+	char	*file;
+	int		**color;
+	int		*res;
+	char	**textures;
+	int		*e_count;
+	char	**map;
+	int		map_height;
+}				t_cube;
 
-void	check_sec_arg(char *sec_arg)
-{
-	if (ft_strlen(sec_arg) == 6)
-		if (ft_memcmp(sec_arg, "--save", 6) == 0)
-			return ;
-	handle_error(ERR_SAVE_ARG, NULL);
-}
+#endif

@@ -6,36 +6,34 @@
 #    By: rlinkov <rlinkov@student.s19.be>           +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/09/21 12:33:19 by rlinkov           #+#    #+#              #
-#    Updated: 2020/10/23 18:25:03 by rlinkov          ###   ########.fr        #
+#    Updated: 2020/10/23 14:56:11 by rlinkov          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 GCC			= gcc
 RM			= rm -rf
-NAME		= Cub3D
+NAME		= Cub3D.a
 CFLAGS		= -Wall -Wextra -Werror
+GRAPG		= -I ./minilibx_opengl_20191021 -g -L ./minilibx_opengl_20191021 -l mlx -framework OpenGL -framework AppKit
 LIBFT 		= libft
-MLX 		= -lmlx -lm -framework OpenGL -framework AppKit
 
-SRCS		= 	./gnl/get_next_line.c ./gnl/get_next_line_utils.c\
-				main.c\
-				handle_error.c check_args.c run_process.c init_cube.c parsing_map.c store_elem.c handle_map.c
+SRCS		= ./gnl/get_next_line.c ./gnl/get_next_line_utils.c handle_error.c check_args.c run_process.c init_cube.c parsing_map.c store_elem.c\
+handle_map.c
 
 OBJECTS		= $(SRCS:.c=.o)
 
 all: $(NAME)
 
 %.o: %.c
-	$(GCC) -c $< -o $@ $(CFLAGS)
+	$(GCC) $(GRAPH) -c $< -o $@ $(CFLAGS)
 
-$(NAME): $(OBJECTS)
-	@echo "\033[33m[Removing last version...]"
-	@${RM} Cub3D
-	@echo "\033[33m[Libft compilation...]"
-	@make -C $(LIBFT)
-	@echo "\033[33m[Cub3D compilation...]"
-	$(GCC) $(CFLAGS) $(OBJECTS) ${MLX} ./libft/libft.a -o $(NAME)
-	@echo "\033[33m[Done !]"
+$(NAME): $(OBJECTS) make_lib
+	cp libft/libft.a ./$(NAME)
+	ar rc $(NAME) $(OBJECTS)
+	ranlib $(NAME)
+
+make_lib : 
+	make -C $(LIBFT)
 
 clean_lib :
 	make clean -C $(LIBFT)
@@ -43,12 +41,11 @@ clean_lib :
 fclean_lib :
 	make fclean -C $(LIBFT)
 
-clean : clean_lib
-	${RM} $(OBJECTS)
+clean: clean_lib
+	$(RM) $(OBJECTS) 
 
 fclean: clean fclean_lib
 	$(RM) $(NAME)
-	${RM} cub3d.bmp
 
 re: fclean all
 

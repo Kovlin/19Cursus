@@ -1,28 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   check_args.c                                       :+:      :+:    :+:   */
+/*   cub_const.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rlinkov <rlinkov@student.s19.be>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/09/25 13:13:39 by rlinkov           #+#    #+#             */
-/*   Updated: 2020/10/23 14:54:56 by rlinkov          ###   ########.fr       */
+/*   Created: 2020/09/25 17:10:53 by rlinkov           #+#    #+#             */
+/*   Updated: 2020/10/23 14:16:01 by rlinkov          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "./header/cub3d.h"
+#ifndef CUB_CONST_H
+# define CUB_CONST_H
 
-void	check_map_ext(char *path)
-{
-	if (ft_memcmp(path + (ft_strlen(path) - 4), ".cub", 4) == 0)
-		return ;
-	handle_error(ERR_EXT_FILE, NULL);
-}
+# define NORTH 0
+# define SOUTH 1
+# define EAST 2
+# define WEST 3
+# define SPRITE 4
+# define DECAL 5
+# define FLOOR 0
+# define CEILING 1
+# define R 0
+# define G 1
+# define B 2
+# define RES 7
+# define X 0
+# define Y 1
+# define NB_ELEM 8
 
-void	check_sec_arg(char *sec_arg)
-{
-	if (ft_strlen(sec_arg) == 6)
-		if (ft_memcmp(sec_arg, "--save", 6) == 0)
-			return ;
-	handle_error(ERR_SAVE_ARG, NULL);
-}
+#endif

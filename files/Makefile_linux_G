@@ -1,0 +1,66 @@
+# **************************************************************************** #
+#                                                                              #
+#                                                         :::      ::::::::    #
+#    Makefile_linux_G                                   :+:      :+:    :+:    #
+#                                                     +:+ +:+         +:+      #
+#    By: rlinkov <rlinkov@student.s19.be>           +#+  +:+       +#+         #
+#                                                 +#+#+#+#+#+   +#+            #
+#    Created: 2020/10/23 15:14:04 by rlinkov           #+#    #+#              #
+#    Updated: 2020/10/23 18:22:49 by rlinkov          ###   ########.fr        #
+#                                                                              #
+# **************************************************************************** #
+
+
+
+NAME = cub3D
+# Name of directory
+PATH_INC = includes/
+PATH_SRC = srcs/
+PATH_OBJ = objs/
+PATH_LIBFT = libft
+PATH_LIBMLX = minilibx
+# List of sources
+SRCS = ft_check_elements.c ft_check_map.c ft_draw.c ft_draw_sprites.c ft_free.c \
+ft_init.c ft_input.c ft_message.c ft_move.c ft_parse_colors.c ft_parse_file.c \
+ft_parse_map.c ft_parse_player.c ft_parse_resolution.c ft_parse_textures.c \
+ft_raycasting.c ft_save.c ft_sprites.c ft_utils.c get_next_line.c \
+get_next_line_utils.c
+OBJS = ${addprefix ${PATH_OBJ}, ${SRCS:.c=.o}}
+INCS = ${addprefix ${PATH_INC}, header.h}
+# Commands of compilation
+COMP = clang
+COMP_FLAG = -Wall -Wextra -Werror -fPIC
+COMP_INC = -I ${PATH_INC}
+COMP_LINUX = -lm -lmlx -lXext -lX11 -lft -lpthread -lbsd
+# Others command
+RM = /bin/rm
+# Color and template code
+YELLOW = \e[38;5;184m
+GREEN = \e[38;5;46m
+RESET = \e[0m
+INFO = [${YELLOW}INFO${RESET}]
+SUCCESS = [${GREEN}OK${RESET}]
+# Functions
+all :   init ${NAME}
+        @echo "${INFO} Compilation of ${NAME} ${SUCCESS}"
+init :
+        @echo "${INFO} Init ${NAME}"
+        @${shell mkdir -p ${PATH_OBJ}}
+        @make -C ${PATH_LIBFT}
+        @make -C ${PATH_LIBMLX}
+${NAME} : ${OBJS} ${INCS}
+        @${CC} ${PATH_SRC}main.c -L ${PATH_LIBFT} -o ${NAME} ${OBJS} -L ${PATH_LIBMLX} ${COMP_LINUX}
+${PATH_OBJ}%.o : ${PATH_SRC}%.c
+        @${COMP} ${COMP_FLAG} ${COMP_INC} -c $< -o $@
+        @echo "${INFO} Compilation of $* ${SUCCESS}"
+clean :
+        @${RM} -rf ${PATH_OBJ}
+        @make -C $(PATH_LIBFT) clean;
+        @make -C $(PATH_LIBMLX) clean;
+        @echo "${INFO} Deleted files and directory"
+fclean : clean
+        @${RM} -rf ${NAME}
+        @${RM} -rf save.bmp
+        @make -C ${PATH_LIBFT} fclean
+re : fclean all
+.PHONY : all clean fclean re

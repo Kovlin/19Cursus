@@ -1,28 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   check_args.c                                       :+:      :+:    :+:   */
+/*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rlinkov <rlinkov@student.s19.be>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/09/25 13:13:39 by rlinkov           #+#    #+#             */
-/*   Updated: 2020/10/23 14:54:56 by rlinkov          ###   ########.fr       */
+/*   Created: 2020/09/25 11:05:50 by rlinkov           #+#    #+#             */
+/*   Updated: 2020/10/23 14:54:37 by rlinkov          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "./header/cub3d.h"
 
-void	check_map_ext(char *path)
+int main(int argc, char *argv[])
 {
-	if (ft_memcmp(path + (ft_strlen(path) - 4), ".cub", 4) == 0)
-		return ;
-	handle_error(ERR_EXT_FILE, NULL);
-}
-
-void	check_sec_arg(char *sec_arg)
-{
-	if (ft_strlen(sec_arg) == 6)
-		if (ft_memcmp(sec_arg, "--save", 6) == 0)
-			return ;
-	handle_error(ERR_SAVE_ARG, NULL);
+	if (argc < 2)
+		handle_error(ERR_FEW_ARGS, NULL);
+	else if (argc > 3)
+		handle_error(ERR_MUCH_ARGS, NULL);
+	check_map_ext(argv[1]);
+	if (argc == 3)
+		check_sec_arg(argv[2]);
+	run_process(argc, argv[1]);
+	exit (EXIT_SUCCESS);
 }

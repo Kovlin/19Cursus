@@ -6,7 +6,7 @@
 /*   By: rlinkov <rlinkov@student.s19.be>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/25 15:27:02 by rlinkov           #+#    #+#             */
-/*   Updated: 2020/10/23 15:08:19 by rlinkov          ###   ########.fr       */
+/*   Updated: 2020/10/23 14:59:35 by rlinkov          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,12 +52,11 @@ void run_process(int args, char *path)
 		handle_error(ERR_MALLOC, NULL);
 	init_cube(cube);
 	parsing_map(cube, path);
-    
-    display_cube(cube); //a virer
-    
-    //START_CUBE
-    //start_cube(cube);
-    //--SAVE
-    
+	display_cube(cube); //a virer
+
+	//--SAVE
+
+	//START_CUBE
+
 	exit(0);
 }
