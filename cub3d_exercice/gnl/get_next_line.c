@@ -6,11 +6,11 @@
 /*   By: rlinkov <rlinkov@student.s19.be>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/05 17:55:37 by rlinkov           #+#    #+#             */
-/*   Updated: 2020/10/23 14:56:48 by rlinkov          ###   ########.fr       */
+/*   Updated: 2020/10/26 14:43:38 by rlinkov          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../header/cub3d.h"
+#include "cub3d.h"
 
 int		adjust_content(int fd, char **line, char **opened_files)
 {

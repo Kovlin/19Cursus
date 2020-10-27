@@ -6,11 +6,11 @@
 /*   By: rlinkov <rlinkov@student.s19.be>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/14 10:26:42 by rlinkov           #+#    #+#             */
-/*   Updated: 2020/10/23 14:55:13 by rlinkov          ###   ########.fr       */
+/*   Updated: 2020/10/26 14:43:20 by rlinkov          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "./header/cub3d.h"
+#include "cub3d.h"
 
 int		check_elem(char *line, t_cube *cube)
 {

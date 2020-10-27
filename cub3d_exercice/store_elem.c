@@ -6,11 +6,11 @@
 /*   By: rlinkov <rlinkov@student.s19.be>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/14 15:03:06 by rlinkov           #+#    #+#             */
-/*   Updated: 2020/10/23 14:55:17 by rlinkov          ###   ########.fr       */
+/*   Updated: 2020/10/26 14:43:26 by rlinkov          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "./header/cub3d.h"
+#include "cub3d.h"
 
 int		contain_illegal_char(char *str)
 {
@@ -39,7 +39,6 @@ void	store_elem_color(t_cube *cube, char *line, int tag)
 {
 	int		i;
 	char	**color_stock;
-
 	cube->e_count[tag + DECAL]++;
 	if (cube->e_count[tag + DECAL] != 1)
 		handle_error(ERR_ELEM_NBR, cube);

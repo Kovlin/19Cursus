@@ -6,11 +6,11 @@
 /*   By: rlinkov <rlinkov@student.s19.be>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/25 13:13:39 by rlinkov           #+#    #+#             */
-/*   Updated: 2020/10/23 14:54:56 by rlinkov          ###   ########.fr       */
+/*   Updated: 2020/10/26 14:42:52 by rlinkov          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "./header/cub3d.h"
+#include "cub3d.h"
 
 void	check_map_ext(char *path)
 {

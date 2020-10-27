@@ -6,24 +6,35 @@
 /*   By: rlinkov <rlinkov@student.s19.be>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/19 15:25:35 by rlinkov           #+#    #+#             */
-/*   Updated: 2020/10/23 14:54:41 by rlinkov          ###   ########.fr       */
+/*   Updated: 2020/10/27 17:13:03 by rlinkov          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "./header/cub3d.h"
+#include "cub3d.h"
+
+/**
+** A SEPARER EN FONCTION ET A PROTEGER
+**/
 
 void	init_cube(t_cube *cube)
 {
 	int i;
 
-	i = -1;
+	i = 0;
 	cube->textures = (char**)malloc(5 * sizeof(char*));
-	while (i++ < 5)
+	while (i < 5)
+	{	
+		cube->textures[i] = (char*)malloc(sizeof(char));
 		cube->textures[i] = "\0";
-	cube->e_count = (int*)malloc(8 * sizeof(int));
-	i = -1;
-	while (i++ < 8)
+		i++;
+	}
+	cube->e_count = (int*)malloc(NB_ELEM * sizeof(int));
+	i = 0;
+	while (i < NB_ELEM)
+	{
 		cube->e_count[i] = 0;
+		i++;
+	}
 	cube->color = (int**)malloc(2 * sizeof(int*));
 	cube->color[FLOOR] = (int*)(malloc(3 * sizeof(int)));
 	cube->color[CEILING] = (int*)(malloc(3 * sizeof(int)));
@@ -31,4 +42,6 @@ void	init_cube(t_cube *cube)
 	cube->res[X] = 0;
 	cube->res[Y] = 0;
 	cube->map = malloc(sizeof(char*));
+	cube->player = malloc(sizeof(t_player));
+	
 }

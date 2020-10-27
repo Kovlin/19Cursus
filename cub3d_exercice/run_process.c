@@ -6,11 +6,11 @@
 /*   By: rlinkov <rlinkov@student.s19.be>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/25 15:27:02 by rlinkov           #+#    #+#             */
-/*   Updated: 2020/10/23 15:08:19 by rlinkov          ###   ########.fr       */
+/*   Updated: 2020/10/27 16:45:50 by rlinkov          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-# include "./header/cub3d.h"
+# include "cub3d.h"
 
 void display_cube(t_cube *cube) //sert de testeur
 {
@@ -41,6 +41,10 @@ void display_cube(t_cube *cube) //sert de testeur
 	i = -1;
 	while (++i < cube->map_height)
 		printf("|%s|\n", cube->map[i]);
+	//====TEST_PLAYER====//
+	printf("\nTEST_PLAYER  : \n\n");
+	printf("PLAYER POS  : X : %f| Y : %f\n", cube->player->pos[X], cube->player->pos[Y]);
+	printf("PLAYER VIEW : X : %f| Y : %f\n", cube->player->view[X], cube->player->view[Y]);
 }
 
 void run_process(int args, char *path)
@@ -53,11 +57,11 @@ void run_process(int args, char *path)
 	init_cube(cube);
 	parsing_map(cube, path);
     
-    display_cube(cube); //a virer
-    
     //START_CUBE
-    //start_cube(cube);
+    start_cube(cube);
     //--SAVE
     
+
+	display_cube(cube); //a virer
 	exit(0);
 }

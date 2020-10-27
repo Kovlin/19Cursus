@@ -1,26 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   cub_struct.h                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rlinkov <rlinkov@student.s19.be>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/09/25 11:05:50 by rlinkov           #+#    #+#             */
-/*   Updated: 2020/10/26 14:43:16 by rlinkov          ###   ########.fr       */
+/*   Created: 2020/09/25 17:10:53 by rlinkov           #+#    #+#             */
+/*   Updated: 2020/10/27 16:21:50 by rlinkov          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "cub3d.h"
+#ifndef CUB_STRUCT_H
+# define CUB_STRUCT_H
 
-int main(int argc, char *argv[])
+typedef struct	s_player
 {
-	if (argc < 2)
-		handle_error(ERR_FEW_ARGS, NULL);
-	else if (argc > 3)
-		handle_error(ERR_MUCH_ARGS, NULL);
-	check_map_ext(argv[1]);
-	if (argc == 3)
-		check_sec_arg(argv[2]);
-	run_process(argc, argv[1]);
-	exit (EXIT_SUCCESS);
-}
+	double		*pos;
+	double		*view;
+	double		*plane;
+}				t_player;
+
+typedef struct	s_cube3d
+{
+	int			**color;
+	int			*res;
+	char		**textures;
+	int			*e_count;
+	char		**map;
+	int			map_height;
+	t_player	*player;
+}				t_cube;
+
+#endif

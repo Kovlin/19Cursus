@@ -6,11 +6,11 @@
 /*   By: rlinkov <rlinkov@student.s19.be>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/25 16:31:39 by rlinkov           #+#    #+#             */
-/*   Updated: 2020/10/23 14:55:05 by rlinkov          ###   ########.fr       */
+/*   Updated: 2020/10/26 14:43:06 by rlinkov          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "./header/cub3d.h"
+#include "cub3d.h"
 
 void	handle_error(char *err_tag, t_cube *cube)
 {

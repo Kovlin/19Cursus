@@ -6,11 +6,11 @@
 /*   By: rlinkov <rlinkov@student.s19.be>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/05 17:56:53 by rlinkov           #+#    #+#             */
-/*   Updated: 2020/10/23 14:56:40 by rlinkov          ###   ########.fr       */
+/*   Updated: 2020/10/26 14:43:32 by rlinkov          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../header/cub3d.h"
+#include "cub3d.h"
 
 int		gnl_strlen(char *str)
 {

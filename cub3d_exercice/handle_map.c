@@ -6,11 +6,11 @@
 /*   By: rlinkov <rlinkov@student.s19.be>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/20 12:01:37 by rlinkov           #+#    #+#             */
-/*   Updated: 2020/10/23 16:44:06 by rlinkov          ###   ########.fr       */
+/*   Updated: 2020/10/27 16:45:39 by rlinkov          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "./header/cub3d.h"
+#include "cub3d.h"
 
 void	allocate_map(char *line, t_cube *cube, int index)
 {
@@ -90,7 +90,7 @@ void	check_map_validity(t_cube *cube)
 	while (i < cube->map_height)
 	{
 		j = 0;
-		while (cube->map[i][j])
+		while (cube->map[i][j] != '\0')
 		{
 			if (cube->map[i][j] != '1' && cube->map[i][j] != ' ')
 			{
