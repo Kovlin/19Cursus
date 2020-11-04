@@ -6,32 +6,40 @@
 #    By: rlinkov <rlinkov@student.s19.be>           +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/09/21 12:33:19 by rlinkov           #+#    #+#              #
-#    Updated: 2020/10/28 16:09:01 by rlinkov          ###   ########.fr        #
+#    Updated: 2020/11/04 15:40:36 by rlinkov          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-GCC			= gcc
-RM			= rm -rf
-NAME		= Cub3D
-CFLAGS		= -Wall -Wextra -Werror -fsanitize=address #pas besoin de garder fsanistize plus tard
-#chemin vers les fichiers .h pour n'avoir qu'a noter cub3d.h dans les fichier.c
-INCLUDE		= -Iinclude/
-LIBFT		= -Llibft -lft
-LIBFT_PATH 	= ./libft
-#lien pour utiliser la bibliotheque math.h
-MATH		= -lm
-#-Lmlx -lmlx to include libmlx.a (-l) in the directory mlx (-L)
-#-lm to include the library needed for math.h
-#the rest is for the mlx to work
-MLX 		= -Lmlx -lmlx -framework OpenGL -framework AppKit
-MLX_PATH	= ./mlx
-SRCS		= 	./gnl/get_next_line.c ./gnl/get_next_line_utils.c\
-				main.c\
-				handle_error.c check_args.c run_process.c init_cube.c parsing_map.c store_elem.c handle_map.c\
-				start_cube.c\
-				cube_testing.c
+GCC			=	gcc
+RM			=	rm -rf
+NAME		=	Cub3D
+CFLAGS		=	-Wall -Wextra -Werror -fsanitize=address #pas besoin de garder fsanistize plus tard
+INCLUDE		=	-Iinclude/
+LIBFT		=	-Llibft -lft
+LIBFT_PATH 	=	./libft
+MATH		=	-lm
+MLX 		=	-Lmlx -lmlx -framework OpenGL -framework AppKit
 
-OBJECTS		= $(SRCS:.c=.o)
+MLX_PATH	=	./mlx
+
+SRC_PATH	= 	./src/
+
+GNL			= 	./gnl/get_next_line.c ./gnl/get_next_line_utils.c
+
+PARSING		= 	parsing/check_args.c parsing/parsing_map.c\
+				parsing/store_elem.c parsing/handle_map.c
+				
+ENGINE		=	engine/run_process.c engine/start_cube.c engine/handle_event.c\
+				engine/cube_testing.c
+
+UTILS		=	utils/handle_error.c utils/init_cube.c utils/init_player.c utils/utils.c utils/mlx_utils.c\
+				utils/display_cube.c
+
+SRCS		=	$(GNL) $(PARSING) $(ENGINE) $(UTILS) cub3d.c
+
+SRC			=	$(addprefix $(SRC_PATH), $(SRCS))
+
+OBJECTS		=	$(SRC:.c=.o)
 
 all: $(NAME)
 
@@ -42,17 +50,20 @@ $(NAME): $(OBJECTS)
 	@${RM} Cub3D
 	@make -C $(LIBFT_PATH)
 	#@make -C $(MLX_PATH)
-	$(GCC) $(CFLAGS) $(OBJECTS) $(INCLUDE) $(LIBFT) ${MLX} $(MATH) -o $(NAME)
+	#@cp mlx/libmlx.dylib ./
+	$(GCC) $(CFLAGS) $(OBJECTS) $(INCLUDE) $(LIBFT) $(MLX) $(MATH) -o $(NAME)
 
 clean :
 	make clean -C $(LIBFT_PATH)
-	#make clean -C $(MLX_PATH)
+	#make clean -C $(MLX_PATH)+
 	${RM} $(OBJECTS)
 
 fclean: clean
 	make fclean -C $(LIBFT_PATH)
 	$(RM) $(NAME)
-	${RM} cub3d.bmp
+	$(RM) cub3d.bmp
+	#$(RM) libmlx.dylib
+	#$(RM) mlx/libmlx.dylib
 
 re: fclean all
 
