@@ -6,35 +6,41 @@
 /*   By: rlinkov <rlinkov@student.s19.be>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/04 15:37:45 by rlinkov           #+#    #+#             */
-/*   Updated: 2020/11/06 20:11:46 by rlinkov          ###   ########.fr       */
+/*   Updated: 2020/11/09 18:58:00 by rlinkov          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
-int     key_hook(int keycode, t_game *game)
+int     close_win() //?Mieux close ?
 {
-    double moveSpeed = 0.5;
-    if(keycode == 12 || keycode == 53)
-    {
-        mlx_destroy_window(game->mlx, game->win);
-        exit(EXIT_SUCCESS);
-    }
-    if (keycode == 13) //UP
-    {
-        // if ((game->cube->map[(int)(game->cube->player->pos[X] + (game->cube->player->view[X] * moveSpeed))][(int)game->cube->player->pos[Y]]) == 0)
-        //     game->cube->player->pos[X] += game->cube->player->pos[X] * moveSpeed;
-        // if ((game->cube->map[(int)game->cube->player->pos[X]][(int)(game->cube->player->pos[Y] + (game->cube->player->view[Y] * moveSpeed))]) == 0)
-        //     game->cube->player->pos[Y] += game->cube->player->pos[Y] * moveSpeed;
-        game->cube->player->pos[X] += moveSpeed;
-    }
+    exit(EXIT_SUCCESS);
+}
 
-    
-    // if (keycode == 1) //DOWN (int)
-    // {
-    //   if(worldMap[int(posX - dirX * moveSpeed)][int(posY)] == false) posX -= dirX * moveSpeed;
-    //   if(worldMap[int(posX)][int(posY - dirY * moveSpeed)] == false) posY -= dirY * moveSpeed;
-    // }
-    printf("keycode : %d\n", keycode);
+int     key_pressed(int keycode, t_game *game)
+{
+    if(keycode == ESC)
+        close_win();
+    else if (keycode == W)
+        move_up(game);
+    else if (keycode == A)
+        move_left(game);
+    else if (keycode == S)
+        move_down(game);
+    else if (keycode == D)
+        move_right(game);
+    else if (keycode == R_ARROW)
+        cam_right(game);
+    else if (keycode == L_ARROW)
+        cam_left(game);
+    printf("code : %d\n",keycode);
     return (keycode);
+}
+
+void    handle_event(t_game *game)
+{
+    mlx_hook(game->win, 17, 1L << 17, close_win, game);
+    mlx_hook(game->win, 2, (1L << 0), key_pressed, game);
+    mlx_loop_hook(game->mlx, raycasting, game);
+    mlx_loop(game->mlx);
 }

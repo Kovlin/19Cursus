@@ -6,7 +6,7 @@
 #    By: rlinkov <rlinkov@student.s19.be>           +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/09/21 12:33:19 by rlinkov           #+#    #+#              #
-#    Updated: 2020/11/06 18:48:26 by rlinkov          ###   ########.fr        #
+#    Updated: 2020/11/09 19:36:24 by rlinkov          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -29,8 +29,8 @@ GNL			= 	./gnl/get_next_line.c ./gnl/get_next_line_utils.c
 PARSING		= 	parsing/check_args.c parsing/parsing_map.c\
 				parsing/store_elem.c parsing/handle_map.c
 				
-ENGINE		=	engine/run_process.c engine/start_cube.c engine/handle_event.c\
-				engine/cube_testing.c
+ENGINE		=	engine/run_process.c engine/start_cube.c engine/handle_event.c engine/move.c engine/camera.c\
+				engine/raycasting.c engine/draw.c engine/cube_testing.c
 
 UTILS		=	utils/handle_error.c utils/init_cube.c utils/init_player.c utils/utils.c utils/mlx_utils.c\
 				utils/display_cube.c

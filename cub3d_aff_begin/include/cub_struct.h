@@ -6,7 +6,7 @@
 /*   By: rlinkov <rlinkov@student.s19.be>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/25 17:10:53 by rlinkov           #+#    #+#             */
-/*   Updated: 2020/11/05 16:56:04 by rlinkov          ###   ########.fr       */
+/*   Updated: 2020/11/09 19:33:20 by rlinkov          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,5 +48,28 @@ typedef struct s_game
 	t_data	*img;
 	t_cube	*cube;
 }			t_game;
+
+typedef	struct s_ray
+{
+	int		h;
+	int		w;
+	double cam_x;
+	double ray_dir_x;
+	double ray_dir_y;
+	int		map_x;
+	int		map_y;
+	double	side_dist_x;
+	double	side_dist_y;
+	double	delta_dist_x;
+	double	delta_dist_y;
+	double	perp_wall_dist;
+	int		step_x;
+	int		step_y;
+	int		side;
+	int		line_height;
+
+	int		draw_start;
+	int		draw_end;
+}				t_ray;
 
 #endif

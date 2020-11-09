@@ -6,7 +6,7 @@
 /*   By: rlinkov <rlinkov@student.s19.be>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/29 18:39:28 by rlinkov           #+#    #+#             */
-/*   Updated: 2020/11/06 20:06:32 by rlinkov          ###   ########.fr       */
+/*   Updated: 2020/11/09 19:38:58 by rlinkov          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,11 +44,20 @@ void    init_player(t_cube *cube);
 void    setup_screen_size(t_game *game);
 void    my_mlx_pixel_put(t_data *data, int x, int y, int color);
 int     create_trgb(int t, int r, int g, int b);
+void    handle_event(t_game *game);
 int     key_hook(int keycode, t_game *game);
 int    raycasting(t_game *game);
+void    draw(t_ray *ray, t_game *game, int i);
+void    move_up(t_game *game);
+void    move_left(t_game *game);
+void    move_down(t_game *game);
+void    move_right(t_game *game);
+void    cam_left(t_game *game);
+void    cam_right(t_game *game);
+void    clear_img(t_game *game);
 
 //Why not ?
-void    draw_line(int i, int draw_start, int draw_end, int color, t_game *game);
+void    draw_vline(int i, int draw_start, int draw_end, int color, t_game *game);
 void    mini_map(t_cube *cube, t_data *data);
 
 //Mostly testing function
