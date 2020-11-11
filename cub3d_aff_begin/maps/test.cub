@@ -1,12 +1,12 @@
-NO      ./maps/texture/    bo njo ur
-S ./maps/texture/    bo njo ur
+NO      ./maps/texture/wall_r.png
+S ./maps/texture/wall_r.png
 
-EA ./maps/texture/   text_test_2
-SO ./maps/texture/salutation.  
-WE ./maps/texture/text_test_4
+EA ./maps/texture/wall_g.png
+SO      ./maps/texture/wall_s.png
+WE ./maps/texture/wall_y.png
 
-F 0, 255, 0    
-C     255,      0 ,   255    
+F 222, 184, 135    
+C     135,      206 ,   235    
 R   960     540
 
                   11
