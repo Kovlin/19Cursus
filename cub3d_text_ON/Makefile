@@ -6,7 +6,7 @@
 #    By: rlinkov <rlinkov@student.s19.be>           +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/09/21 12:33:19 by rlinkov           #+#    #+#              #
-#    Updated: 2020/11/13 15:58:49 by rlinkov          ###   ########.fr        #
+#    Updated: 2020/11/17 18:29:25 by rlinkov          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -30,7 +30,7 @@ PARSING		= 	parsing/check_args.c parsing/parsing_map.c\
 				parsing/store_elem.c parsing/handle_map.c
 				
 ENGINE		=	engine/run_process.c engine/start_cube.c engine/handle_event.c engine/move.c engine/camera.c\
-				engine/raycasting.c engine/draw.c engine/texture.c engine/cube_testing.c 
+				engine/raycasting.c engine/draw.c engine/texture.c engine/cube_testing.c engine/handle_sprites.c
 
 UTILS		=	utils/handle_error.c utils/init_cube.c utils/init_player.c utils/utils.c utils/mlx_utils.c\
 				utils/display_cube.c
@@ -51,11 +51,11 @@ $(NAME): $(OBJECTS)
 	#@make -C $(LIBFT_PATH)
 	#@make -C $(MLX_PATH)
 	#@cp mlx/libmlx.dylib ./
-	$(GCC) $(CFLAGS) $(OBJECTS) $(INCLUDE) $(LIBFT) $(MLX) $(MATH) -O3 -o $(NAME)
+	$(GCC) $(CFLAGS) $(OBJECTS) $(INCLUDE) $(LIBFT) $(MLX) $(MATH) -o $(NAME)
 
 clean :
 	#make clean -C $(LIBFT_PATH)
-	#make clean -C $(MLX_PATH)+
+	#make clean -C $(MLX_PATH)
 	${RM} $(OBJECTS)
 
 fclean: clean

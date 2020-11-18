@@ -6,7 +6,7 @@
 /*   By: rlinkov <rlinkov@student.s19.be>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/09 19:01:25 by rlinkov           #+#    #+#             */
-/*   Updated: 2020/11/13 17:47:18 by rlinkov          ###   ########.fr       */
+/*   Updated: 2020/11/17 19:55:24 by rlinkov          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,8 @@ void    init_ray(t_ray *ray, t_game *game)
     ray->map_y = game->cube->player->pos[Y];
     ray->delta_dist_x = fabs(1 / ray->ray_dir_x);
     ray->delta_dist_y = fabs(1 / ray->ray_dir_y);
+    if (!(ray->z_buff = malloc(ray->w * sizeof(double))))
+        handle_error(ERR_MALLOC);
 }
 
 void    set_step_dist(t_ray *r, t_game *game)
@@ -108,9 +110,17 @@ int    raycasting(t_game *game)
         set_step_dist(ray, game);
         ray_to_wall(ray, game);
         perp_wall_dist_calc(ray, game);
+        ray->z_buff[ray->col] = ray->perp_wall_dist;
+        if (ray->col == 10)
+            printf("z_buff : %f\n", ray->z_buff[10]);
         draw(ray, game);
         ray->col++;
     }
+    printf("z_buff_out : %f\n", ray->z_buff[10]);
+    //write_here_draw_sprite
+    if (game->cube->nbr_sprites > 0)
+        handle_sprites(ray, game);
+    free(ray->z_buff);
     free(ray);
     mlx_put_image_to_window(game->mlx, game->win, game->img->img, 0, 0);
     clear_img(game);

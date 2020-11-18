@@ -6,7 +6,7 @@
 /*   By: rlinkov <rlinkov@student.s19.be>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/27 13:04:41 by rlinkov           #+#    #+#             */
-/*   Updated: 2020/11/13 16:11:59 by rlinkov          ###   ########.fr       */
+/*   Updated: 2020/11/17 16:39:13 by rlinkov          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,5 +33,6 @@ void    start_cube(t_cube *cube)
     game->img->addr = mlx_get_data_addr(game->img->img, 
     &game->img->bits_per_pixel, &game->img->line_length, &game->img->endian);
     load_texture(game);
+    init_sprites(game);
     handle_event(game);
 }

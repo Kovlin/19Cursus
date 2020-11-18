@@ -6,7 +6,7 @@
 /*   By: rlinkov <rlinkov@student.s19.be>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/04 14:01:49 by rlinkov           #+#    #+#             */
-/*   Updated: 2020/11/12 14:28:29 by rlinkov          ###   ########.fr       */
+/*   Updated: 2020/11/17 15:24:58 by rlinkov          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,4 +33,4 @@ int    check_tex_ext(char *path)
 		return (2);
 	handle_error(ERR_EXT_TEX);
     return (0);
-}
+}  

@@ -6,16 +6,14 @@
 /*   By: rlinkov <rlinkov@student.s19.be>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/12 13:14:38 by rlinkov           #+#    #+#             */
-/*   Updated: 2020/11/13 18:15:07 by rlinkov          ###   ########.fr       */
+/*   Updated: 2020/11/17 19:30:42 by rlinkov          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
-int     select_texture(t_ray *r, t_game *game)
+int     select_texture(t_ray *r)
 {
-    if (game->cube->map[r->map_y][r->map_x] == '2')
-        return (SPRITE);
     if (r->side == 0)
         return (EAST);
     else if (r->side == 1)
@@ -30,7 +28,7 @@ void    init_text_col(t_ray *r, t_game *game)
 {
     int text;
 
-    text = select_texture(r, game);
+    text = select_texture(r);
     if (r->side < 2)
         r->wall_x = game->cube->player->pos[Y] +
         (r->perp_wall_dist * r->ray_dir_y);
@@ -53,13 +51,11 @@ void    draw_texture(t_ray *r, t_game *game)
     int y;
     int text;
     
-    text = select_texture(r, game); //FONCTIONNE PAS
+    text = select_texture(r); //FONCTIONNE PAS
     init_text_col(r, game);
     step = 1.0 * game->text[text].height / r->line_height;
     tex_pos = (r->draw_start - (r->h / 2) + (r->line_height / 2)) * step;
     y = r->draw_start;
-    if (!(r->buffer = malloc((r->h) * sizeof(int))))
-        handle_error(ERR_MALLOC);
     while (y <= r->draw_end)
     {
         r->text_y = (int)tex_pos & (game->text[text].height - 1);

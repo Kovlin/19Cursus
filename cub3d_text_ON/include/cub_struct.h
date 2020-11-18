@@ -6,7 +6,7 @@
 /*   By: rlinkov <rlinkov@student.s19.be>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/25 17:10:53 by rlinkov           #+#    #+#             */
-/*   Updated: 2020/11/13 17:52:56 by rlinkov          ###   ########.fr       */
+/*   Updated: 2020/11/17 19:47:29 by rlinkov          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,8 +40,30 @@ typedef struct	s_cube3d
 	int			*e_count;
 	char		**map;
 	int			map_height;
+	int			nbr_sprites;
 	t_player	*player;
 }				t_cube;
+
+typedef struct s_sprites
+{
+	double 		x;
+	double 		y;
+	double		sprite_dist;
+	double		pos_x;
+	double		pos_y;
+	double		inv_det;
+	double		trans_x;
+	double		trans_y;
+	int			sprite_screen_x;
+	int			sprite_height;
+	int			sprite_width;
+	int			draw_start_x;
+	int			draw_end_x;
+	int			draw_start_y;
+	int			draw_end_y;
+	int			text_x;
+	int			text_y;
+}				t_sprites;
 
 typedef struct s_game
 {
@@ -50,6 +72,7 @@ typedef struct s_game
 	t_data	*img;
 	t_data	*text;
 	t_cube	*cube;
+	t_sprites *sprites;
 }			t_game;
 
 typedef	struct s_ray
@@ -70,14 +93,13 @@ typedef	struct s_ray
 	int		step_y;
 	int		side;
 	int		line_height;
-
 	int		draw_start;
 	int		draw_end;
 	double	wall_x;
 	int		text_x;
 	int		text_y;
-	int		*buffer;
 	int		col;
+	double	*z_buff;
 }				t_ray;
 
 #endif

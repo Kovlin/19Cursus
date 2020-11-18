@@ -1,5 +1,5 @@
 NO      ./maps/texture/wall_r.png
-S ./maps/texture/wall_r.png
+S ./maps/texture/rock.png
 
 EA ./maps/texture/wall_g.png
 SO      ./maps/texture/wall_s.png

@@ -6,7 +6,7 @@
 /*   By: rlinkov <rlinkov@student.s19.be>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/29 18:39:28 by rlinkov           #+#    #+#             */
-/*   Updated: 2020/11/13 17:49:49 by rlinkov          ###   ########.fr       */
+/*   Updated: 2020/11/17 18:25:30 by rlinkov          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,8 +57,10 @@ void    cam_right(t_game *game);
 void    clear_img(t_game *game);
 int     check_tex_path(char *path);
 void    load_texture(t_game *game);
-int     select_texture(t_ray *ray, t_game *game);
+int     select_texture(t_ray *ray);
 void    draw_texture(t_ray *ray, t_game *game);
+void    init_sprites(t_game *game);
+void    handle_sprites(t_ray *ray, t_game *game);
 
 //Why not ?
 void    draw_vline(int i, int draw_start, int draw_end, int color, t_game *game);

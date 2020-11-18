@@ -6,7 +6,7 @@
 /*   By: rlinkov <rlinkov@student.s19.be>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/19 15:25:35 by rlinkov           #+#    #+#             */
-/*   Updated: 2020/11/06 19:27:36 by rlinkov          ###   ########.fr       */
+/*   Updated: 2020/11/17 16:26:42 by rlinkov          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,4 +43,5 @@ void	init_cube(t_cube *cube)
 	cube->res[Y] = 0;
 	cube->map = malloc(sizeof(char*));
 	cube->player = malloc(sizeof(t_player));
+	cube->nbr_sprites = 0;
 }

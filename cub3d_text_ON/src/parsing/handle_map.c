@@ -6,7 +6,7 @@
 /*   By: rlinkov <rlinkov@student.s19.be>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/20 12:01:37 by rlinkov           #+#    #+#             */
-/*   Updated: 2020/11/04 14:22:26 by rlinkov          ###   ########.fr       */
+/*   Updated: 2020/11/17 16:22:21 by rlinkov          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -99,6 +99,8 @@ void	check_map_validity(t_cube *cube)
 				if (!valid(cube, i, j - 1) || !(valid(cube, i, j + 1)))
 					handle_error(ERR_MAP);
 			}
+			if (cube->map[i][j] == '2')
+				cube->nbr_sprites++;
 			j++;
 		}
 		i++;
