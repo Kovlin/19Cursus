@@ -6,7 +6,7 @@
 /*   By: rlinkov <rlinkov@student.s19.be>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/25 16:25:48 by rlinkov           #+#    #+#             */
-/*   Updated: 2020/11/12 13:13:48 by rlinkov          ###   ########.fr       */
+/*   Updated: 2020/11/19 16:18:58 by rlinkov          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,5 +39,6 @@
 # define ERR_MAP_CHAR "Too much character"
 # define ERR_MAP_CHAR_NF "Character not found"
 # define ERR_MAP "Map error"
+# define ERR_BMP "Unable to create a bitmap file"
 
 #endif

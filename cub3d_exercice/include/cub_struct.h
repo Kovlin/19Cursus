@@ -6,7 +6,7 @@
 /*   By: rlinkov <rlinkov@student.s19.be>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/25 17:10:53 by rlinkov           #+#    #+#             */
-/*   Updated: 2020/11/17 19:47:29 by rlinkov          ###   ########.fr       */
+/*   Updated: 2020/11/19 16:05:03 by rlinkov          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,6 +41,7 @@ typedef struct	s_cube3d
 	char		**map;
 	int			map_height;
 	int			nbr_sprites;
+	int			info_save;
 	t_player	*player;
 }				t_cube;
 

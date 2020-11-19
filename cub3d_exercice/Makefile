@@ -6,7 +6,7 @@
 #    By: rlinkov <rlinkov@student.s19.be>           +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/09/21 12:33:19 by rlinkov           #+#    #+#              #
-#    Updated: 2020/11/18 17:51:49 by rlinkov          ###   ########.fr        #
+#    Updated: 2020/11/19 16:51:20 by rlinkov          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -31,7 +31,7 @@ PARSING		= 	parsing/check_args.c parsing/parsing_map.c\
 				
 ENGINE		=	engine/run_process.c engine/start_cube.c engine/handle_event.c engine/move.c engine/camera.c\
 				engine/raycasting.c engine/draw.c engine/texture.c engine/cube_testing.c engine/handle_sprites.c\
-				engine/draw_sprite.c
+				engine/draw_sprite.c engine/bitmap.c
 
 UTILS		=	utils/handle_error.c utils/init_cube.c utils/init_player.c utils/utils.c utils/mlx_utils.c\
 				utils/display_cube.c

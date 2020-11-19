@@ -6,7 +6,7 @@
 /*   By: rlinkov <rlinkov@student.s19.be>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/29 18:39:28 by rlinkov           #+#    #+#             */
-/*   Updated: 2020/11/18 17:52:11 by rlinkov          ###   ########.fr       */
+/*   Updated: 2020/11/19 16:51:45 by rlinkov          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,6 +62,8 @@ void    draw_texture(t_ray *ray, t_game *game);
 void    init_sprites(t_game *game);
 void    handle_sprites(t_ray *ray, t_game *game);
 void    draw_sprites(t_ray *r, t_game *g);
+void    bmp_create(t_game *game);
+int     get_spec_color(int id, int color);
 
 //Why not ?
 void    draw_vline(int i, int draw_start, int draw_end, int color, t_game *game);

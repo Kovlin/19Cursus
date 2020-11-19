@@ -6,7 +6,7 @@
 /*   By: rlinkov <rlinkov@student.s19.be>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/04 15:37:45 by rlinkov           #+#    #+#             */
-/*   Updated: 2020/11/13 17:08:03 by rlinkov          ###   ########.fr       */
+/*   Updated: 2020/11/19 18:15:02 by rlinkov          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ int     key_pressed(int keycode, t_game *game)
     return (keycode);
 }
 
-void    handle_event(t_game *game)
+void    handle_event(t_game *game) //MLX window qui souvre avec le screenshot ???
 {
     mlx_hook(game->win, 17, 1L << 17, close_win, game);
     mlx_hook(game->win, 2, (1L << 0), key_pressed, game);

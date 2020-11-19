@@ -6,7 +6,7 @@
 /*   By: rlinkov <rlinkov@student.s19.be>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/09 19:01:25 by rlinkov           #+#    #+#             */
-/*   Updated: 2020/11/18 15:08:38 by rlinkov          ###   ########.fr       */
+/*   Updated: 2020/11/19 17:58:38 by rlinkov          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -118,6 +118,8 @@ int    raycasting(t_game *game)
         handle_sprites(ray, game);
     free(ray->z_buff);
     free(ray);
+    if (game->cube->info_save == 1)
+        bmp_create(game);
     mlx_put_image_to_window(game->mlx, game->win, game->img->img, 0, 0);
     clear_img(game);
     return (0);
