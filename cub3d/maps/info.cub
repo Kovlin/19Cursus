@@ -1,9 +1,9 @@
 NO      ./maps/texture/wall_r.png
 S ./maps/texture/rock.png
 
-EA ./maps/texture/wall_g.xpm
-SO      ./maps/texture/wall_s.xpm
-WE ./maps/texture/wall_y.xpm
+EA ./maps/texture/wall_g.png
+SO      ./maps/texture/wall_s.png
+WE ./maps/texture/wall_y.png
 
 F 222, 184, 135    
 C     135,      206 ,   235    

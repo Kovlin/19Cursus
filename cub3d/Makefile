@@ -6,14 +6,14 @@
 #    By: rlinkov <rlinkov@student.s19.be>           +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/09/21 12:33:19 by rlinkov           #+#    #+#              #
-#    Updated: 2020/11/20 19:00:37 by rlinkov          ###   ########.fr        #
+#    Updated: 2020/11/20 19:23:28 by rlinkov          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 GCC			=	gcc
 RM			=	rm -rf
 NAME		=	Cub3D
-CFLAGS		=	-Wall -Wextra -Werror -fsanitize=address #pas besoin de garder fsanistize plus tard
+CFLAGS		=	-Wall -Wextra -Werror
 INCLUDE		=	-Iinclude/
 LIBFT		=	-Llibft -lft
 LIBFT_PATH 	=	./libft
@@ -49,27 +49,25 @@ all: $(NAME)
 $(NAME): $(OBJECTS)
 	@${RM} Cub3D
 	@make -C $(LIBFT_PATH)
-	#@make -C $(MLX_PATH)
-	#@cp mlx/libmlx.dylib ./
+	@make -C $(MLX_PATH)
+	@cp mlx/libmlx.dylib ./
 	$(GCC) $(CFLAGS) $(OBJECTS) $(INCLUDE) $(LIBFT) $(MLX) $(MATH) -o $(NAME)
 
 clean :
 	@make clean -C $(LIBFT_PATH)
-	#make clean -C $(MLX_PATH)
+	make clean -C $(MLX_PATH)
 	${RM} $(OBJECTS)
 
 fclean: clean
 	@make fclean -C $(LIBFT_PATH)
 	$(RM) $(NAME)
 	$(RM) screenshot.bmp
-	#$(RM) libmlx.dylib
-	#$(RM) mlx/libmlx.dylib
+	$(RM) libmlx.dylib
+	$(RM) mlx/libmlx.dylib
 
 re: fclean all
 
-test : re
-	./Cub3D maps/test.cub
-test2 : re
-	./Cub3D maps/test2.cub
+start : re
+	./Cub3D maps/info.cub
 
 .PHONY: libft
