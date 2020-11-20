@@ -6,7 +6,7 @@
 /*   By: rlinkov <rlinkov@student.s19.be>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/25 15:27:02 by rlinkov           #+#    #+#             */
-/*   Updated: 2020/11/20 19:11:18 by rlinkov          ###   ########.fr       */
+/*   Updated: 2020/11/20 19:15:00 by rlinkov          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 
 int		close_win(t_game *g)
 {
+	(void)g;
 	exit(EXIT_SUCCESS);
 }
 

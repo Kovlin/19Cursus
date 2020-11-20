@@ -6,16 +6,17 @@
 /*   By: rlinkov <rlinkov@student.s19.be>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/04 15:37:45 by rlinkov           #+#    #+#             */
-/*   Updated: 2020/11/20 18:59:19 by rlinkov          ###   ########.fr       */
+/*   Updated: 2020/11/20 19:15:32 by rlinkov          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
-void	game_loop(t_game *game)
+int		game_loop(t_game *game)
 {
 	handle_key(game);
 	raycasting(game);
+	return (0);
 }
 
 void	handle_key(t_game *g)
