@@ -13,15 +13,15 @@
 #ifndef GAME_CONST_H
 # define GAME_CONST_H
 
-# define SPEED 0.27
-# define SPEEDCAM 0.05
-# define W 13
-# define A 0
-# define S 1
-# define D 2
-# define R_ARROW 124
-# define L_ARROW 123
-# define ESC 53
+# define SPEED 0.05
+# define SPEEDCAM 0.01
+# define W 119
+# define A 97
+# define S 115
+# define D 100
+# define R_ARROW 65363
+# define L_ARROW 65361
+# define ESC 65307
 # define UP 0
 # define DOWN 1
 # define LEFT 2
