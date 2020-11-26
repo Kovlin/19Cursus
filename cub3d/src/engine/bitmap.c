@@ -6,7 +6,7 @@
 /*   By: rlinkov <rlinkov@student.s19.be>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/19 16:03:34 by rlinkov           #+#    #+#             */
-/*   Updated: 2020/11/20 18:16:31 by rlinkov          ###   ########.fr       */
+/*   Updated: 2020/11/26 18:05:59 by rlinkov          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,7 +79,8 @@ void	bmp_create(t_game *game)
 {
 	int	fd;
 
-	if ((fd = open("screenshot.bmp", O_CREAT | O_WRONLY)) < 0)
+	if ((fd = open("screenshot.bmp", O_CREAT
+	| O_WRONLY, 0777)) < 0)
 		handle_error(ERR_BMP);
 	bmp_file_header(game->img, fd);
 	bmp_img_header(game, fd);

@@ -6,7 +6,7 @@
 /*   By: rlinkov <rlinkov@student.s19.be>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/25 15:27:02 by rlinkov           #+#    #+#             */
-/*   Updated: 2020/11/20 19:15:00 by rlinkov          ###   ########.fr       */
+/*   Updated: 2020/11/26 18:27:24 by rlinkov          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,8 +32,9 @@ void	init_game(t_game *game)
 		game->keys[i] = 0;
 		i++;
 	}
-	game->win = mlx_new_window(game->mlx, game->cube->res[X],
-			game->cube->res[Y], "Cub3D");
+	if (game->cube->info_save == 0)
+		game->win = mlx_new_window(game->mlx, game->cube->res[X],
+		game->cube->res[Y], "Cub3D");
 	if (!(game->img = malloc(sizeof(t_data))))
 		handle_error(ERR_MALLOC);
 	if (!(game->text = malloc(5 * sizeof(t_data))))
@@ -56,6 +57,7 @@ void	start_cube(t_cube *cube)
 	init_game(game);
 	load_texture(game);
 	init_sprites(game);
+	raycasting(game);
 	handle_event(game);
 }
 

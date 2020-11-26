@@ -6,7 +6,7 @@
 /*   By: rlinkov <rlinkov@student.s19.be>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/04 15:37:45 by rlinkov           #+#    #+#             */
-/*   Updated: 2020/11/26 15:46:56 by rlinkov          ###   ########.fr       */
+/*   Updated: 2020/11/26 18:34:32 by rlinkov          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,15 +23,15 @@ void	handle_key(t_game *g)
 {
 	if (g->keys[NORTH] == 1)
 		move_up(g);
-	else if (g->keys[WEST] == 1)
+	if (g->keys[WEST] == 1)
 		move_left(g);
-	else if (g->keys[SOUTH] == 1)
+	if (g->keys[SOUTH] == 1)
 		move_down(g);
-	else if (g->keys[EAST] == 1)
+	if (g->keys[EAST] == 1)
 		move_right(g);
-	else if (g->keys[C_RIGHT] == 1)
+	if (g->keys[C_RIGHT] == 1)
 		cam_right(g);
-	else if (g->keys[C_LEFT] == 1)
+	if (g->keys[C_LEFT] == 1)
 		cam_left(g);
 }
 
@@ -39,17 +39,17 @@ int		key_pressed(int keycode, t_game *g)
 {
 	if (keycode == ESC_L)
 		close_win(g);
-	else if (keycode == W_L)
+	if (keycode == W_L)
 		g->keys[NORTH] = 1;
-	else if (keycode == A_L)
+	if (keycode == A_L)
 		g->keys[WEST] = 1;
-	else if (keycode == S_L)
+	if (keycode == S_L)
 		g->keys[SOUTH] = 1;
-	else if (keycode == D_L)
+	if (keycode == D_L)
 		g->keys[EAST] = 1;
-	else if (keycode == R_ARROW_L)
+	if (keycode == R_ARROW_L)
 		g->keys[C_RIGHT] = 1;
-	else if (keycode == L_ARROW_L)
+	if (keycode == L_ARROW_L)
 		g->keys[C_LEFT] = 1;
 	return (keycode);
 }
@@ -58,17 +58,17 @@ int		key_released(int keycode, t_game *g)
 {
 	if (keycode == ESC_L)
 		close_win(g);
-	else if (keycode == W_L)
+	if (keycode == W_L)
 		g->keys[NORTH] = 0;
-	else if (keycode == A_L)
+	if (keycode == A_L)
 		g->keys[WEST] = 0;
-	else if (keycode == S_L)
+	if (keycode == S_L)
 		g->keys[SOUTH] = 0;
-	else if (keycode == D_L)
+	if (keycode == D_L)
 		g->keys[EAST] = 0;
-	else if (keycode == R_ARROW_L)
+	if (keycode == R_ARROW_L)
 		g->keys[C_RIGHT] = 0;
-	else if (keycode == L_ARROW_L)
+	if (keycode == L_ARROW_L)
 		g->keys[C_LEFT] = 0;
 	return (keycode);
 }
