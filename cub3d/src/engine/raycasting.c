@@ -6,7 +6,7 @@
 /*   By: rlinkov <rlinkov@student.s19.be>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/09 19:01:25 by rlinkov           #+#    #+#             */
-/*   Updated: 2020/11/26 18:52:13 by rlinkov          ###   ########.fr       */
+/*   Updated: 2020/11/26 18:26:26 by rlinkov          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,6 @@
 
 void	init_ray(t_ray *ray, t_game *game)
 {
-	ray->w = game->cube->res[X];
 	ray->h = game->cube->res[Y];
 	ray->cam_x = ((2 * ray->col) / (double)ray->w) - 1.0;
 	ray->ray_dir_x = game->cube->player->view[X]
@@ -106,10 +105,11 @@ int		raycasting(t_game *game)
 
 	if (!(ray = malloc(sizeof(t_ray))))
 		handle_error(ERR_MALLOC);
+	ray->w = game->cube->res[X];
 	ray->col = 0;
 	if (!(ray->z_buff = malloc(ray->w * sizeof(double))))
 		handle_error(ERR_MALLOC);
-	while (ray->col < game->cube->res[X])
+	while (ray->col < ray->w)
 	{
 		init_ray(ray, game);
 		set_step_dist(ray, game);
