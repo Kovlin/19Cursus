@@ -6,7 +6,7 @@
 /*   By: rlinkov <rlinkov@student.s19.be>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/04 14:16:14 by rlinkov           #+#    #+#             */
-/*   Updated: 2020/11/20 17:35:43 by rlinkov          ###   ########.fr       */
+/*   Updated: 2020/11/26 15:45:47 by rlinkov          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,13 @@
 # define R_ARROW 124
 # define L_ARROW 123
 # define ESC 53
+# define W_L 119
+# define A_L 97
+# define S_L 115
+# define D_L 100
+# define R_ARROW_L 65363
+# define L_ARROW_L 65361
+# define ESC_L 65307
 # define UP 0
 # define DOWN 1
 # define LEFT 2

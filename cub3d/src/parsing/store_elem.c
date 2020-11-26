@@ -6,7 +6,7 @@
 /*   By: rlinkov <rlinkov@student.s19.be>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/14 15:03:06 by rlinkov           #+#    #+#             */
-/*   Updated: 2020/11/20 17:39:03 by rlinkov          ###   ########.fr       */
+/*   Updated: 2020/11/26 16:25:58 by rlinkov          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,8 +58,10 @@ void	store_elem_color(t_cube *cube, char *line, int tag)
 		cube->color[tag][i] = ft_atoi(color_stock[i]);
 		if (cube->color[tag][i] > 255 || cube->color[tag][i] < 0)
 			handle_error(ERR_ELEM_CLR);
+		free(color_stock[i]);
 		i++;
 	}
+	free(color_stock);
 }
 
 void	store_elem_res(t_cube *cube, char *line, int tag)
@@ -85,8 +87,10 @@ void	store_elem_res(t_cube *cube, char *line, int tag)
 		cube->res[i] = ft_atoi(res_stock[i]);
 		if (cube->res[i] <= 0)
 			handle_error(ERR_ELEM_RES);
+		free(res_stock[i]);
 		i++;
 	}
+	free(res_stock);
 }
 
 void	check_text_path(t_cube *cube, int tag)

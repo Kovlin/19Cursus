@@ -6,7 +6,7 @@
 /*   By: rlinkov <rlinkov@student.s19.be>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/20 12:01:37 by rlinkov           #+#    #+#             */
-/*   Updated: 2020/11/17 16:22:21 by rlinkov          ###   ########.fr       */
+/*   Updated: 2020/11/25 19:46:40 by rlinkov          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,10 +15,8 @@
 void	allocate_map(char *line, t_cube *cube, int index)
 {
 	char	**tmp_map;
-	int		size_str;
 	int		i;
 
-	size_str = (int)ft_strlen(line);
 	tmp_map = (char**)malloc((index + 1) * sizeof(char*));
 	i = 0;
 	while (i < index)
@@ -27,6 +25,7 @@ void	allocate_map(char *line, t_cube *cube, int index)
 			handle_error(ERR_MALLOC);
 		ft_memcpy(tmp_map[i], cube->map[i], ft_strlen(cube->map[i]));
 		tmp_map[i][ft_strlen(cube->map[i])] = '\0';
+		free(cube->map[i]);
 		i++;
 	}
 	if (!(tmp_map[index] = malloc((int)ft_strlen(line) + 1)))

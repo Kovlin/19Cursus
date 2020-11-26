@@ -6,7 +6,7 @@
 /*   By: rlinkov <rlinkov@student.s19.be>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/19 15:25:35 by rlinkov           #+#    #+#             */
-/*   Updated: 2020/11/20 18:12:04 by rlinkov          ###   ########.fr       */
+/*   Updated: 2020/11/25 20:35:16 by rlinkov          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,12 +38,6 @@ void	init_cube(t_cube *cube)
 	i = 0;
 	if (!(cube->textures = (char**)malloc((int)NB_TEXT * sizeof(char*))))
 		handle_error(ERR_MALLOC);
-	while (i < 5)
-	{
-		cube->textures[i] = (char*)malloc(sizeof(char));
-		cube->textures[i] = "\0";
-		i++;
-	}
 	if (!(cube->e_count = (int*)malloc(8 * sizeof(int))))
 		handle_error(ERR_MALLOC);
 	i = 0;

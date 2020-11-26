@@ -6,7 +6,7 @@
 /*   By: rlinkov <rlinkov@student.s19.be>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/04 15:37:45 by rlinkov           #+#    #+#             */
-/*   Updated: 2020/11/20 19:15:32 by rlinkov          ###   ########.fr       */
+/*   Updated: 2020/11/25 21:01:35 by rlinkov          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,7 +56,9 @@ int		key_pressed(int keycode, t_game *g)
 
 int		key_released(int keycode, t_game *g)
 {
-	if (keycode == W)
+	if (keycode == ESC)
+		close_win(g);
+	else if (keycode == W)
 		g->keys[NORTH] = 0;
 	else if (keycode == A)
 		g->keys[WEST] = 0;
