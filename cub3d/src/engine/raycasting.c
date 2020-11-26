@@ -6,25 +6,11 @@
 /*   By: rlinkov <rlinkov@student.s19.be>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/09 19:01:25 by rlinkov           #+#    #+#             */
-/*   Updated: 2020/11/26 18:26:26 by rlinkov          ###   ########.fr       */
+/*   Updated: 2020/11/26 19:27:53 by rlinkov          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
-
-void	init_ray(t_ray *ray, t_game *game)
-{
-	ray->h = game->cube->res[Y];
-	ray->cam_x = ((2 * ray->col) / (double)ray->w) - 1.0;
-	ray->ray_dir_x = game->cube->player->view[X]
-		+ (game->cube->player->plane[X] * ray->cam_x);
-	ray->ray_dir_y = game->cube->player->view[Y]
-		+ (game->cube->player->plane[Y] * ray->cam_x);
-	ray->map_x = game->cube->player->pos[X];
-	ray->map_y = game->cube->player->pos[Y];
-	ray->delta_dist_x = fabs(1 / ray->ray_dir_x);
-	ray->delta_dist_y = fabs(1 / ray->ray_dir_y);
-}
 
 void	set_step_dist(t_ray *r, t_game *game)
 {
@@ -53,6 +39,21 @@ void	set_step_dist(t_ray *r, t_game *game)
 		r->step_y = 1;
 		r->side_dist_y = (r->map_y + 1.0 - pos_y) * r->delta_dist_y;
 	}
+}
+
+void	init_ray(t_ray *ray, t_game *game)
+{
+	ray->h = game->cube->res[Y];
+	ray->cam_x = ((2 * ray->col) / (double)ray->w) - 1.0;
+	ray->ray_dir_x = game->cube->player->view[X]
+		+ (game->cube->player->plane[X] * ray->cam_x);
+	ray->ray_dir_y = game->cube->player->view[Y]
+		+ (game->cube->player->plane[Y] * ray->cam_x);
+	ray->map_x = game->cube->player->pos[X];
+	ray->map_y = game->cube->player->pos[Y];
+	ray->delta_dist_x = fabs(1 / ray->ray_dir_x);
+	ray->delta_dist_y = fabs(1 / ray->ray_dir_y);
+	set_step_dist(ray, game);
 }
 
 void	ray_to_wall(t_ray *r, t_game *game)
@@ -112,7 +113,6 @@ int		raycasting(t_game *game)
 	while (ray->col < ray->w)
 	{
 		init_ray(ray, game);
-		set_step_dist(ray, game);
 		ray_to_wall(ray, game);
 		perp_wall_dist_calc(ray, game);
 		ray->z_buff[ray->col] = ray->perp_wall_dist;
