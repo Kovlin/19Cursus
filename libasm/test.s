@@ -8,7 +8,7 @@
 section .text
     global _start ; RAX RCX RDX RBX RSP RBP RSI RDI
 
-_start :
+_start:
     mov rax,13 ;registre de longueur du msg
     mov rcx,msg ;registre dans lequel ont met le message
     mov rdx,1 ;sortie du msg, stdout
