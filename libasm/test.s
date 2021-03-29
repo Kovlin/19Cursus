@@ -5,18 +5,19 @@
 ;     nasm -felf64 hello.asm && ld hello.o && ./a.out
 ; ----------------------------------------------------------------------------------------
 
-section .text
-    global _start ; RAX RCX RDX RBX RSP RBP RSI RDI
+section	.text
+   global _start     ;must be declared for linker (ld)
+	
+_start:	            ;tells linker entry point
+   mov	edx,len     ;message length
+   mov	ecx,msg     ;message to write
+   mov	ebx,1       ;file descriptor (stdout)
+   mov	eax,4       ;system call number (sys_write)
+   int	0x80        ;call kernel
+	
+   mov	eax,1       ;system call number (sys_exit)
+   int	0x80        ;call kernel
 
-_start:
-    mov rax,13 ;registre de longueur du msg
-    mov rcx,msg ;registre dans lequel ont met le message
-    mov rdx,1 ;sortie du msg, stdout
-    mov rbx,4 ;numero de l'appel systeme (sys_write)
-    int 0x80  ;appel noyeau
-
-    mov rbx,1 ;system call number (sys exit)
-    syscall ;appel noyau
-
-section .data
-    msg db "Hello world!",10
+section	.data
+msg db 'Hello, world!', 0xa  ;string to be printed
+len equ $ - msg     ;length of the string
