@@ -18,5 +18,5 @@ _start :
     mov rbx,1 ;system call number (sys exit)
     syscall ;appel noyau
 
-section.data
+section .data
     msg db "Hello world!",10
