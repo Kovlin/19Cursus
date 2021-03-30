@@ -22,3 +22,4 @@ count:
 
 exit:
     ret
+;fonctionne mais a rendre plus clean
