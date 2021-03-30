@@ -22,13 +22,13 @@ count:
     jmp count
 
 exit:
-    mov r9,rax ;on met la valeur de rax dans r9
-    mov rax,1 ;on prepare le write
-    mov r9, [r9 + 47] ;on met le chiffre en lettre
-    mov rdi,1
-    mov rsi,r9
-    mov rdx,1
-    syscall
-    mov rax, 60
-    syscall
-    ;ret
+    ; mov r9,rax ;on met la valeur de rax dans r9
+    ; mov rax,1 ;on prepare le write
+    ; mov r9, [r9 + 47] ;on met le chiffre en lettre
+    ; mov rdi,1
+    ; mov rsi,r9
+    ; mov rdx,1
+    ; syscall
+    ; mov rax, 60
+    ; syscall
+    ret
