@@ -16,7 +16,7 @@ ft_strlen:
 
 count:
     inc rax ;on incremente rcx
-    cmp BYTE [rdi + rax]i,0 
+    cmp BYTE [rdi + rax],0 
     je exit
     jmp count
 
