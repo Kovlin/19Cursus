@@ -6,7 +6,7 @@
 /*   By: rlinkov <rlinkov@student.s19.be>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/30 17:20:07 by rlinkov           #+#    #+#             */
-/*   Updated: 2021/03/30 17:47:55 by rlinkov          ###   ########.fr       */
+/*   Updated: 2021/03/30 17:48:27 by rlinkov          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,9 @@ extern size_t ft_strlen(const char *str);
 int main()
 {
     printf("start....\n");
+    printf("original : %lu\n", strlen("bonjour"));
     printf("%zu\n", ft_strlen("bonjour"));
-    printf("original : %lu", strlen("bonjour"));
+
     // ft_strlen("bonjour");
     
     return(0);
