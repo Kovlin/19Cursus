@@ -9,17 +9,17 @@ section .text:
     global _start
 
 _start:
-    mov rcx,0 ; on initialise la longueur a 0 dans rcx
+    mov rax,0 ; on initialise la longueur a 0 dans rcx
     cmp rdi,0 ; on compare le premier caractere de rdi
-    je  _exit  ; quitte le programme si premier caractere est 0
-    jmp _count ;si on a une chaine on va compter
+    je  exit  ; quitte le programme si premier caractere est 0
+    jmp count ;si on a une chaine on va compter
 
-_count:
-    inc rcx ;on incremente rcx
+count:
+    inc rax ;on incremente rcx
     inc rdi ;on avance sur rdi
     cmp rdi,0 
-    je _exit
-    jmp _count
+    je exit
+    jmp count
 
-_exit:
+exit:
     ret
