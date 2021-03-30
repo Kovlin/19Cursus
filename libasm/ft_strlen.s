@@ -6,9 +6,9 @@
 ; ----------------------------------------------------------------------------------------
 
 section .text:
-    global _start
+    global _ok
 
-_start:
+_ok:
     mov rax,0 ; on initialise la longueur a 0 dans rcx
     cmp rdi,0 ; on compare le premier caractere de rdi
     je  exit  ; quitte le programme si premier caractere est 0
