@@ -15,11 +15,11 @@ ft_strcpy:
     jmp copy    ; on saute à la fonction de copie
 
 copy:
-    cmp BYTE    [rdi + rax],0           ; on compare la position actuelle dans la source et le caractère nul
+    cmp BYTE    [rsi + rax],0           ; on compare la position actuelle dans la source et le caractère nul
     je  exit                            ; on saute à la fonction de sortie si on est au bout de la source
     
-    mov cl, [rdi + rax]
-    mov [rsi + rax], cl
+    mov cl, [rsi + rax]
+    mov [rdi + rax], cl
     
     ;mov         [rsi + rax],[rdi + rax] ; on copie le caractère de la source vers la destination
     inc         rax                     ; on incrémente rax de 1
