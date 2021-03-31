@@ -29,6 +29,8 @@ compare:
 
 
 substraction:
+    mov r10, [r10]
+    mov r11, [r11]
     cmp r10,r11     ; on compare r10 et r10
     jl  exit_low    ; on saute à la fonction exit_low si r10 < r 11
     jg  exit_great  ; on saute à la fonction exit_great si r10 > r11
