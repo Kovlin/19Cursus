@@ -17,17 +17,11 @@ ft_strcpy:
 copy:
     cmp BYTE    [rsi + rax],0           ; on compare la position actuelle dans la source et le caractère nul
     je  exit                            ; on saute à la fonction de sortie si on est au bout de la source
-    
-    ; mov rcx, [rsi + rax]
-    ; mov [rdi + rax], rcx
-    
-    mov         [rsi + rax],[rdi + rax] ; on copie le caractère de la source vers la destination
+    mov         [rdi + rax],[rsi + rax] ; on copie le caractère de la source vers la destination
     inc         rax                     ; on incrémente rax de 1
     jmp         copy                    ; on retourne au début de la fonction copy
 
 exit:
     mov BYTE    [rdi + rax], 0x0        ; on force le \0 la fin de la destination
-    ; mov rcx,0
-    ; mov [rdi + rax], rcx
-    mov rax, rdi
+    mov         rax,rdi                 ; la valeur de retour est contenue dans rax, on y met donc la chaîne destination
     ret                                 ; met fin à la fonction, la valeur contenue dans rax est renvoyée par la fonction
