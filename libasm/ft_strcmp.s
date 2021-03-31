@@ -18,17 +18,28 @@ ft_strcmp:
 compare:
     mov r10,[rdi + rax] ; on place le caractère actuel de la chaîne 1 dans le registre r10
     mov r11,[rsi + rax] ; on place le caractère actuel de la chaîne 2 dans le registre r11
-    cmp r10,0                   ; on vérifie si on est en bout de chaîne 1
-    je  exit                    ; si on est en bout de chaîne on saute à la fonction exit
-    cmp r11,0                   ; on vérifie si on est en bout de chaîne 2
-    je  exit                    ; si on est en bout de chaîne on saute à la fonction exit
-    cmp r10,r11                 ; on compare le caractère actuel des deux chaînes
-    jne exit                    ; si ils sont différents on saute à la fonction exit
-    inc rax                     ; on incrémente rax de 1
-    jmp compare                 ; on saute au début de la fonction compare
+    cmp r10,0           ; on vérifie si on est en bout de chaîne 1
+    je  substraction    ; si on est en bout de chaîne on saute à la fonction substraction
+    cmp r11,0           ; on vérifie si on est en bout de chaîne 2
+    je  substraction    ; si on est en bout de chaîne on saute à la fonction substraction
+    cmp r10,r11         ; on compare le caractère actuel des deux chaînes
+    jne substraction    ; si ils sont différents on saute à la fonction substraction
+    inc rax             ; on incrémente rax de 1
+    jmp compare         ; on saute au début de la fonction compare
 
 
-exit:
-    sub r10,r11 ; on soustrait à la valeur du caractère de la chaîne 1 celle du caractère de la chaîne 2
-    mov rax,r10 ; on met dans rax la valeur à retourner
-    ret         ; met fin à la fonction, la valeur contenue dans rax est renvoyée par la fonction          
+substraction:
+    cmp r10,r11     ; on compare r10 et r10
+    jl  exit_low    ; on saute à la fonction exit_low si r10 < r 11
+    jg  exit_great  ; on saute à la fonction exit_great si r10 > r11
+    je  exit_equal  ; on saute à la fonction exit_equal si r10 = r11
+
+exit_low:
+    mov rax,-1 ; si r10 < r11 la valeur de retour vaut -1, elle se trouve dans rax
+    ret        ;met fin à la fonction, la valeur contenue dans rax est renvoyée par la fonction
+exit_great:
+    mov rax,1  ; si r10 > r11 la valeur de retour vaut -1, elle se trouve dans rax
+    ret
+exit_equal:
+    mov rax,0  ; si r10 = r11 la valeur de retour vaut -1, elle se trouve dans rax
+    ret
