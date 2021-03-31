@@ -6,7 +6,7 @@
 /*   By: rlinkov <rlinkov@student.s19.be>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/30 17:20:07 by rlinkov           #+#    #+#             */
-/*   Updated: 2021/03/31 17:18:29 by rlinkov          ###   ########.fr       */
+/*   Updated: 2021/03/31 17:19:25 by rlinkov          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,8 +72,14 @@ int main()
 	printf("         FT_STRCMP         \n");
 	printf("===========================\n\n");
     
-	printf("strcmp    : |%d|\n", strcmp("a", "b"));
-	printf("ft_strcmp : |%d|\n\n", ft_strcmp("a", "b"));
+	printf("strcmp    : |%d|\n", strcmp("aa", "bb"));
+	printf("ft_strcmp : |%d|\n\n", ft_strcmp("aa", "bb"));
+
+	printf("strcmp    : |%d|\n", strcmp("aa", "ab"));
+	printf("ft_strcmp : |%d|\n\n", ft_strcmp("aa", "ab"));
+
+	printf("strcmp    : |%d|\n", strcmp("ba", "bb"));
+	printf("ft_strcmp : |%d|\n\n", ft_strcmp("ba", "bb"));
 
 	printf("strcmp    : |%d|\n", strcmp("hello", "hello"));
 	printf("ft_strcmp : |%d|\n\n", ft_strcmp("hello", "hello"));
