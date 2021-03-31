@@ -6,7 +6,7 @@
 /*   By: rlinkov <rlinkov@student.s19.be>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/30 17:20:07 by rlinkov           #+#    #+#             */
-/*   Updated: 2021/03/31 14:10:11 by rlinkov          ###   ########.fr       */
+/*   Updated: 2021/03/31 14:13:24 by rlinkov          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,7 @@ int main()
 {
 
     char    *tmp;
+    tmp = malloc(42 * sizeof(char));
 
 	printf("===========================\n");
 	printf("         FT_STRLEN         \n");
