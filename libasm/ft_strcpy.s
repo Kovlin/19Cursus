@@ -18,8 +18,8 @@ copy:
     cmp BYTE    [rdi + rax],0           ; on compare la position actuelle dans la source et le caractère nul
     je  exit                            ; on saute à la fonction de sortie si on est au bout de la source
     
-    mov rcx, [rdi + rax]
-    mov [rsi + rax], rcx
+    mov cl, [rdi + rax]
+    mov [rsi + rax], cl
     
     ;mov         [rsi + rax],[rdi + rax] ; on copie le caractère de la source vers la destination
     inc         rax                     ; on incrémente rax de 1
@@ -27,7 +27,7 @@ copy:
 
 exit:
     ;mov BYTE    [rdi + rax], 0x0        ; on force le \0 la fin de la destination
-    mov rcx,0
-    mov [rdi + rax], rcx
+    mov cl,0
+    mov [rdi + rax], cl
     mov rax, rdi
     ret                                 ; met fin à la fonction, la valeur contenue dans rax est renvoyée par la fonction
