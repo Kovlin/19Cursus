@@ -17,7 +17,7 @@ ft_strcpy:
 copy:
     cmp BYTE    [rsi + rax],0           ; on compare la position actuelle dans la source et le caractère nul
     je          exit                    ; on saute à la fonction de sortie si on est au bout de la source
-    movs    [rdi + rax],[rsi + rax] ; on copie le caractère de la source vers la destination
+    movs   BYTE [rdi + rax],[rsi + rax] ; on copie le caractère de la source vers la destination
     inc         rax                     ; on incrémente rax de 1
     jmp         copy                    ; on retourne au début de la fonction copy
 
