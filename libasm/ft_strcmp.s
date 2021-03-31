@@ -29,6 +29,8 @@ compare:
 
 
 exit:
-    sub r10,r11 ; on soustrait à la valeur du caractère de la chaîne 1 celle du caractère de la chaîne 2
-    mov rax,r10 ; on met dans rax la valeur à retourner
+    ; sub r10,r11 ; on soustrait à la valeur du caractère de la chaîne 1 celle du caractère de la chaîne 2
+    ; mov rax,r10 ; on met dans rax la valeur à retourner
+    mov rax,r10
+    sub rax,r11
     ret         ; met fin à la fonction, la valeur contenue dans rax est renvoyée par la fonction          
