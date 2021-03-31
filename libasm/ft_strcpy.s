@@ -22,6 +22,5 @@ copy:
     jmp         copy                    ; on retourne au début de la fonction copy
 
 exit:
-    mov r10,0
-    mov [rdi + rax], r10           ; on force le \0 la fin de la destination
+    mov BYTE [rdi + rax], 0x0           ; on force le \0 la fin de la destination
     ret                                 ; met fin à la fonction, la valeur contenue dans rax est renvoyée par la fonction
