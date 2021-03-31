@@ -6,7 +6,7 @@
 /*   By: rlinkov <rlinkov@student.s19.be>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/30 17:20:07 by rlinkov           #+#    #+#             */
-/*   Updated: 2021/03/31 15:37:01 by rlinkov          ###   ########.fr       */
+/*   Updated: 2021/03/31 16:18:53 by rlinkov          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 
 size_t  ft_strlen(const char *str);
 char	*ft_strcpy(char *dst, const char *src);
+int     ft_strcmp(char *s1, char *s2);
 
 int main()
 {
@@ -66,6 +67,25 @@ int main()
 
 	printf("strcpy    : |%s|\n", strcpy(tmp, "Ceci est un test"));
 	printf("ft_strcpy : |%s|\n\n", ft_strcpy(tmp, "Ceci est un test"));
+
+    printf("===========================\n");
+	printf("         FT_STRCMP         \n");
+	printf("===========================\n\n");
+    
+	printf("strcmp    : |%d|\n", strcmp("hello", "hello"));
+	printf("ft_strcmp : |%d|\n\n", ft_strcmp("hello", "hello"));
+    
+	printf("strcmp    : |%d|\n", strcmp("azerty", "qwerty"));
+	printf("ft_strcmp : |%d|\n\n", ft_strcmp("azerty", "qwerty"));
+    
+	printf("strcmp    : |%d|\n", strcmp("ecole", "42"));
+	printf("ft_strcmp : |%d|\n\n", ft_strcmp("ecole", "42"));
+
+	printf("strcmp    : |%d|\n", strcmp("jnevjiviivni", "eiwjioqjwd"));
+	printf("ft_strcmp : |%d|\n\n", ft_strcmp("jnevjiviivni", "eiwjioqjwd"));
+    
+	printf("strcmp    : |%d|\n", strcmp("\n", "\0"));
+	printf("ft_strcmp : |%d|\n\n", ft_strcmp("\n", "\0"));
     
     return(0);
 }
