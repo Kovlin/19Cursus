@@ -27,4 +27,5 @@ copy:
 
 exit:
     mov BYTE    [rdi + rax], 0x0        ; on force le \0 la fin de la destination
+    mov rax, rdi
     ret                                 ; met fin à la fonction, la valeur contenue dans rax est renvoyée par la fonction
