@@ -14,8 +14,8 @@ ft_strcmp:
     jmp compare ; on saute à la fonction de comparaison
 
 compare:
-    mov r10,[rdi + rax] ; on place le caractère actuel de la chaîne 1 dans le registre r10
-    mov r11,[rsi + rax] ; on place le caractère actuel de la chaîne 2 dans le registre r11
+    mov r10,BYTE [rdi + rax] ; on place le caractère actuel de la chaîne 1 dans le registre r10
+    mov r11,BYTE [rsi + rax] ; on place le caractère actuel de la chaîne 2 dans le registre r11
     cmp r10,0           ; on vérifie si on est en bout de chaîne 1
     je  substraction    ; si on est en bout de chaîne on saute à la fonction substraction
     cmp r11,0           ; on vérifie si on est en bout de chaîne 2
