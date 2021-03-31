@@ -14,16 +14,16 @@ ft_strcmp:
     jmp compare ; on saute à la fonction de comparaison
 
 compare:
-    movzx r10,BYTE [rdi + rax] ; on place le caractère actuel de la chaîne 1 dans le registre r10
-    movzx r11,BYTE [rsi + rax] ; on place le caractère actuel de la chaîne 2 dans le registre r11
-    cmp r10,0           ; on vérifie si on est en bout de chaîne 1
-    je  substraction    ; si on est en bout de chaîne on saute à la fonction substraction
-    cmp r11,0           ; on vérifie si on est en bout de chaîne 2
-    je  substraction    ; si on est en bout de chaîne on saute à la fonction substraction
-    cmp r10,r11         ; on compare le caractère actuel des deux chaînes
-    jne substraction    ; si ils sont différents on saute à la fonction substraction
-    inc rax             ; on incrémente rax de 1
-    jmp compare         ; on saute au début de la fonction compare
+    movzx r10,[rdi + rax] ; on place le caractère actuel de la chaîne 1 dans le registre r10
+    movzx r11,[rsi + rax] ; on place le caractère actuel de la chaîne 2 dans le registre r11
+    cmp r10,0                   ; on vérifie si on est en bout de chaîne 1
+    je  substraction            ; si on est en bout de chaîne on saute à la fonction substraction
+    cmp r11,0                   ; on vérifie si on est en bout de chaîne 2
+    je  substraction            ; si on est en bout de chaîne on saute à la fonction substraction
+    cmp r10,r11                 ; on compare le caractère actuel des deux chaînes
+    jne substraction            ; si ils sont différents on saute à la fonction substraction
+    inc rax                     ; on incrémente rax de 1
+    jmp compare                 ; on saute au début de la fonction compare
 
 
 substraction:
