@@ -1,8 +1,8 @@
 ; ----------------------------------------------------------------------------------------
 ; ft_strlen in Assembly x86_64 | Works for Linux
-; To assemble and run:
+; To assemble :
 ;
-;     nasm -felf64 ft_strlen.s && ld ft_strlen.o && ./a.out
+;     nasm -felf64 ft_strlen.s
 ;     By rlinkov@student.s19.be
 ; ----------------------------------------------------------------------------------------
 
@@ -22,4 +22,4 @@ calc_length:
     jmp         calc_length     ; on saute au début de calc_length (on "boucle" dessus)
 
 exit:
-    ret ; met fin a la fonction, la valeur contenue dans rax est renvoyée par la fonction
+    ret ; met fin à la fonction, la valeur contenue dans rax est renvoyée par la fonction
