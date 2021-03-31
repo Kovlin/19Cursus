@@ -6,7 +6,7 @@
 /*   By: rlinkov <rlinkov@student.s19.be>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/30 17:20:07 by rlinkov           #+#    #+#             */
-/*   Updated: 2021/03/31 14:13:24 by rlinkov          ###   ########.fr       */
+/*   Updated: 2021/03/31 15:37:01 by rlinkov          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,21 +52,19 @@ int main()
 	printf("         FT_STRCPY         \n");
 	printf("===========================\n\n");
     
-    printf("hello");
-    
-	printf("strcpy : |%s|\n", strcpy(tmp, "world"));
+	printf("strcpy    : |%s|\n", strcpy(tmp, "world"));
 	printf("ft_strcpy : |%s|\n\n", ft_strcpy(tmp, "world"));
     
-    printf("strcpy : |%s|\n", strcpy(tmp, "hello world"));
+    printf("strcpy    : |%s|\n", strcpy(tmp, "hello world"));
 	printf("ft_strcpy : |%s|\n\n", ft_strcpy(tmp, "hello world"));
 
-	printf("strcpy : |%s|\n", strcpy(tmp, ""));
+	printf("strcpy    : |%s|\n", strcpy(tmp, ""));
 	printf("ft_strcpy : |%s|\n\n", ft_strcpy(tmp, ""));
 
-	printf("strcpy : |%s|\n", strcpy(tmp, "enjjweiofhfiuhgeiwoijqbvwjfeojefkj"));
+	printf("strcpy    : |%s|\n", strcpy(tmp, "enjjweiofhfiuhgeiwoijqbvwjfeojefkj"));
 	printf("ft_strcpy : |%s|\n\n", ft_strcpy(tmp, "enjjweiofhfiuhgeiwoijqbvwjfeojefkj"));
 
-	printf("strcpy : |%s|\n", strcpy(tmp, "Ceci est un test"));
+	printf("strcpy    : |%s|\n", strcpy(tmp, "Ceci est un test"));
 	printf("ft_strcpy : |%s|\n\n", ft_strcpy(tmp, "Ceci est un test"));
     
     return(0);
