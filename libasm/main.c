@@ -6,7 +6,7 @@
 /*   By: rlinkov <rlinkov@student.s19.be>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/30 17:20:07 by rlinkov           #+#    #+#             */
-/*   Updated: 2021/03/31 12:49:18 by rlinkov          ###   ########.fr       */
+/*   Updated: 2021/03/31 14:02:27 by rlinkov          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 #include <stdio.h>
 #include <string.h>
 
-extern size_t ft_strlen(const char *str);
+size_t ft_strlen(const char *str);
 
 int main()
 {
