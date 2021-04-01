@@ -6,7 +6,7 @@
 /*   By: rlinkov <rlinkov@student.s19.be>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/30 17:20:07 by rlinkov           #+#    #+#             */
-/*   Updated: 2021/04/01 13:35:08 by rlinkov          ###   ########.fr       */
+/*   Updated: 2021/04/01 14:03:33 by rlinkov          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -121,6 +121,14 @@ int main()
 
 	printf("write return    : %zd\n", write(1, NULL, 13));
 	printf("ft_write return : %zd\n", ft_write(1, NULL, 13));
+	printf("\n");
+
+	printf("write return    : %zd\n", write(1, NULL, -6));
+	printf("ft_write return : %zd\n", ft_write(1, NULL, -6));
+	printf("\n");
+
+	printf("write return    : %zd\n", write(-12, NULL, 13));
+	printf("ft_write return : %zd\n", ft_write(-12, NULL, 13));
 	printf("\n");
 	
 	/*write(1, "Hello world\n", 13);
