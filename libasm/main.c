@@ -6,7 +6,7 @@
 /*   By: rlinkov <rlinkov@student.s19.be>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/30 17:20:07 by rlinkov           #+#    #+#             */
-/*   Updated: 2021/04/01 14:03:33 by rlinkov          ###   ########.fr       */
+/*   Updated: 2021/04/01 14:06:52 by rlinkov          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 #include <stdio.h>
 #include <string.h>
 #include <unistd.h>
+#include <errno.h>
 
 size_t  ft_strlen(const char *str);
 char	*ft_strcpy(char *dst, const char *src);
@@ -131,7 +132,7 @@ int main()
 	printf("ft_write return : %zd\n", ft_write(-12, NULL, 13));
 	printf("\n");
 	
-	/*write(1, "Hello world\n", 13);
+	write(1, "Hello world\n", 13);
 	ft_write(1, "Hello world\n\n", 13);
 	
    	write(0xff, "hello!\n", 7);
@@ -150,7 +151,7 @@ int main()
 	write(0, NULL, 0);
 	printf("errno : %s %d\n", strerror(errno), errno);
 	ft_write(0, NULL, 0);
-	printf("errno : %s %d\n\n", strerror(errno), errno);*/
+	printf("errno : %s %d\n\n", strerror(errno), errno);
     
     return(0);
 }
