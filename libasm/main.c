@@ -6,7 +6,7 @@
 /*   By: rlinkov <rlinkov@student.s19.be>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/30 17:20:07 by rlinkov           #+#    #+#             */
-/*   Updated: 2021/04/01 13:29:23 by rlinkov          ###   ########.fr       */
+/*   Updated: 2021/04/01 13:33:31 by rlinkov          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -102,8 +102,10 @@ int main()
 	printf("         FT_WRITE          \n");
 	printf("===========================\n\n");
 	
-	write(1, "Hello world!\n", 13);
-	ft_write(1, "Hello world!\n", 13);
+
+	printf("write return    : %d\n", write(1, "Hello world!\n", 13));
+	printf("ft_write return : %d\n", ft_write(1, "Hello world!\n", 13));
+	printf("\n");
 	
 	/*write(1, "Hello world\n", 13);
 	ft_write(1, "Hello world\n\n", 13);
