@@ -25,4 +25,4 @@ exit_error:
     mov rcx,rax
 
     mov rax,-1      ; on met rax à -1 car c'est la valeur à retourner en cas d'erreur
-    ;ret             ; on retourne à la fonction d'appel
+    ret             ; on retourne à la fonction d'appel
