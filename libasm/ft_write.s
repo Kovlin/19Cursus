@@ -5,9 +5,8 @@
 ;     nasm -felf64 ft_write.s
 ;     By rlinkov@student.s19.be
 ; ----------------------------------------------------------------------------------------
-; ssize_t write(int fd, const void *buf, size_t count)
-; syscall param : RDI, RSI, RDX
-; erreur errno
+
+extern __errno_location
 
 section .text:
     global ft_write
@@ -21,5 +20,9 @@ ft_write:
     ret             ; si tout ce passe bien, on retourne à la fonction d'appel
 
 exit_error:
-    ;mov rax,-1      ; on met rax à -1 car c'est la valeur à retourner en cas d'erreur
+    neg rax         ; la valeur opposée à errno se retrouve dans rax (sous Linux)
+                    ; on fait donc rax *-1 pour récupérer sa valeur
+    ;mov rcx,rax
+    call __errno_location
+    mov rax,-1      ; on met rax à -1 car c'est la valeur à retourner en cas d'erreur
     ret             ; on retourne à la fonction d'appel
