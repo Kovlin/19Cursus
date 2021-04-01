@@ -6,13 +6,14 @@
 /*   By: rlinkov <rlinkov@student.s19.be>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/30 17:20:07 by rlinkov           #+#    #+#             */
-/*   Updated: 2021/04/01 13:25:51 by rlinkov          ###   ########.fr       */
+/*   Updated: 2021/04/01 13:29:23 by rlinkov          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
 #include <stdio.h>
 #include <string.h>
+#include <unistd.h>
 
 size_t  ft_strlen(const char *str);
 char	*ft_strcpy(char *dst, const char *src);
