@@ -6,7 +6,7 @@
 ;     By rlinkov@student.s19.be
 ; ----------------------------------------------------------------------------------------
 
-;extern __errno_location
+extern __errno_location
 
 section .text:
     global ft_write
