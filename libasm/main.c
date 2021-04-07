@@ -6,7 +6,7 @@
 /*   By: rlinkov <rlinkov@student.s19.be>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/30 17:20:07 by rlinkov           #+#    #+#             */
-/*   Updated: 2021/04/07 16:49:53 by rlinkov          ###   ########.fr       */
+/*   Updated: 2021/04/07 16:51:44 by rlinkov          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -177,7 +177,8 @@ int main()
 	char buffer[100];
 	int fd;
 
-	fd = open("ft_read_test.txt", O_CREAT | O_WRONLY, 0777);
+	if (fd = open("ft_read_test.txt", O_CREAT | O_WRONLY, 0777) < 0)
+		printf("-----ERRRRORRRRR-----\n");
 	
 	read(0, buffer, 29);
 	ft_read(0, buffer, 29);
