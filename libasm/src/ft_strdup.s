@@ -30,6 +30,5 @@ ft_strdup:
     ret                 ; on retourne a la fonction d'appelle
 
 exit_error:
-    pop             rdi         ; on enlève la string push sur la stack
-    mov             rax,0       ; retourne null si pas assez de mémoire disponible
-    ret                         ; on retourne dans la fonction d'appel
+    pop     rdi         ; on enlève la string push sur la stack
+    ret                 ; on retourne dans la fonction d'appel
