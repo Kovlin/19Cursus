@@ -6,7 +6,7 @@
 /*   By: rlinkov <rlinkov@student.s19.be>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/30 17:20:07 by rlinkov           #+#    #+#             */
-/*   Updated: 2021/04/07 18:28:41 by rlinkov          ###   ########.fr       */
+/*   Updated: 2021/04/07 18:53:25 by rlinkov          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -265,6 +265,26 @@ int main()
 	// printf("\n");
 	
 	free(buffer);
+
+	printf("===========================\n");
+	printf("         FT_STRDUP          \n");
+	printf("===========================\n\n");
+
+	char *str;
+
+	str = strdup("Hello world");
+	printf("%s\n", str);
+	free(str);
+	str = ft_strdup("Hello world");
+	printf("%s\n\n", str);
+	free(str);
+
+	str = strdup("Bonjour les amis !");
+	printf("%s\n", str);
+	free(str);
+	str = ft_strdup("Bonjour les amis !");
+	printf("%s\n\n", str);
+	free(str);
 	
     return(0);
 }
