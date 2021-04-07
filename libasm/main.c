@@ -6,7 +6,7 @@
 /*   By: rlinkov <rlinkov@student.s19.be>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/30 17:20:07 by rlinkov           #+#    #+#             */
-/*   Updated: 2021/04/07 17:46:22 by rlinkov          ###   ########.fr       */
+/*   Updated: 2021/04/07 18:16:09 by rlinkov          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -175,8 +175,8 @@ int main()
 	printf("===========================\n\n");
 	
 	errno = 0;
-	//char *buffer = malloc(100 * sizeof(char));
-	char buffer[100];
+	int buffer_size = 100;
+	char *buffer = malloc((buffer_size + 1) * sizeof(char));
 	int fd;
 
 	if ((fd = open("main.c", O_RDONLY)) < 0)
@@ -186,47 +186,42 @@ int main()
 		printf("---------    1    ----------\n");
 		printf("read return    : %zd\n", read(fd, buffer, 1));
 		printf("errno : %s %d\n", strerror(errno), errno);
+		buffer[1] = 0;
 		//printf("BUFFER : %s\n",buffer);
 		lseek(fd, 0, SEEK_SET); //permet de repositionner le curseur au début du fichier
 		printf("ft_read return : %zd\n", ft_read(fd, buffer, 1));
 		printf("errno : %s %d\n", strerror(errno), errno);
+		buffer[1] = 0;
 		//printf("BUFFER : %s\n",buffer);
 		printf("\n");
 
 		printf("---------    2    ----------\n");
-		printf("read return    : %zd\n", read(fd, buffer, 250));
+		printf("read return    : %zd\n", read(fd, buffer, buffer_size));
 		printf("errno : %s %d\n", strerror(errno), errno);
+		buffer[buffer_size] = 0;
 		//printf("BUFFER : %s\n",buffer);
 		lseek(fd, 0, SEEK_SET);
-		printf("ft_read return : %zd\n", ft_read(fd, buffer, 250));
+		printf("ft_read return : %zd\n", ft_read(fd, buffer, buffer_size));
 		printf("errno : %s %d\n", strerror(errno), errno);
+		buffer[buffer_size] = 0;
 		//printf("BUFFER : %s\n",buffer);
 		lseek(fd, 0, SEEK_SET);
 		printf("\n");
 
 		printf("---------    3    ----------\n");
-		printf("read return    : %zd\n", read(fd, buffer, 222250));
+		printf("read return    : %zd\n", read(-3, buffer, 25));
 		printf("errno : %s %d\n", strerror(errno), errno);
 		//printf("BUFFER : %s\n",buffer);
 		lseek(fd, 0, SEEK_SET);
-		printf("ft_read return : %zd\n", ft_read(fd, buffer, 222250));
+		buffer[25] = 0;
+		printf("ft_read return : %zd\n", ft_read(-3, buffer, 25));
 		printf("errno : %s %d\n", strerror(errno), errno);
+		buffer[25] = 0;
 		//printf("BUFFER : %s\n",buffer);
 		lseek(fd, 0, SEEK_SET);
 		printf("\n");
 
 		printf("---------    4    ----------\n");
-		printf("read return    : %zd\n", read(-3, buffer, 25));
-		printf("errno : %s %d\n", strerror(errno), errno);
-		//printf("BUFFER : %s\n",buffer);
-		lseek(fd, 0, SEEK_SET);
-		printf("ft_read return : %zd\n", ft_read(-3, buffer, 25));
-		printf("errno : %s %d\n", strerror(errno), errno);
-		//printf("BUFFER : %s\n",buffer);
-		lseek(fd, 0, SEEK_SET);
-		printf("\n");
-
-		printf("---------    5    ----------\n");
 		printf("read return    : %zd\n", read(fd, buffer, -25));
 		printf("errno : %s %d\n", strerror(errno), errno);
 		//printf("BUFFER : %s\n",buffer);
@@ -237,7 +232,7 @@ int main()
 		lseek(fd, 0, SEEK_SET);
 		printf("\n");
 
-		printf("---------    6    ----------\n");
+		printf("---------    5    ----------\n");
 		printf("read return    : %zd\n", read(fd, NULL, 25));
 		printf("errno : %s %d\n", strerror(errno), errno);
 		//printf("BUFFER : %s\n",buffer);
@@ -252,23 +247,17 @@ int main()
 	}	
 
 	printf("--------- reading input ----------\n");
-	printf("read return    : %zd\n", read(0, buffer, 99));
+	printf("read return    : %zd\n", read(0, buffer, buffer_size));
 	printf("errno : %s %d\n", strerror(errno), errno);
+	buffer[buffer_size] = 0;
 	printf("input read    : |%s|\n",buffer);
-	printf("ft_read return : %zd\n", ft_read(0, buffer, 99));
+	printf("ft_read return : %zd\n", ft_read(0, buffer, buffer_size));
 	printf("errno : %s %d\n", strerror(errno), errno);
+	buffer[buffer_size] = 0;
 	printf("input ft_read : |%s|\n",buffer);
 	printf("\n");
 
-	//free(buffer);
-	
-	// read(0, buffer, 29);
-	// ft_read(0, buffer, 29);
-	
-   	// read(fd, buffer, 50);
-	// printf("errno : %s %d\n", strerror(errno), errno);
-	// ft_read(fd, buffer, 50);
-	// printf("errno : %s %d\n\n", strerror(errno), errno);
+	free(buffer);
 	
     return(0);
 }
