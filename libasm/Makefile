@@ -6,7 +6,7 @@
 #    By: rlinkov <rlinkov@student.s19.be>           +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/04/07 19:51:35 by rlinkov           #+#    #+#              #
-#    Updated: 2021/04/07 20:32:54 by rlinkov          ###   ########.fr        #
+#    Updated: 2021/04/07 20:35:24 by rlinkov          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -27,7 +27,7 @@ $(NAME): $(OBJECTS)
 	ar rc $(NAME) $(OBJECTS)
 	ranlib $(NAME)
 
-test: all
+test: $(NAME)
 	gcc -Wall -Werror -Wextra main.c libasm.a
 	./a.out
 
