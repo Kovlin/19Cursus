@@ -6,7 +6,7 @@
 /*   By: rlinkov <rlinkov@student.s19.be>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/30 17:20:07 by rlinkov           #+#    #+#             */
-/*   Updated: 2021/04/07 17:09:04 by rlinkov          ###   ########.fr       */
+/*   Updated: 2021/04/07 17:10:31 by rlinkov          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -175,7 +175,7 @@ int main()
 	printf("===========================\n\n");
 	
 	errno = 0;
-	char buffer[100];
+	char buffer[1];
 	int fd;
 
 	if ((fd = open("read_test.txt", O_CREAT | O_WRONLY, 0777)) < 0)
@@ -185,9 +185,9 @@ int main()
 		printf("FD : %d\n", fd);
 		
 		printf("---------    1    ----------\n");
-		printf("read return    : %zd\n", read(fd, buffer, 5));
+		printf("read return    : %zd\n", read(fd, buffer, 1));
 		printf("errno : %s %d\n", strerror(errno), errno);
-		printf("ft_read return : %zd\n", ft_read(fd, buffer, 5));
+		printf("ft_read return : %zd\n", ft_read(fd, buffer, 1));
 		printf("errno : %s %d\n", strerror(errno), errno);
 		printf("\n");
 
