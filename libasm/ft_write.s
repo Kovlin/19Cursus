@@ -6,7 +6,7 @@
 ;     By rlinkov@student.s19.be
 ; ----------------------------------------------------------------------------------------
 
-extern __errno_location
+extern __errno_location ;déclaration de l'accès à la variable globale errno de errno.h
 
 section .text:
     global ft_write
@@ -22,7 +22,15 @@ ft_write:
 exit_error:
     neg rax         ; la valeur opposée à errno se retrouve dans rax (sous Linux)
                     ; on fait donc rax *-1 pour récupérer sa valeur
-    call    __errno_location
+
+
+    mov r12, rax ; on met le contenu de rax dans r12
+    push rax; on push le contenu de rax sur la stack
+    call    __errno_location ;rax pointe mtn sur errno
+    mov rax, r12 ; on met le contenu de r12 dans errno
+    pop rax ; on recupere le contenu du haut de la stack dans rax (on repointe dessus)
+            ;errno a changé et on renvoi le -1 apres
+
     ret
     mov rax,-1      ; on met rax à -1 car c'est la valeur à retourner en cas d'erreur
     ret             ; on retourne à la fonction d'appel
