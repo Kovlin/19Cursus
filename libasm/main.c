@@ -6,7 +6,7 @@
 /*   By: rlinkov <rlinkov@student.s19.be>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/30 17:20:07 by rlinkov           #+#    #+#             */
-/*   Updated: 2021/04/07 17:06:47 by rlinkov          ###   ########.fr       */
+/*   Updated: 2021/04/07 17:07:45 by rlinkov          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -182,6 +182,8 @@ int main()
 		printf("----- Error : test file not found -----\n");
 	else
 	{
+		printf("FD : %d\n", fd);
+		
 		printf("---------    1    ----------\n");
 		printf("read return    : %zd\n", read(fd, buffer, 5));
 		printf("errno : %s %d\n", strerror(errno), errno);
