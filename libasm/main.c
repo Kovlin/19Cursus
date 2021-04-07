@@ -6,7 +6,7 @@
 /*   By: rlinkov <rlinkov@student.s19.be>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/30 17:20:07 by rlinkov           #+#    #+#             */
-/*   Updated: 2021/04/07 17:24:27 by rlinkov          ###   ########.fr       */
+/*   Updated: 2021/04/07 17:25:32 by rlinkov          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -188,6 +188,7 @@ int main()
 		lseek(fd, 0, SEEK_SET); //permet de repositionner le curseur au début du fichier
 		printf("ft_read return : %zd\n", ft_read(fd, buffer, 1));
 		printf("errno : %s %d\n", strerror(errno), errno);
+		printf("BUFFER : %s\n");
 		printf("\n");
 
 		printf("---------    2    ----------\n");
