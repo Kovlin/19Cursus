@@ -6,7 +6,7 @@
 /*   By: rlinkov <rlinkov@student.s19.be>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/30 17:20:07 by rlinkov           #+#    #+#             */
-/*   Updated: 2021/04/07 16:40:29 by rlinkov          ###   ########.fr       */
+/*   Updated: 2021/04/07 16:42:44 by rlinkov          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -175,9 +175,9 @@ int main()
 	read(0, buffer, 29);
 	ft_read(0, buffer, 29);
 	
-   	read(255, buffer, 50);
+   	read("hrrlo", buffer, 50);
 	printf("errno : %s %d\n", strerror(errno), errno);
-	ft_read(255, buffer, 50);
+	ft_read("hrrlo", buffer, 50);
 	printf("errno : %s %d\n\n", strerror(errno), errno);
 	
     return(0);
