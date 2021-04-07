@@ -6,7 +6,7 @@
 /*   By: rlinkov <rlinkov@student.s19.be>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/30 17:20:07 by rlinkov           #+#    #+#             */
-/*   Updated: 2021/04/07 19:29:52 by rlinkov          ###   ########.fr       */
+/*   Updated: 2021/04/07 19:31:24 by rlinkov          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -273,7 +273,7 @@ int main()
 	char *str;
 
 	printf("---------    1    ----------\n");
-	printf("to dupplicate    : |Hello world|");
+	printf("to dupplicate    : |Hello world|\n");
 	printf("strdup return    : |%s|\n", str = strdup("Hello world"));
 	free(str);
 	printf("ft_strdup        : |%s|\n", str = ft_strdup("Hello world"));
@@ -282,7 +282,7 @@ int main()
 
 
 	printf("---------    2    ----------\n");
-	printf("to dupplicate    : |qwerty qwerty qwerty qwerty qwerty|");
+	printf("to dupplicate    : |qwerty qwerty qwerty qwerty qwerty|\n");
 	printf("strdup return    : |%s|\n", str = strdup("qwerty qwerty qwerty qwerty qwerty"));
 	free(str);
 	printf("ft_strdup        : |%s|\n", str = ft_strdup("qwerty qwerty qwerty qwerty qwerty"));
@@ -290,7 +290,7 @@ int main()
 	printf("\n");
 
 	printf("---------    3    ----------\n");
-	printf("to dupplicate    : ||");
+	printf("to dupplicate    : ||\n");
 	printf("strdup return    : |%s|\n", str = strdup(""));
 	free(str);
 	printf("ft_strdup        : |%s|\n", str = ft_strdup(""));
