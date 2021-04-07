@@ -6,7 +6,7 @@
 #    By: rlinkov <rlinkov@student.s19.be>           +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/04/07 19:51:35 by rlinkov           #+#    #+#              #
-#    Updated: 2021/04/07 20:19:06 by rlinkov          ###   ########.fr        #
+#    Updated: 2021/04/07 20:27:37 by rlinkov          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,9 +15,9 @@ NAME			= libasm.a
 COMPIL_LINUX 	= nasm -f elf64
 SRCS_PATH       = ./src/
 SRCS			= ft_strlen.s ft_strcpy.s ft_strcmp.s ft_write.s ft_read.s ft_strdup.s
-SRC				= $(addprefix $(SRC_PATH), $(SRCS))
+SRC				= $(addprefix $(SRCS_PATH), $(SRCS))
 TEST			= test_libasm
-OBJECTS			= $(SRCS:.s=.o)
+OBJECTS			= $(SRC:.s=.o)
 
 %.o: %.s
 	$(COMPIL_LINUX) $< -o $@
