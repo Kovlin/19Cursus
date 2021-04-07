@@ -6,7 +6,7 @@
 /*   By: rlinkov <rlinkov@student.s19.be>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/30 17:20:07 by rlinkov           #+#    #+#             */
-/*   Updated: 2021/04/07 18:16:09 by rlinkov          ###   ########.fr       */
+/*   Updated: 2021/04/07 18:19:04 by rlinkov          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -184,6 +184,7 @@ int main()
 	else
 	{	
 		printf("---------    1    ----------\n");
+		bzero(buffer, 100);
 		printf("read return    : %zd\n", read(fd, buffer, 1));
 		printf("errno : %s %d\n", strerror(errno), errno);
 		buffer[1] = 0;
@@ -196,6 +197,7 @@ int main()
 		printf("\n");
 
 		printf("---------    2    ----------\n");
+		bzero(buffer, 100);
 		printf("read return    : %zd\n", read(fd, buffer, buffer_size));
 		printf("errno : %s %d\n", strerror(errno), errno);
 		buffer[buffer_size] = 0;
@@ -209,6 +211,7 @@ int main()
 		printf("\n");
 
 		printf("---------    3    ----------\n");
+		bzero(buffer, 100);
 		printf("read return    : %zd\n", read(-3, buffer, 25));
 		printf("errno : %s %d\n", strerror(errno), errno);
 		//printf("BUFFER : %s\n",buffer);
@@ -222,6 +225,7 @@ int main()
 		printf("\n");
 
 		printf("---------    4    ----------\n");
+		bzero(buffer, 100);
 		printf("read return    : %zd\n", read(fd, buffer, -25));
 		printf("errno : %s %d\n", strerror(errno), errno);
 		//printf("BUFFER : %s\n",buffer);
@@ -233,6 +237,7 @@ int main()
 		printf("\n");
 
 		printf("---------    5    ----------\n");
+		bzero(buffer, 100);
 		printf("read return    : %zd\n", read(fd, NULL, 25));
 		printf("errno : %s %d\n", strerror(errno), errno);
 		//printf("BUFFER : %s\n",buffer);
@@ -244,9 +249,10 @@ int main()
 		printf("\n");
 
 		close(fd);
-	}	
+	}
 
 	printf("--------- reading input ----------\n");
+	bzero(buffer, 100);
 	printf("read return    : %zd\n", read(0, buffer, buffer_size));
 	printf("errno : %s %d\n", strerror(errno), errno);
 	buffer[buffer_size] = 0;
