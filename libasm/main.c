@@ -6,7 +6,7 @@
 /*   By: rlinkov <rlinkov@student.s19.be>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/30 17:20:07 by rlinkov           #+#    #+#             */
-/*   Updated: 2021/04/07 17:11:50 by rlinkov          ###   ########.fr       */
+/*   Updated: 2021/04/07 17:13:35 by rlinkov          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -175,16 +175,13 @@ int main()
 	printf("===========================\n\n");
 	
 	errno = 0;
-	char buffer[1];
+	char *buffer = malloc(100 * sizeof(char));
 	int fd;
 
 	if ((fd = open("read_test.txt", O_CREAT | O_WRONLY, 0777)) < 0)
 		printf("----- Error : test file not found -----\n");
 	else
-	{
-		printf("FD : %d\n", fd);
-		write(fd, "hello", 5);
-		
+	{	
 		printf("---------    1    ----------\n");
 		printf("read return    : %zd\n", read(fd, buffer, 1));
 		printf("errno : %s %d\n", strerror(errno), errno);
@@ -221,6 +218,8 @@ int main()
 		printf("\n");
 	}
 	close(fd);
+	free(buffer);
+	
 	// read(0, buffer, 29);
 	// ft_read(0, buffer, 29);
 	
