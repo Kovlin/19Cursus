@@ -27,10 +27,10 @@ exit_error:
     mov r12, rax ; on met le contenu de rax dans r12
     push rax; on push le contenu de rax sur la stack
     call    __errno_location ;rax pointe mtn sur errno
-    mov rax, r12 ; on met le contenu de r12 dans errno
+    mov BYTE [rax] , r12 ; on met le contenu de r12 dans errno
     pop rax ; on recupere le contenu du haut de la stack dans rax (on repointe dessus)
             ;errno a changé et on renvoi le -1 apres
 
-    ret
+            
     mov rax,-1      ; on met rax à -1 car c'est la valeur à retourner en cas d'erreur
     ret             ; on retourne à la fonction d'appel
