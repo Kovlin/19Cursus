@@ -6,7 +6,7 @@
 /*   By: rlinkov <rlinkov@student.s19.be>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/30 17:20:07 by rlinkov           #+#    #+#             */
-/*   Updated: 2021/04/07 16:04:16 by rlinkov          ###   ########.fr       */
+/*   Updated: 2021/04/07 16:09:19 by rlinkov          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -102,82 +102,65 @@ int main()
 	printf("===========================\n");
 	printf("         FT_WRITE          \n");
 	printf("===========================\n\n");
-	
 
-	printf("ft_write return : %zd\n", ft_write(1, "Hello world!\n", 13));
+	errno = -66;
 	printf("errno : %s %d\n", strerror(errno), errno);
-	printf("\n");
+	
+	printf("---------    1    ----------\n");
 	printf("write return    : %zd\n", write(1, "Hello world!\n", 13));
 	printf("errno : %s %d\n", strerror(errno), errno);
+	errno = -66;
 	printf("ft_write return : %zd\n", ft_write(1, "Hello world!\n", 13));
 	printf("errno : %s %d\n", strerror(errno), errno);
 	printf("\n");
 
+	printf("---------    2    ----------\n");
 	printf("write return    : %zd\n", write(1, "Hello world!\n", 8));
 	printf("errno : %s %d\n", strerror(errno), errno);
+	errno = -66;
 	printf("ft_write return : %zd\n", ft_write(1, "Hello world!\n", 8));
 	printf("errno : %s %d\n", strerror(errno), errno);
 	printf("\n");
 
+	printf("---------    3    ----------\n");
 	printf("write return    : %zd\n", write(1, "Hello world!\n", -6));
 	printf("errno : %s %d\n", strerror(errno), errno);
+	errno = -66;
 	printf("ft_write return : %zd\n", ft_write(1, "Hello world!\n", -6));
 	printf("errno : %s %d\n", strerror(errno), errno);
 	printf("\n");
 
+	printf("---------    4    ----------\n");
 	printf("write return    : %zd\n", write(1, "Hello world!\n", 0));
 	printf("errno : %s %d\n", strerror(errno), errno);
+	errno = -66;
 	printf("ft_write return : %zd\n", ft_write(1, "Hello world!\n", 0));
 	printf("errno : %s %d\n", strerror(errno), errno);
 	printf("\n");
 
+	printf("---------    5    ----------\n");
 	printf("write return    : %zd\n", write(1, NULL, 13));
 	printf("errno : %s %d\n", strerror(errno), errno);
+	errno = -66;
 	printf("ft_write return : %zd\n", ft_write(1, NULL, 13));
 	printf("errno : %s %d\n", strerror(errno), errno);
 	printf("\n");
 
+	printf("---------    6    ----------\n");
 	printf("write return    : %zd\n", write(1, NULL, -6));
 	printf("errno : %s %d\n", strerror(errno), errno);
+	errno = -66;
 	printf("ft_write return : %zd\n", ft_write(1, NULL, -6));
 	printf("errno : %s %d\n", strerror(errno), errno);
 	printf("\n");
 
+	printf("---------    7    ----------\n");
 	printf("write return    : %zd\n", write(-12, NULL, 13));
 	printf("errno : %s %d\n", strerror(errno), errno);
+	errno = -66;
 	printf("ft_write return : %zd\n", ft_write(-12, NULL, 13));
 	printf("errno : %s %d\n", strerror(errno), errno);
 	printf("\n");
 	
-	write(1, "Hello world\n", 13);
-	printf("errno : %s %d\n", strerror(errno), errno);
-	ft_write(1, "Hello world\n\n", 13);
-	printf("errno : %s %d\n", strerror(errno), errno);
-	
-   	write(0xff, "hello!\n", 7);
-	printf("errno : %s %d\n", strerror(errno), errno);
-	errno = 0;
-	printf("errno : %s %d\n", strerror(errno), errno);
-	ft_write(0xff, "hello!\n", 7);
-	printf("\n");
-	printf("errno : %s %d\n", strerror(errno), errno);
-	
-	write(0, "Bonjour les amis\n", 18);
-	ft_write(0, "Bonjour les amis\n\n", 18);
-	printf("\n");
-	
-	write(1, "hello!\n", -6);
-	printf("errno : %s %d\n", strerror(errno), errno);
-	errno = 0;
-	ft_write(1, "hello!\n", -6);
-	printf("errno : %s %d\n\n", strerror(errno), errno);
-	printf("\n");
-	
-	write(0, NULL, 0);
-	printf("errno : %s %d\n", strerror(errno), errno);
-	ft_write(0, NULL, 0);
-	printf("errno : %s %d\n\n", strerror(errno), errno);
-	printf("\n");
-    
     return(0);
 }
