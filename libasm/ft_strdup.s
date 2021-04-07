@@ -9,6 +9,7 @@
 extern malloc                   ; on va utiliser la fonction C "malloc"
                                 ; void *malloc(size_t size)
 extern ft_strlen, ft_strcpy     ; ft_strlen et ft_strlcpy réalisées pour ce projet
+extern __errno_location         ; chemin vers la variable globale errno
 
 section .text:
     global ft_strdup
@@ -30,5 +31,9 @@ ft_strdup:
     ret                 ; on retourne a la fonction d'appelle
 
 exit_error:
-    pop rdi             ; on enlève la string push sur la stack
-    ret                 ; on retourne dans la fonction d'appel
+    pop     rdi                 ; on enlève la string push sur la stack
+    call    __errno_location    ; on met le chemin vers errno dans rax
+    mov     [rax], 12           ; on met le code d'erreur ENOMEM dans errno (mémoire disponible insuffisante)
+                                ; le code correspondant à cette erreur sous Linux est le 12
+    mov     rax,0               ; retourne null si pas assez de mémoire disponible
+    ret                         ; on retourne dans la fonction d'appel
