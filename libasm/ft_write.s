@@ -25,7 +25,10 @@ exit_error:
     push            rax         ; on push la valeur de rax sur la stack
     call    __errno_location    ; on appelle ___errno_location, on récupère donc le pointeur
                                 ; de errno dans rax
-    pop     BYTE   [rax]       ; on récupère la valeur push de rax dans [rax],
+    pop     QWORD   [rax]       ; on récupère la valeur push de rax dans [rax], on précise que la taille
+                                ; est un QWORD (64bits) car on a push le register RAX qui fait 64 bits
                                 ; on met donc la valeur de rax push auparavant là où pointe errno
     mov rax,-1                  ; on met rax à -1 car c'est la valeur à retourner en cas d'erreur
+                                ; rax ne pointe donc plus vers errno car on vient d'écraser le pointeur
+                                ; pour y mettre la valeur -1
     ret                         ; on retourne à la fonction d'appel
