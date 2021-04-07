@@ -20,12 +20,12 @@ ft_write:
     ret             ; si tout ce passe bien, on retourne à la fonction d'appel
 
 exit_error:
-    neg     rax                 ; la valeur opposée à errno se retrouve dans rax (sous Linux)
+    neg             rax         ; la valeur opposée à errno se retrouve dans rax (sous Linux)
                                 ; on fait donc rax *-1 pour récupérer sa valeur
-    push    rax                 ; on push la valeur de rax sur la stack
+    push            rax         ; on push la valeur de rax sur la stack
     call    __errno_location    ; on appelle ___errno_location, on récupère donc le pointeur
                                 ; de errno dans rax
-    pop     [rax]               ; on récupère la valeur push de rax dans [rax],
+    pop     qword   [rax]       ; on récupère la valeur push de rax dans [rax],
                                 ; on met donc la valeur de rax push auparavant là où pointe errno
     
     ; mov     [rax],
