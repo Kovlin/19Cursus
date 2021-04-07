@@ -17,7 +17,9 @@ ft_strdup:
     push    rdi         ; on push rdi sur la stack pour la sauvegarder, c'est notre string à copier
     call    ft_strlen   ; rdi contenant déjà notre string à copier on peut appeler ft_strlen
                         ; on a maintenant la longueur de s1 dans RAX
-    sub     rax,1         ; on augmente rax de 1 pour le \0 à la fin
+    cmp     rax,0       ; on vérifie que le malloc à fonctionné
+    je      exit_error  ; on saute à la sortie erreur si le malloc n'as pas fonctionné
+    inc     rax,1       ; on augmente rax de 1 pour le \0 à la fin
     mov     rdi, rax    ; on place cette valeur dans RDI car c'est le paramètre de la fonction malloc
     call    malloc      ; la fonction malloc renvoie dans rax un pointeur vers un espace mémoire de bonne taille
     mov     rdi, rax    ; on met ce pointeur (la destination) en premier paramètre de ft_strcpy
@@ -26,3 +28,7 @@ ft_strdup:
     call    ft_strcpy   ; on appelle ft_strcpy qui va copier la source dans la destination
                         ; la nouvelle chaîne est stockée dans RAX
     ret                 ; on retourne a la fonction d'appelle
+
+exit_error:
+    pop rdi             ; on enlève la string push sur la stack
+    ret                 ; on retourne dans la fonction d'appel
