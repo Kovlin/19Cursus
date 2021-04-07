@@ -6,7 +6,7 @@
 /*   By: rlinkov <rlinkov@student.s19.be>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/30 17:20:07 by rlinkov           #+#    #+#             */
-/*   Updated: 2021/04/07 16:16:05 by rlinkov          ###   ########.fr       */
+/*   Updated: 2021/04/07 16:36:00 by rlinkov          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@ size_t  ft_strlen(const char *str);
 char	*ft_strcpy(char *dst, const char *src);
 int     ft_strcmp(char *s1, char *s2);
 ssize_t	ft_write(int fd, void const *buf, size_t nbyte);
+ssize_t ft_read(int fd, void *buf, size_t nbyte);
 
 int main()
 {
@@ -164,6 +165,18 @@ int main()
 	printf("ft_write return : %zd\n", ft_write(-12, NULL, 13));
 	printf("errno : %s %d\n", strerror(errno), errno);
 	printf("\n");
+
+	printf("===========================\n");
+	printf("         FT_READ           \n");
+	printf("===========================\n\n");
+​
+	read(0, buffer, 29);
+	ft_read(0, buffer, 29);
+​
+   	read(0xff, buffer, 50);
+	printf("errno : %s %d\n", strerror(errno), errno);
+	ft_read(0xff, buffer, 50);
+	printf("errno : %s %d\n\n", strerror(errno), errno);
 	
     return(0);
 }

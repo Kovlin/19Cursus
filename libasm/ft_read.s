@@ -1,18 +1,18 @@
 ; ----------------------------------------------------------------------------------------
-; ft_write in Assembly x86_64 | Works for Linux
+; ft_read in Assembly x86_64 | Works for Linux
 ; To assemble :
 ;
-;     nasm -felf64 ft_write.s
+;     nasm -felf64 ft_read.s
 ;     By rlinkov@student.s19.be
 ; ----------------------------------------------------------------------------------------
 
 extern __errno_location ;déclaration de l'accès à la variable globale errno de errno.h
 
 section .text:
-    global ft_write
+    global ft_read
 
-ft_write:
-    mov rax,1       ; le code de l'appel système write est 1
+ft_read:
+    mov rax,0       ; le code de l'appel système read est 0
     syscall         ; on appelle la fonction associée au code passé à rax
     cmp rax,0       ; on évalue rax par rapport à 0
     jl  exit_error  ; si rax est inférieur à 0, il y a eu une erreur
