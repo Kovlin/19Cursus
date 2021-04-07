@@ -6,7 +6,7 @@
 /*   By: rlinkov <rlinkov@student.s19.be>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/30 17:20:07 by rlinkov           #+#    #+#             */
-/*   Updated: 2021/04/07 18:24:02 by rlinkov          ###   ########.fr       */
+/*   Updated: 2021/04/07 18:28:41 by rlinkov          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,7 @@ char	*ft_strcpy(char *dst, const char *src);
 int     ft_strcmp(char *s1, char *s2);
 ssize_t	ft_write(int fd, void const *buf, size_t nbyte);
 ssize_t ft_read(int fd, void *buf, size_t nbyte);
+char	*ft_strdup(const char *s1);
 
 int main()
 {
