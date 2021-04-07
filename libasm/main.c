@@ -6,7 +6,7 @@
 /*   By: rlinkov <rlinkov@student.s19.be>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/30 17:20:07 by rlinkov           #+#    #+#             */
-/*   Updated: 2021/04/07 16:13:12 by rlinkov          ###   ########.fr       */
+/*   Updated: 2021/04/07 16:16:05 by rlinkov          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -118,6 +118,7 @@ int main()
 	printf("\n");
 
 	printf("---------    3    ----------\n");
+	errno = -66;
 	printf("write return    : %zd\n", write(1, "Hello world!\n", -6));
 	printf("errno : %s %d\n", strerror(errno), errno);
 	errno = -66;
@@ -125,11 +126,9 @@ int main()
 	printf("errno : %s %d\n", strerror(errno), errno);
 	printf("\n");
 	
-	errno = -66;
 	printf("---------    4    ----------\n");
 	printf("write return    : %zd\n", write(1, "Hello world!\n", 0));
 	printf("errno : %s %d\n", strerror(errno), errno);
-	errno = -66;
 	printf("ft_write return : %zd\n", ft_write(1, "Hello world!\n", 0));
 	printf("errno : %s %d\n", strerror(errno), errno);
 	printf("\n");
@@ -137,12 +136,19 @@ int main()
 	printf("---------    5    ----------\n");
 	printf("write return    : %zd\n", write(1, NULL, 13));
 	printf("errno : %s %d\n", strerror(errno), errno);
-	errno = -66;
 	printf("ft_write return : %zd\n", ft_write(1, NULL, 13));
 	printf("errno : %s %d\n", strerror(errno), errno);
 	printf("\n");
 
 	printf("---------    6    ----------\n");
+	printf("write return    : %zd\n", write(1, "Hello world!\n", 13));
+	printf("errno : %s %d\n", strerror(errno), errno);
+	printf("ft_write return : %zd\n", ft_write(1, "Hello world!\n", 13));
+	printf("errno : %s %d\n", strerror(errno), errno);
+	printf("\n");
+
+	printf("---------    7    ----------\n");
+	errno = -66;
 	printf("write return    : %zd\n", write(1, NULL, -6));
 	printf("errno : %s %d\n", strerror(errno), errno);
 	errno = -66;
@@ -150,7 +156,8 @@ int main()
 	printf("errno : %s %d\n", strerror(errno), errno);
 	printf("\n");
 
-	printf("---------    7    ----------\n");
+	printf("---------    8    ----------\n");
+	errno = -66;
 	printf("write return    : %zd\n", write(-12, NULL, 13));
 	printf("errno : %s %d\n", strerror(errno), errno);
 	errno = -66;
