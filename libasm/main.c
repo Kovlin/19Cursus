@@ -6,7 +6,7 @@
 /*   By: rlinkov <rlinkov@student.s19.be>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/30 17:20:07 by rlinkov           #+#    #+#             */
-/*   Updated: 2021/04/07 17:10:31 by rlinkov          ###   ########.fr       */
+/*   Updated: 2021/04/07 17:11:50 by rlinkov          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -183,6 +183,7 @@ int main()
 	else
 	{
 		printf("FD : %d\n", fd);
+		write(fd, "hello", 5);
 		
 		printf("---------    1    ----------\n");
 		printf("read return    : %zd\n", read(fd, buffer, 1));
