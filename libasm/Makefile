@@ -6,7 +6,7 @@
 #    By: rlinkov <rlinkov@student.s19.be>           +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/04/07 19:51:35 by rlinkov           #+#    #+#              #
-#    Updated: 2021/04/07 20:29:54 by rlinkov          ###   ########.fr        #
+#    Updated: 2021/04/07 20:31:00 by rlinkov          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -29,8 +29,8 @@ $(NAME): $(OBJECTS)
 	ranlib $(NAME)
 
 test: all
-	gcc -Wall -Werror -Wextra main.c libasm.a -o test_libasm
-	./test_libasm
+	gcc -Wall -Werror -Wextra main.c libasm.a -o test_libasm.out
+	./test_libasm.out
 
 clean:
 	$(RM) $(OBJECTS)
