@@ -6,7 +6,7 @@
 /*   By: rlinkov <rlinkov@student.s19.be>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/30 17:20:07 by rlinkov           #+#    #+#             */
-/*   Updated: 2021/04/07 17:23:50 by rlinkov          ###   ########.fr       */
+/*   Updated: 2021/04/07 17:24:27 by rlinkov          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -200,10 +200,10 @@ int main()
 		printf("\n");
 
 		printf("---------    3    ----------\n");
-		printf("read return    : %zd\n", read(fd, buffer, 2250));
+		printf("read return    : %zd\n", read(fd, buffer, 222250));
 		printf("errno : %s %d\n", strerror(errno), errno);
 		lseek(fd, 0, SEEK_SET);
-		printf("ft_read return : %zd\n", ft_read(fd, buffer, 2250));
+		printf("ft_read return : %zd\n", ft_read(fd, buffer, 222250));
 		printf("errno : %s %d\n", strerror(errno), errno);
 		lseek(fd, 0, SEEK_SET);
 		printf("\n");
