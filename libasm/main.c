@@ -6,7 +6,7 @@
 /*   By: rlinkov <rlinkov@student.s19.be>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/30 17:20:07 by rlinkov           #+#    #+#             */
-/*   Updated: 2021/04/07 17:13:35 by rlinkov          ###   ########.fr       */
+/*   Updated: 2021/04/07 17:15:14 by rlinkov          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -178,7 +178,7 @@ int main()
 	char *buffer = malloc(100 * sizeof(char));
 	int fd;
 
-	if ((fd = open("read_test.txt", O_CREAT | O_WRONLY, 0777)) < 0)
+	if ((fd = open("read_test.txt", O_RDONLY, 0777)) < 0)
 		printf("----- Error : test file not found -----\n");
 	else
 	{	
