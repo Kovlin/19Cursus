@@ -6,7 +6,7 @@
 /*   By: rlinkov <rlinkov@student.s19.be>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/30 17:20:07 by rlinkov           #+#    #+#             */
-/*   Updated: 2021/04/07 16:10:11 by rlinkov          ###   ########.fr       */
+/*   Updated: 2021/04/07 16:13:12 by rlinkov          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -106,7 +106,6 @@ int main()
 	printf("---------    1    ----------\n");
 	printf("write return    : %zd\n", write(1, "Hello world!\n", 13));
 	printf("errno : %s %d\n", strerror(errno), errno);
-	errno = -66;
 	printf("ft_write return : %zd\n", ft_write(1, "Hello world!\n", 13));
 	printf("errno : %s %d\n", strerror(errno), errno);
 	printf("\n");
@@ -114,7 +113,6 @@ int main()
 	printf("---------    2    ----------\n");
 	printf("write return    : %zd\n", write(1, "Hello world!\n", 8));
 	printf("errno : %s %d\n", strerror(errno), errno);
-	errno = -66;
 	printf("ft_write return : %zd\n", ft_write(1, "Hello world!\n", 8));
 	printf("errno : %s %d\n", strerror(errno), errno);
 	printf("\n");
@@ -126,7 +124,8 @@ int main()
 	printf("ft_write return : %zd\n", ft_write(1, "Hello world!\n", -6));
 	printf("errno : %s %d\n", strerror(errno), errno);
 	printf("\n");
-
+	
+	errno = -66;
 	printf("---------    4    ----------\n");
 	printf("write return    : %zd\n", write(1, "Hello world!\n", 0));
 	printf("errno : %s %d\n", strerror(errno), errno);
