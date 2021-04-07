@@ -6,7 +6,7 @@
 /*   By: rlinkov <rlinkov@student.s19.be>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/30 17:20:07 by rlinkov           #+#    #+#             */
-/*   Updated: 2021/04/07 17:00:42 by rlinkov          ###   ########.fr       */
+/*   Updated: 2021/04/07 17:04:08 by rlinkov          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,25 +36,25 @@ int main()
 	printf("         FT_STRLEN         \n");
 	printf("===========================\n\n");
 
-    printf("bonjour\n");
-    printf("original   : %lu\n", strlen("bonjour"));
-    printf("mon strlen : %zu\n\n", ft_strlen("bonjour"));
+    printf("string : |bonjour|\n");
+    printf("strlen    : %lu\n", strlen("bonjour"));
+    printf("ft_strlen : %zu\n\n", ft_strlen("bonjour"));
 
-    printf("");
-    printf("original   : %lu\n", strlen(""));
-    printf("mon strlen : %zu\n\n", ft_strlen(""));
+    printf("string : ||");
+    printf("strlen    : %lu\n", strlen(""));
+    printf("ft_strlen : %zu\n\n", ft_strlen(""));
 
-    printf("bonjourbonjour\n");
-    printf("original   : %lu\n", strlen("bonjourbonjour"));
-    printf("mon strlen : %zu\n\n", ft_strlen("bonjourbonjour"));
+    printf("string : |bonjourbonjour|\n");
+    printf("strlen    : %lu\n", strlen("bonjourbonjour"));
+    printf("ft_strlen : %zu\n\n", ft_strlen("bonjourbonjour"));
 
-    printf("b\n");
-    printf("original   : %lu\n", strlen("b"));
-    printf("mon strlen : %zu\n\n", ft_strlen("b"));
+    printf("string : |b|");
+    printf("strlen    : %lu\n", strlen("b"));
+    printf("ft_strlen : %zu\n\n", ft_strlen("b"));
 
-    printf("\n");
-    printf("original   : %lu\n", strlen("\n"));
-    printf("mon strlen : %zu\n\n", ft_strlen("\n"));
+    printf("string : |\n|");
+    printf("strlen    : %lu\n", strlen("\n"));
+    printf("ft_strlen : %zu\n\n", ft_strlen("\n"));
 
 
     printf("===========================\n");
