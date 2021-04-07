@@ -22,7 +22,7 @@ ft_write:
 exit_error:
     neg rax         ; la valeur opposée à errno se retrouve dans rax (sous Linux)
                     ; on fait donc rax *-1 pour récupérer sa valeur
-    mov rcx,rax
+    call    __errno_location
     ret
     mov rax,-1      ; on met rax à -1 car c'est la valeur à retourner en cas d'erreur
     ret             ; on retourne à la fonction d'appel
