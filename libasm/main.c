@@ -6,7 +6,7 @@
 /*   By: rlinkov <rlinkov@student.s19.be>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/30 17:20:07 by rlinkov           #+#    #+#             */
-/*   Updated: 2021/04/07 17:27:44 by rlinkov          ###   ########.fr       */
+/*   Updated: 2021/04/07 17:34:55 by rlinkov          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -206,42 +206,59 @@ int main()
 		printf("---------    3    ----------\n");
 		printf("read return    : %zd\n", read(fd, buffer, 222250));
 		printf("errno : %s %d\n", strerror(errno), errno);
+		//printf("BUFFER : %s\n",buffer);
 		lseek(fd, 0, SEEK_SET);
 		printf("ft_read return : %zd\n", ft_read(fd, buffer, 222250));
 		printf("errno : %s %d\n", strerror(errno), errno);
+		//printf("BUFFER : %s\n",buffer);
 		lseek(fd, 0, SEEK_SET);
 		printf("\n");
 
 		printf("---------    4    ----------\n");
 		printf("read return    : %zd\n", read(-3, buffer, 25));
 		printf("errno : %s %d\n", strerror(errno), errno);
-		printf("BUFFER : %s\n",buffer);
+		//printf("BUFFER : %s\n",buffer);
 		lseek(fd, 0, SEEK_SET);
 		printf("ft_read return : %zd\n", ft_read(-3, buffer, 25));
 		printf("errno : %s %d\n", strerror(errno), errno);
-		printf("BUFFER : %s\n",buffer);
+		//printf("BUFFER : %s\n",buffer);
 		lseek(fd, 0, SEEK_SET);
 		printf("\n");
 
 		printf("---------    5    ----------\n");
 		printf("read return    : %zd\n", read(fd, buffer, -25));
 		printf("errno : %s %d\n", strerror(errno), errno);
+		//printf("BUFFER : %s\n",buffer);
 		lseek(fd, 0, SEEK_SET);
 		printf("ft_read return : %zd\n", ft_read(fd, buffer, -25));
 		printf("errno : %s %d\n", strerror(errno), errno);
+		//printf("BUFFER : %s\n",buffer);
 		lseek(fd, 0, SEEK_SET);
 		printf("\n");
 
 		printf("---------    6    ----------\n");
 		printf("read return    : %zd\n", read(fd, NULL, 25));
 		printf("errno : %s %d\n", strerror(errno), errno);
+		//printf("BUFFER : %s\n",buffer);
 		lseek(fd, 0, SEEK_SET);
 		printf("ft_read return : %zd\n", ft_read(fd, NULL, 25));
 		printf("errno : %s %d\n", strerror(errno), errno);
+		//printf("BUFFER : %s\n",buffer);
 		lseek(fd, 0, SEEK_SET);
 		printf("\n");
-	}
-	close(fd);
+
+		close(fd);
+	}	
+
+	printf("--------- reading input ----------\n");
+	printf("read return    : %zd\n", read(0, buffer, 100));
+	printf("errno : %s %d\n", strerror(errno), errno);
+	printf("input read    : |%s|\n",buffer);
+	printf("ft_read return : %zd\n", ft_read(0, buffer, 100));
+	printf("errno : %s %d\n", strerror(errno), errno);
+	printf("input ft_read : |%s|\n",buffer);
+	printf("\n");
+
 	free(buffer);
 	
 	// read(0, buffer, 29);
