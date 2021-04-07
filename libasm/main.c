@@ -6,7 +6,7 @@
 /*   By: rlinkov <rlinkov@student.s19.be>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/30 17:20:07 by rlinkov           #+#    #+#             */
-/*   Updated: 2021/04/07 17:45:20 by rlinkov          ###   ########.fr       */
+/*   Updated: 2021/04/07 17:46:22 by rlinkov          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -175,7 +175,8 @@ int main()
 	printf("===========================\n\n");
 	
 	errno = 0;
-	char *buffer = malloc(222251 * sizeof(char));
+	//char *buffer = malloc(100 * sizeof(char));
+	char buffer[100];
 	int fd;
 
 	if ((fd = open("main.c", O_RDONLY)) < 0)
@@ -259,7 +260,7 @@ int main()
 	printf("input ft_read : |%s|\n",buffer);
 	printf("\n");
 
-	free(buffer);
+	//free(buffer);
 	
 	// read(0, buffer, 29);
 	// ft_read(0, buffer, 29);
