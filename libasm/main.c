@@ -6,7 +6,7 @@
 /*   By: rlinkov <rlinkov@student.s19.be>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/30 17:20:07 by rlinkov           #+#    #+#             */
-/*   Updated: 2021/04/07 17:22:09 by rlinkov          ###   ########.fr       */
+/*   Updated: 2021/04/07 17:23:50 by rlinkov          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -197,9 +197,18 @@ int main()
 		printf("ft_read return : %zd\n", ft_read(fd, buffer, 250));
 		printf("errno : %s %d\n", strerror(errno), errno);
 		lseek(fd, 0, SEEK_SET);
-		printf("\n");		
+		printf("\n");
 
 		printf("---------    3    ----------\n");
+		printf("read return    : %zd\n", read(fd, buffer, 2250));
+		printf("errno : %s %d\n", strerror(errno), errno);
+		lseek(fd, 0, SEEK_SET);
+		printf("ft_read return : %zd\n", ft_read(fd, buffer, 2250));
+		printf("errno : %s %d\n", strerror(errno), errno);
+		lseek(fd, 0, SEEK_SET);
+		printf("\n");
+
+		printf("---------    4    ----------\n");
 		printf("read return    : %zd\n", read(-3, buffer, 25));
 		printf("errno : %s %d\n", strerror(errno), errno);
 		lseek(fd, 0, SEEK_SET);
@@ -208,7 +217,7 @@ int main()
 		lseek(fd, 0, SEEK_SET);
 		printf("\n");
 
-		printf("---------    4    ----------\n");
+		printf("---------    5    ----------\n");
 		printf("read return    : %zd\n", read(fd, buffer, -25));
 		printf("errno : %s %d\n", strerror(errno), errno);
 		lseek(fd, 0, SEEK_SET);
@@ -217,7 +226,7 @@ int main()
 		lseek(fd, 0, SEEK_SET);
 		printf("\n");
 
-		printf("---------    5    ----------\n");
+		printf("---------    6    ----------\n");
 		printf("read return    : %zd\n", read(fd, NULL, 25));
 		printf("errno : %s %d\n", strerror(errno), errno);
 		lseek(fd, 0, SEEK_SET);
