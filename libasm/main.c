@@ -6,7 +6,7 @@
 /*   By: rlinkov <rlinkov@student.s19.be>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/30 17:20:07 by rlinkov           #+#    #+#             */
-/*   Updated: 2021/04/07 16:42:44 by rlinkov          ###   ########.fr       */
+/*   Updated: 2021/04/07 16:49:14 by rlinkov          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,10 @@
 #include <string.h>
 #include <unistd.h>
 #include <errno.h>
+
+#include <sys/types.h>
+#include <sys/stat.h>
+#include <fcntl.h>
 
 size_t  ft_strlen(const char *str);
 char	*ft_strcpy(char *dst, const char *src);
@@ -171,6 +175,9 @@ int main()
 	printf("===========================\n\n");
 		
 	char buffer[100];
+	int fd;
+
+	fd = open("ft_read_test.txt", O_CREAT | O_WRONLY, 0777);
 	
 	read(0, buffer, 29);
 	ft_read(0, buffer, 29);
