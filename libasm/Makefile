@@ -6,7 +6,7 @@
 #    By: rlinkov <rlinkov@student.s19.be>           +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/04/07 19:51:35 by rlinkov           #+#    #+#              #
-#    Updated: 2021/04/07 20:31:00 by rlinkov          ###   ########.fr        #
+#    Updated: 2021/04/07 20:32:54 by rlinkov          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,7 +16,6 @@ COMPIL_LINUX 	= nasm -f elf64
 SRCS_PATH       = ./src/
 SRCS			= ft_strlen.s ft_strcpy.s ft_strcmp.s ft_write.s ft_read.s ft_strdup.s
 SRC				= $(addprefix $(SRCS_PATH), $(SRCS))
-TEST			= test_libasm
 OBJECTS			= $(SRC:.s=.o)
 
 %.o: %.s
@@ -29,14 +28,14 @@ $(NAME): $(OBJECTS)
 	ranlib $(NAME)
 
 test: all
-	gcc -Wall -Werror -Wextra main.c libasm.a -o test_libasm.out
-	./test_libasm.out
+	gcc -Wall -Werror -Wextra main.c libasm.a
+	./a.out
 
 clean:
 	$(RM) $(OBJECTS)
 
 fclean: clean
-	$(RM) $(TEST)
+	$(RM) a.out
 	$(RM) $(NAME)
 
 re: fclean all
