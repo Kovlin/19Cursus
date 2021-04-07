@@ -6,7 +6,7 @@
 /*   By: rlinkov <rlinkov@student.s19.be>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/30 17:20:07 by rlinkov           #+#    #+#             */
-/*   Updated: 2021/04/07 17:26:13 by rlinkov          ###   ########.fr       */
+/*   Updated: 2021/04/07 17:27:44 by rlinkov          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -185,21 +185,21 @@ int main()
 		printf("---------    1    ----------\n");
 		printf("read return    : %zd\n", read(fd, buffer, 1));
 		printf("errno : %s %d\n", strerror(errno), errno);
-		printf("BUFFER : %s\n",buffer);
+		//printf("BUFFER : %s\n",buffer);
 		lseek(fd, 0, SEEK_SET); //permet de repositionner le curseur au début du fichier
 		printf("ft_read return : %zd\n", ft_read(fd, buffer, 1));
 		printf("errno : %s %d\n", strerror(errno), errno);
-		printf("BUFFER : %s\n",buffer);
+		//printf("BUFFER : %s\n",buffer);
 		printf("\n");
 
 		printf("---------    2    ----------\n");
 		printf("read return    : %zd\n", read(fd, buffer, 250));
 		printf("errno : %s %d\n", strerror(errno), errno);
-		printf("BUFFER : %s\n",buffer);
+		//printf("BUFFER : %s\n",buffer);
 		lseek(fd, 0, SEEK_SET);
 		printf("ft_read return : %zd\n", ft_read(fd, buffer, 250));
 		printf("errno : %s %d\n", strerror(errno), errno);
-		printf("BUFFER : %s\n",buffer);
+		//printf("BUFFER : %s\n",buffer);
 		lseek(fd, 0, SEEK_SET);
 		printf("\n");
 
@@ -215,9 +215,11 @@ int main()
 		printf("---------    4    ----------\n");
 		printf("read return    : %zd\n", read(-3, buffer, 25));
 		printf("errno : %s %d\n", strerror(errno), errno);
+		printf("BUFFER : %s\n",buffer);
 		lseek(fd, 0, SEEK_SET);
 		printf("ft_read return : %zd\n", ft_read(-3, buffer, 25));
 		printf("errno : %s %d\n", strerror(errno), errno);
+		printf("BUFFER : %s\n",buffer);
 		lseek(fd, 0, SEEK_SET);
 		printf("\n");
 
