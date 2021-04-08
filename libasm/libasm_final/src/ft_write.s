@@ -6,29 +6,22 @@
 ;     By rlinkov@student.s19.be
 ; ----------------------------------------------------------------------------------------
 
-extern __errno_location ;déclaration de l'accès à la variable globale errno de errno.h
+extern __errno_location
 
 section .text:
     global ft_write
 
 ft_write:
-    mov rax,1       ; le code de l'appel système write est 1
-    syscall         ; on appelle la fonction associée au code passé à rax
-    cmp rax,0       ; on évalue rax par rapport à 0
-    jl  exit_error  ; si rax est inférieur à 0, il y a eu une erreur
-                    ; on saute à la fonction de gestion de l'erreur
-    ret             ; si tout ce passe bien, on retourne à la fonction d'appel
+    mov rax,1
+    syscall
+    cmp rax,0
+    jl  exit_error
+    ret
 
 exit_error:
-    neg             rax         ; la valeur opposée à errno se retrouve dans rax (sous Linux)
-                                ; on fait donc rax *-1 pour récupérer sa valeur
-    push            rax         ; on push la valeur de rax sur la stack
-    call    __errno_location    ; on appelle ___errno_location, on récupère donc le pointeur
-                                ; de errno dans rax
-    pop     QWORD   [rax]       ; on récupère la valeur push de rax dans [rax], on précise que la taille
-                                ; est un QWORD (64bits) car on a push le register RAX qui fait 64 bits
-                                ; on met donc la valeur de rax push auparavant là où pointe errno
-    mov rax,-1                  ; on met rax à -1 car c'est la valeur à retourner en cas d'erreur
-                                ; rax ne pointe donc plus vers errno car on vient d'écraser le pointeur
-                                ; pour y mettre la valeur -1
-    ret                         ; on retourne à la fonction d'appel
+    neg             rax
+    push            rax
+    call    __errno_location
+    pop     QWORD   [rax]
+    mov rax,-1
+    ret
