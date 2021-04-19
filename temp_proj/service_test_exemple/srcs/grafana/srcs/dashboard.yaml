@@ -1,0 +1,19 @@
+# **************************************************************************** #
+#                                                                              #
+#                                                         :::      ::::::::    #
+#    dashboard.yaml                                     :+:      :+:    :+:    #
+#                                                     +:+ +:+         +:+      #
+#    By: mvan-eyn <mvan-eyn@student.42.fr>          +#+  +:+       +#+         #
+#                                                 +#+#+#+#+#+   +#+            #
+#    Created: 2020/11/13 15:00:48 by mvan-eyn          #+#    #+#              #
+#    Updated: 2020/11/13 15:00:48 by mvan-eyn         ###   ########.fr        #
+#                                                                              #
+# **************************************************************************** #
+
+apiVersion: 1
+providers:
+- name: dashboards
+  type: file
+  updateIntervalSeconds: 20
+  options:
+    path: /root/grafana/conf/provisioning/dashboards

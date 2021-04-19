@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_split_msh.c                                     :+:      :+:    :+:   */
+/*   split_command.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rlinkov <rlinkov@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/15 17:20:57 by rlinkov           #+#    #+#             */
-/*   Updated: 2021/04/16 17:25:18 by rlinkov          ###   ########.fr       */
+/*   Updated: 2021/04/19 15:10:18 by rlinkov          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../libft/libft.h"
+#include "minishell.h"
 
 static int	count_size_tab(char *str, char c)
 {
@@ -40,7 +40,9 @@ static int	size_elem(char *str, char c)
 
 	i = 0;
 	while (str[i] != c && str[i])
+	{
 		i++;
+	}
 	return (i);
 }
 
@@ -55,12 +57,7 @@ static char	**free_tab(char **tab, int index)
 	return (NULL);
 }
 
-static int	eval_start()
-{
-
-}
-
-char	**ft_split_msh(char const *s, char c)
+char	**split_command(char const *s, char c)
 {
 	char	**tab;
 	int		size_tab;
