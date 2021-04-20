@@ -1,31 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   minishell.h                                        :+:      :+:    :+:   */
+/*   error.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rlinkov <rlinkov@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/04/19 14:43:58 by rlinkov           #+#    #+#             */
-/*   Updated: 2021/04/20 14:19:16 by rlinkov          ###   ########.fr       */
+/*   Created: 2021/04/20 13:23:00 by rlinkov           #+#    #+#             */
+/*   Updated: 2021/04/20 14:41:16 by rlinkov          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef MINISHELL_H
-# define MINISHELL_H
-# include <stdio.h>
-# include <stdlib.h>
-# include <unistd.h>
+#ifndef ERROR_H
+# define ERROR_H
 
+# define RED "\033[0;31m"
+# define RESET "\033[0m"
 
-# include "../libft/libft.h"
-# include "../libft/get_next_line.h"
+# define ERR_MULTILINE "msh error : multiline detected !"
+# define ERR_FEW_ARGS "Too few arguments !"
 
-//my headers
-# include "error.h"
-
-char    **split_command(char const *s);
-int    clean_cmd(char *str);
-
-void	handle_error(char *err_tag);
 
 #endif

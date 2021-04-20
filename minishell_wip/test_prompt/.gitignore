@@ -53,3 +53,4 @@ dkms.conf
 
 # Added Manually
 a.out
+.DS_Store

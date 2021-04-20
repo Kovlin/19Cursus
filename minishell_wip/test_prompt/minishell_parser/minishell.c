@@ -6,7 +6,7 @@
 /*   By: rlinkov <rlinkov@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/15 17:50:45 by rlinkov           #+#    #+#             */
-/*   Updated: 2021/04/19 16:13:32 by rlinkov          ###   ########.fr       */
+/*   Updated: 2021/04/20 14:27:18 by rlinkov          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@ int	main(void)
 	char	*buffer;
 	char	**strs;
 	int		i;
+	int		ret;
 
 	buffer = (char *)malloc(sizeof(char) * BUFFER_SIZE);
 	if (buffer == NULL)
@@ -26,13 +27,17 @@ int	main(void)
 	{
 		printf("cmd size : %zu\n", ft_strlen(buffer));
 		printf("cmd      : %s\n", buffer);
-		strs = split_command(buffer, ';');
-		i = 0;
-		while (strs[i] != NULL)
+		ret = clean_cmd(buffer);
+		if (ret != 0) //si on a pu clear le buffer
 		{
-			write(1,"XxxXX", 5);
-			printf("in strs[\"%d\"] : |%s|\n", i, strs[i]);
-			i++;
+			strs = split_command(buffer); //proteger ce split
+			i = 0;
+			while (strs[i] != NULL)
+			{
+				write(1,"XxxXX", 5);
+				printf("in strs[\"%d\"] : |%s|\n", i, strs[i]);
+				i++;
+			}
 		}
 		write(1, "(╯°□°)╯︵ ┻━┻$> ", 32);
 	}
