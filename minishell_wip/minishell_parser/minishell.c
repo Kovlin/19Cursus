@@ -6,7 +6,7 @@
 /*   By: rlinkov <rlinkov@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/15 17:50:45 by rlinkov           #+#    #+#             */
-/*   Updated: 2021/04/26 17:55:36 by rlinkov          ###   ########.fr       */
+/*   Updated: 2021/04/26 18:17:01 by rlinkov          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,9 +33,9 @@ int	main(void)
 		if (ret != 0){
 			strs = ft_split_msh(buffer, SEMICOLON);
 			i = 0;
-			int j = 0;
 			while (strs[i] != NULL)
 			{
+				int j = 0;
 				while (strs[i][j] != 0) //remplace les caractere codé par un 0
 				{
 					if (strs[i][j] < 0)
