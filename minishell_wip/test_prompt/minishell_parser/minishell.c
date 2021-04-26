@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   minishell.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rlinkov <rlinkov@student.42.fr>            +#+  +:+       +#+        */
+/*   By: rlinkov <rlinkov@student.s19.be>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/15 17:50:45 by rlinkov           #+#    #+#             */
-/*   Updated: 2021/04/20 14:27:18 by rlinkov          ###   ########.fr       */
+/*   Updated: 2021/04/23 13:33:24 by rlinkov          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ int	main(void)
 	if (buffer == NULL)
 		return (1);
 	write(1, "(╯°□°)╯︵ ┻━┻$> ", 32);
-	while (get_next_line(0, &buffer) > 0 && buffer != '\0')
+	while (get_next_line(0, &buffer) > 0 && buffer != 0)
 	{
 		printf("cmd size : %zu\n", ft_strlen(buffer));
 		printf("cmd      : %s\n", buffer);
