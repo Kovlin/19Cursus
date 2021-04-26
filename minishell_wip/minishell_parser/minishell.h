@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   minishell.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rlinkov <rlinkov@student.s19.be>           +#+  +:+       +#+        */
+/*   By: rlinkov <rlinkov@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/19 14:43:58 by rlinkov           #+#    #+#             */
-/*   Updated: 2021/04/23 17:39:51 by rlinkov          ###   ########.fr       */
+/*   Updated: 2021/04/26 17:48:14 by rlinkov          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,9 +34,10 @@
 # define RCHEVRON -8
 
 
-char    **split_command(char const *s);
-int    clean_cmd(char *str);
+int     syntaxe_cmd(char *str);
+void    clean_cmd(char *str);
 
-void	handle_error(char *err_tag);
+void    handle_error(char *err_tag);
+char	**ft_split_msh(char const *s, char c);
 
 #endif

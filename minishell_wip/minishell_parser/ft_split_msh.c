@@ -6,7 +6,7 @@
 /*   By: rlinkov <rlinkov@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/15 17:20:57 by rlinkov           #+#    #+#             */
-/*   Updated: 2021/04/16 17:25:18 by rlinkov          ###   ########.fr       */
+/*   Updated: 2021/04/26 17:49:04 by rlinkov          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,11 +53,6 @@ static char	**free_tab(char **tab, int index)
 		free(tab[i++]);
 	free(tab);
 	return (NULL);
-}
-
-static int	eval_start()
-{
-
 }
 
 char	**ft_split_msh(char const *s, char c)
