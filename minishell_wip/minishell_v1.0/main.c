@@ -1,23 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   error.h                                            :+:      :+:    :+:   */
+/*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rlinkov <rlinkov@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/04/20 13:23:00 by rlinkov           #+#    #+#             */
-/*   Updated: 2021/04/28 15:44:45 by rlinkov          ###   ########.fr       */
+/*   Created: 2021/04/15 17:50:45 by rlinkov           #+#    #+#             */
+/*   Updated: 2021/04/28 17:37:35 by rlinkov          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef ERROR_H
-# define ERROR_H
+#include "minishell.h"
 
-# define RED "\033[0;31m"
-# define RESET "\033[0m"
+t_msh minishell;
 
-# define ERR_MULTILINE "msh : multiline detected !"
-# define ERR_PARS_PIPE "msh : syntax error near unexpected token `|'"
-# define ERR_PARS_SEMI "msh : syntax error near unexpected token `;'"
-# define ERR_MALLOC "msh : error while allocating memory with malloc(3)"
-#endif
+int	main(int argc, char **argv, char **env)
+{
+	(void)argc;
+	(void)argv;
+	(void)env;
+	minishell.status = 1;
+	prompt();
+	return (0);
+}
