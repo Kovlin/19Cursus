@@ -6,7 +6,7 @@
 /*   By: rlinkov <rlinkov@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/19 14:43:58 by rlinkov           #+#    #+#             */
-/*   Updated: 2021/04/28 17:52:48 by rlinkov          ###   ########.fr       */
+/*   Updated: 2021/04/30 14:11:12 by rlinkov          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,6 +43,6 @@ void    handle_error(char *err_tag);
 char	**ft_split_msh(char const *s, char c);
 void    code_cmd(char *str);
 int     syntaxe_cmd(char *str);
-void clean_cmd(char *str);
+char * clean_cmd(char *str);
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: rlinkov <rlinkov@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/28 17:07:07 by rlinkov           #+#    #+#             */
-/*   Updated: 2021/04/28 18:34:13 by rlinkov          ###   ########.fr       */
+/*   Updated: 2021/04/30 15:24:52 by rlinkov          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,31 +32,28 @@ void get_cmd(char **full_cmd)
 	}
 }
 
-void parse_input(char *full_cmd)
+void parse_input(char *full_cmd) //attention des free a rajouter
 {
 	char **strs;
 	int i;
 	int j;
-	write(1,"HERE\n",5);
-	if (minishell.status == 1){
+	char **basic_cmd;
+	if (minishell.status == 1)
+	{
 		strs = ft_split_msh(full_cmd, SEMICOLON);
 		i = 0;
-		write(1,"HERE2\n",6);
 		while (strs[i] != NULL)
 		{
-			write(1,"HERE4\n",6);
 			j = 0;
-			while (strs[i][j] != 0) //remplace les caractere codé par un 0
+			printf("	COMMANDE [%d] : %s\n", i, strs[i]);
+			basic_cmd = ft_split_msh(strs[i], PIPE);
+			while (basic_cmd[j] !=0)
 			{
-				if (strs[i][j] < 0)
-					strs[i][j] = '0';
+				printf("		BASIC CMD [%d] : %s\n", j, basic_cmd[j]);
 				j++;
-				write(1,"HERE5\n",6);
 			}
-			printf("coded : [\"%d\"] : |%s|\n", i, strs[i]);
 			i++;
 		}
-		write(1,"HERE3\n",6);
 	}
 }
 
@@ -67,12 +64,13 @@ void prompt()
 	{
 		write(1, "(╯°□°)╯︵ ┻━┻$> ", 32);
 		get_cmd(&full_cmd);
-		printf("FULL OUT : %s\n",full_cmd);
+		printf("COMMANDE RECUE : %s\n",full_cmd);
 		code_cmd(full_cmd);
-		printf("CODE OUT : %s\n",full_cmd);
-		clean_cmd(full_cmd);
-		printf("CLEAN OUT : %s\n",full_cmd);
+		printf("COMMANDE CODEE : %s\n",full_cmd);
+		syntaxe_cmd(full_cmd);
+		full_cmd = clean_cmd(full_cmd);
+		printf("COMMANDE CLEAN : %s\n",full_cmd);
 		parse_input(full_cmd);
+		minishell.status = 1;
 	}
 }
-//fait planter : eefrfrfr''""\\

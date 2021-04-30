@@ -6,7 +6,7 @@
 /*   By: rlinkov <rlinkov@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/28 12:42:55 by rlinkov           #+#    #+#             */
-/*   Updated: 2021/04/28 18:40:36 by rlinkov          ###   ########.fr       */
+/*   Updated: 2021/04/30 14:13:33 by rlinkov          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,6 @@ void    join_split(char **strs, char *cleaned_cmd)
         i++;
     }
     cleaned_cmd[pos] = '\0'; //on s'assure de fermer la chaine
-    //return (cleaned_cmd);
 }
 
 char    *join_cmd(char **strs)
@@ -61,13 +60,12 @@ char    *join_cmd(char **strs)
         len += ft_strlen(strs[i]);
         i++;
     }
-    cleaned_cmd = malloc(sizeof(char *) * (len + 1)); //pour le 0 a la fin
+    cleaned_cmd = (char*)malloc(sizeof(char *) * (len + 1)); //pour le 0 a la fin
     if (cleaned_cmd == NULL) //gestion erreur
     {
         handle_error(ERR_MALLOC);
         return(0);
     }
-    //cleaned_cmd =
     join_split(strs, cleaned_cmd);
     return (cleaned_cmd);
 }
@@ -84,14 +82,10 @@ char    *remove_char(char *full_cmd, int c)
     return (clean_cmd);
 }
 
-void clean_cmd(char *full_cmd) //fonction qui va nettoyer la commande de ses tokens
+char* clean_cmd(char *full_cmd) //fonction qui va nettoyer la commande de ses tokens
 {
-    printf("fullcmd0 : %s\n", full_cmd);
     full_cmd = remove_char(full_cmd, QUOTE);
-    printf("fullcmd1 : %s\n", full_cmd);
     full_cmd = remove_char(full_cmd, DQUOTE);
-    printf("fullcmd2 : %s\n", full_cmd);
     full_cmd = remove_char(full_cmd, BACKSLASH);
-    printf("fullcmd3 : %s\n", full_cmd);
-    //return (full_cmd);
+    return (full_cmd);
 }
