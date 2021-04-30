@@ -6,7 +6,7 @@
 /*   By: rlinkov <rlinkov@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/28 17:07:07 by rlinkov           #+#    #+#             */
-/*   Updated: 2021/04/30 15:24:52 by rlinkov          ###   ########.fr       */
+/*   Updated: 2021/04/30 17:16:36 by rlinkov          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ void get_cmd(char **full_cmd)
 	}
 }
 
-void parse_input(char *full_cmd) //attention des free a rajouter
+void parse_input(char *full_cmd) //attention des free a rajouter (pour les splits et la cmd)
 {
 	char **strs;
 	int i;
@@ -45,11 +45,12 @@ void parse_input(char *full_cmd) //attention des free a rajouter
 		while (strs[i] != NULL)
 		{
 			j = 0;
-			printf("	COMMANDE [%d] : %s\n", i, strs[i]);
+			printf("---->COMMANDE [%d] : %s\n\n", i, strs[i]);
 			basic_cmd = ft_split_msh(strs[i], PIPE);
 			while (basic_cmd[j] !=0)
 			{
-				printf("		BASIC CMD [%d] : %s\n", j, basic_cmd[j]);
+				printf("------->BASIC CMD [%d] : %s\n\n", j, basic_cmd[j]);
+				exec_cmd(basic_cmd[j]);
 				j++;
 			}
 			i++;
@@ -67,9 +68,10 @@ void prompt()
 		printf("COMMANDE RECUE : %s\n",full_cmd);
 		code_cmd(full_cmd);
 		printf("COMMANDE CODEE : %s\n",full_cmd);
+		full_cmd = remove_space(full_cmd);
 		syntaxe_cmd(full_cmd);
 		full_cmd = clean_cmd(full_cmd);
-		printf("COMMANDE CLEAN : %s\n",full_cmd);
+		printf("COMMANDE CLEAN : %s\n\n",full_cmd);
 		parse_input(full_cmd);
 		minishell.status = 1;
 	}

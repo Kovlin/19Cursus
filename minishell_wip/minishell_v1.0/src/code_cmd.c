@@ -6,7 +6,7 @@
 /*   By: rlinkov <rlinkov@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/20 14:13:53 by rlinkov           #+#    #+#             */
-/*   Updated: 2021/04/28 12:51:03 by rlinkov          ###   ########.fr       */
+/*   Updated: 2021/04/30 16:56:51 by rlinkov          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,8 @@ int     is_token(char c)
         return (LCHEVRON);
     else if (c == '>')
         return (RCHEVRON);
+    else if (c == ' ')
+        return (SPACE);
     return (0);
 }
 
@@ -121,6 +123,14 @@ void    handle_rchevron(int i, char *full_cmd, int *sq, int *dq)
     }
 }
 
+void    handle_space(int i, char *full_cmd, int *sq, int *dq)
+{
+    if ((*sq % 2) == 0 && (*dq %2) == 0) //si ni les simples ni les doubles quotes ne sont ouvertes
+    {
+        full_cmd[i] = SPACE; //nous permet de différencier les espaces servant a separer les cmd et leurs arguments des espaces literal
+    }
+}
+
 void    check_token(int i, char *full_cmd, int *sq, int *dq)
 {
     int token;
@@ -152,6 +162,8 @@ void    check_token(int i, char *full_cmd, int *sq, int *dq)
             handle_lchevron(i, full_cmd, sq, dq);
         else if (token == RCHEVRON)
             handle_rchevron(i, full_cmd, sq, dq);
+        else if (token == SPACE)
+            handle_space(i, full_cmd, sq, dq);
     }
 }
 

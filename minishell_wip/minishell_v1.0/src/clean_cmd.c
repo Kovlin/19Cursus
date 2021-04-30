@@ -6,7 +6,7 @@
 /*   By: rlinkov <rlinkov@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/28 12:42:55 by rlinkov           #+#    #+#             */
-/*   Updated: 2021/04/30 14:13:33 by rlinkov          ###   ########.fr       */
+/*   Updated: 2021/04/30 17:00:01 by rlinkov          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,6 +79,39 @@ char    *remove_char(char *full_cmd, int c)
     free(full_cmd);
     clean_cmd = join_cmd(strs);
     free_split(strs);
+    return (clean_cmd);
+}
+
+char    *remove_space(char *full_cmd)
+{
+    char **strs;
+    char *clean_cmd;
+    int i;
+    
+    i = 0;
+    while (full_cmd[i] == SPACE)
+    {
+        full_cmd[i] = SPACERM;
+        i++;
+    }
+    while (full_cmd[i] != 0)
+    {
+        if (full_cmd[i] == PIPE || full_cmd[i] == SEMICOLON)
+        {
+            i++;
+            while(full_cmd[i] == SPACE && full_cmd[i])
+            {
+                full_cmd[i] = SPACERM;
+                i++;
+            }
+        }
+        else
+            i++;
+    }
+    strs = ft_split_msh(full_cmd, SPACERM);
+    free(full_cmd);
+    clean_cmd = join_cmd(strs);
+    free(strs);
     return (clean_cmd);
 }
 

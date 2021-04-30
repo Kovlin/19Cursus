@@ -6,7 +6,7 @@
 #    By: rlinkov <rlinkov@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/04/28 17:09:16 by rlinkov           #+#    #+#              #
-#    Updated: 2021/04/28 17:41:18 by rlinkov          ###   ########.fr        #
+#    Updated: 2021/04/30 17:06:00 by rlinkov          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,7 +20,8 @@ LIBFT		:= ./libft/libft.a
 
 INCLUDE 	:= 	-Iinclude/
 
-SRCS		:=	main.c ./src/clean_cmd.c ./src/code_cmd.c ./src/error.c ./src/ft_split_msh.c ./src/prompt.c ./src/syntaxe_cmd.c
+SRCS		:=	main.c ./src/clean_cmd.c ./src/code_cmd.c ./src/error.c ./src/ft_split_msh.c ./src/prompt.c ./src/syntaxe_cmd.c\
+				./src/exec.c
 
 OBJ			:=	$(SRCS:%.c=%.o)
 
