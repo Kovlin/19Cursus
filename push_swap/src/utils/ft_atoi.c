@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_atoi.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rlinkov <rlinkov@student.s19.be>           +#+  +:+       +#+        */
+/*   By: rlinkov <rlinkov@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/10 15:51:29 by rlinkov           #+#    #+#             */
-/*   Updated: 2021/05/14 12:47:29 by rlinkov          ###   ########.fr       */
+/*   Updated: 2021/05/18 15:25:36 by rlinkov          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ int			is_number(char c)
 
 int			ft_atoi(const char *str)
 {
-	unsigned int	number;
+	unsigned long	number;
 	int				signe;
 
 	signe = 1;

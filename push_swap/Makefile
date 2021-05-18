@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: rlinkov <rlinkov@student.s19.be>           +#+  +:+       +#+         #
+#    By: rlinkov <rlinkov@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/04/28 17:09:16 by rlinkov           #+#    #+#              #
-#    Updated: 2021/05/17 18:27:00 by rlinkov          ###   ########.fr        #
+#    Updated: 2021/05/18 16:52:14 by rlinkov          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -21,11 +21,17 @@ RM 			:=	/bin/rm -f
 INCLUDE 	:= 	-Iinclude/
 
 SRCS		:=	push_swap.c \
-				./src/ft_atoi.c \
-				./src/ft_putendl_fd.c \
-				./src/init_stack.c \
-				./src/error.c \
-				./src/swap.c \
+				./src/utils/ft_atoi.c \
+				./src/utils/ft_putendl_fd.c \
+				./src/utils/init_stack.c \
+				./src/utils/is_sorted.c \
+				./src/utils/error.c \
+				./src/opperations/swap.c \
+				./src/opperations/push.c \
+				./src/opperations/rotate.c \
+				./src/opperations/rev_rotate.c \
+				./src/sort/sort_stack.c \
+				./src/sort/sort_5.c \
 
 OBJ			:=	$(SRCS:%.c=%.o)
 
