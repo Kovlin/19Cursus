@@ -6,7 +6,7 @@
 /*   By: rlinkov <rlinkov@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/18 12:43:35 by rlinkov           #+#    #+#             */
-/*   Updated: 2021/05/18 19:08:06 by rlinkov          ###   ########.fr       */
+/*   Updated: 2021/05/19 13:15:40 by rlinkov          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,6 @@ void push_a(t_stack *stack_a, t_stack *stack_b)
 void push_b(t_stack *stack_a, t_stack *stack_b)
 {
     int i;
-    printf("size spush_b IN : %d\n", stack_a->size);
     if (stack_a->size  == 0)
         return ;
     i = 0;
@@ -46,5 +45,4 @@ void push_b(t_stack *stack_a, t_stack *stack_b)
     stack_b->size++;
     stack_a->size--;
     ft_putendl_fd("pb", 1);
-    printf("size spush_b OUT : %d\n", stack_a->size);
 }

@@ -6,7 +6,7 @@
 #    By: rlinkov <rlinkov@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/04/28 17:09:16 by rlinkov           #+#    #+#              #
-#    Updated: 2021/05/18 16:52:14 by rlinkov          ###   ########.fr        #
+#    Updated: 2021/05/19 16:38:54 by rlinkov          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -32,6 +32,7 @@ SRCS		:=	push_swap.c \
 				./src/opperations/rev_rotate.c \
 				./src/sort/sort_stack.c \
 				./src/sort/sort_5.c \
+				./src/sort/sort_100.c \
 
 OBJ			:=	$(SRCS:%.c=%.o)
 

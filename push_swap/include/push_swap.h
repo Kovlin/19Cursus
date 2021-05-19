@@ -6,7 +6,7 @@
 /*   By: rlinkov <rlinkov@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/14 11:56:28 by rlinkov           #+#    #+#             */
-/*   Updated: 2021/05/18 18:42:29 by rlinkov          ###   ########.fr       */
+/*   Updated: 2021/05/19 16:37:08 by rlinkov          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,7 +60,8 @@ void    rev_rot_r(t_stack *stack_a, t_stack *stack_b);
 
 void	sort_stack(t_stack *stack_a, t_stack *stack_b);
 int		find_min(t_stack *stack);
-void	sort_5(t_stack *stack_a, t_stack *stack_b);
+void	sort_5_or_less(t_stack *stack_a, t_stack *stack_b);
+void	sort_100_or_less(t_stack *stack_a, t_stack *stack_b);
 
 /*
 ** - LISTE DES FONCTIONS UTILITAIRES

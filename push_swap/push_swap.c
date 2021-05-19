@@ -6,7 +6,7 @@
 /*   By: rlinkov <rlinkov@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/14 11:41:08 by rlinkov           #+#    #+#             */
-/*   Updated: 2021/05/18 16:56:35 by rlinkov          ###   ########.fr       */
+/*   Updated: 2021/05/19 16:49:56 by rlinkov          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,9 +40,9 @@ int main(int argc, char **argv)
         init_stack(argc, argv, &stack_a, &stack_b);
         if (is_sorted(&stack_a) == 1)
             return (0);
-        display_stack(&stack_a, &stack_b); //a enlever
+        //display_stack(&stack_a, &stack_b); //a enlever
         sort_stack(&stack_a, &stack_b);
-        display_stack(&stack_a, &stack_b); //a enlever
+        //display_stack(&stack_a, &stack_b); //a enlever
         free(stack_a.nbr);
         free(stack_b.nbr);
     }
