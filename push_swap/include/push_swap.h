@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rlinkov <rlinkov@student.42.fr>            +#+  +:+       +#+        */
+/*   By: rlinkov <rlinkov@student.s19.be>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/14 11:56:28 by rlinkov           #+#    #+#             */
-/*   Updated: 2021/05/21 18:37:46 by rlinkov          ###   ########.fr       */
+/*   Updated: 2021/05/22 00:49:36 by rlinkov          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,8 +32,6 @@ typedef	struct	s_stack
 /*
 ** - LISTE DES FONCTIONS
 */
-
-void	init_stack(int argc, char **argv, t_stack *stack_a, t_stack *stack_b);
 
 /*
 ** - LISTE DES FONCTIONS AGISSANT SUR LES STACKS
@@ -69,6 +67,7 @@ int		find_median(t_stack *stack_a , int div_median);
 ** - LISTE DES FONCTIONS UTILITAIRES
 */
 
+void	init_stack(int argc, char **argv, t_stack *stack_a, t_stack *stack_b);
 void    handle_error();
 int     ft_atoi(const char *str);
 void	ft_putendl_fd(char *s, int fd);
