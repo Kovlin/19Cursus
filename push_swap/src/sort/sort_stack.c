@@ -6,7 +6,7 @@
 /*   By: rlinkov <rlinkov@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/18 15:59:23 by rlinkov           #+#    #+#             */
-/*   Updated: 2021/05/19 16:47:31 by rlinkov          ###   ########.fr       */
+/*   Updated: 2021/05/21 18:41:37 by rlinkov          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,22 @@ int     find_min(t_stack *stack)
         i++;
     }
     return (min);
+}
+
+int     find_max(t_stack *stack)
+{
+    int max;
+    int i;
+    
+    max = stack->nbr[0];
+    i = 1;
+    while (i < stack->size)
+    {
+        if (stack->nbr[i] > max)
+            max = stack->nbr[i];
+        i++;
+    }
+    return (max);
 }
 
 void    sort_stack(t_stack *stack_a, t_stack *stack_b)

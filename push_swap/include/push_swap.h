@@ -6,7 +6,7 @@
 /*   By: rlinkov <rlinkov@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/14 11:56:28 by rlinkov           #+#    #+#             */
-/*   Updated: 2021/05/19 16:37:08 by rlinkov          ###   ########.fr       */
+/*   Updated: 2021/05/21 18:37:46 by rlinkov          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,7 @@ void	push_a(t_stack *stack_a, t_stack *stack_b);
 void	push_b(t_stack *stack_a, t_stack *stack_b);
 
 void    rotate_a(t_stack *stack_a, int print);
-void    rotate_b(t_stack *stack_a, int print);
+void    rotate_b(t_stack *stack_b, int print);
 void    rotate_r(t_stack *stack_a, t_stack *stack_b);
 
 void    rev_rot_a(t_stack *stack_a, int print);
@@ -60,8 +60,10 @@ void    rev_rot_r(t_stack *stack_a, t_stack *stack_b);
 
 void	sort_stack(t_stack *stack_a, t_stack *stack_b);
 int		find_min(t_stack *stack);
+int		find_max(t_stack *stack);
 void	sort_5_or_less(t_stack *stack_a, t_stack *stack_b);
 void	sort_100_or_less(t_stack *stack_a, t_stack *stack_b);
+int		find_median(t_stack *stack_a , int div_median);
 
 /*
 ** - LISTE DES FONCTIONS UTILITAIRES
