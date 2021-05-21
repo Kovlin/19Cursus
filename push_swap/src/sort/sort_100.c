@@ -6,7 +6,7 @@
 /*   By: rlinkov <rlinkov@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/19 16:37:43 by rlinkov           #+#    #+#             */
-/*   Updated: 2021/05/21 19:39:27 by rlinkov          ###   ########.fr       */
+/*   Updated: 2021/05/21 19:51:16 by rlinkov          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,31 +33,6 @@ void	sort_int(int *sorted_stack, int size)
 	}
 }
 
-void    rev_or_rot_a(t_stack *stack, int max)
-{
-    int pos;
-    
-    pos = 0;
-    while (stack->nbr[stack->size - 1 - pos] != max)
-        pos++;
-    if (pos > (stack->size / 2))
-    {
-        pos = stack->size - pos;
-        while (pos)
-        {
-            rev_rot_a(stack, 1);
-            pos--;
-        }
-    }
-    else 
-    {
-        while(pos)
-        {
-            rotate_a(stack, 1);
-            pos--;
-        }
-    }
-}
 void    rev_or_rot_b(t_stack *stack, int max)
 {
     int pos;
@@ -116,14 +91,9 @@ void	solve_median_above(t_stack *stack_a, t_stack *stack_b, int median)
 	while (i < len_chunk)
 	{
 		if (stack_a->nbr[stack_a->size - 1] > median)
-        {
             push_b(stack_a, stack_b);
-        }
 		else
-        {
-            max = find_max(stack_a);
-		    rev_or_rot_a(stack_a, max);
-        }
+		    rotate_a(stack_a, 1);
         i++;
 	}
 	while (stack_b->size)
@@ -149,15 +119,9 @@ void    sort_100_or_less(t_stack *stack_a, t_stack *stack_b)
 	while (i < len_chunk)
 	{
 		if (stack_a->nbr[stack_a->size - 1] <= median)
-        {
             push_b(stack_a, stack_b);
-        }
 		else
-        {
-            max = find_max(stack_a);
-            rev_or_rot_a(stack_a, max);
             rotate_a(stack_a, 1);
-        }
         i++;
 	}
 	while (stack_b->size)
