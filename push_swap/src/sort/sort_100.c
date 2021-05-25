@@ -6,7 +6,7 @@
 /*   By: rlinkov <rlinkov@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/19 16:37:43 by rlinkov           #+#    #+#             */
-/*   Updated: 2021/05/21 19:51:16 by rlinkov          ###   ########.fr       */
+/*   Updated: 2021/05/25 16:49:44 by rlinkov          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,7 +59,7 @@ void    rev_or_rot_b(t_stack *stack, int max)
     }
 }
 
-int	find_median(t_stack *stack_a, int div_median)
+int	find_median(t_stack *stack_a, int pos_median)
 {
 	int                         *sorted_stack;
 	int							i;
@@ -75,7 +75,7 @@ int	find_median(t_stack *stack_a, int div_median)
 		i++;
 	}
 	sort_int(sorted_stack, stack_a->size);
-	median = sorted_stack[stack_a->size / div_median];
+	median = sorted_stack[pos_median];
 	free(sorted_stack);
 	return (median);
 }
@@ -106,28 +106,29 @@ void	solve_median_above(t_stack *stack_a, t_stack *stack_b, int median)
 
 void    sort_100_or_less(t_stack *stack_a, t_stack *stack_b)
 {
-	int	median;
+	// int	median;
 
-	median = find_median(stack_a, 2);
-	solve_median_above(stack_a, stack_b, median);
-    int	i;
-    int len_chunk;
-	int	max;
+	// median = find_median(stack_a, stack_a->size / 2);
+	// solve_median_above(stack_a, stack_b, median);
+	// int	i;
+	// int len_chunk;
+	// int	max;
 
-	i = 0;
-    len_chunk = stack_a->size;
-	while (i < len_chunk)
-	{
-		if (stack_a->nbr[stack_a->size - 1] <= median)
-            push_b(stack_a, stack_b);
-		else
-            rotate_a(stack_a, 1);
-        i++;
-	}
-	while (stack_b->size)
-	{
-		max = find_max(stack_b);
-		rev_or_rot_b(stack_b, max);
-		push_a(stack_a, stack_b);
-	}
+	// i = 0;
+	// len_chunk = stack_a->size;
+	// while (i < len_chunk)
+	// {
+	// 	if (stack_a->nbr[stack_a->size - 1] <= median)
+	//         push_b(stack_a, stack_b);
+	// 	else
+	//         rotate_a(stack_a, 1);
+	//     i++;
+	// }
+	// while (stack_b->size)
+	// {
+	// 	max = find_max(stack_b);
+	// 	rev_or_rot_b(stack_b, max);
+	// 	push_a(stack_a, stack_b);
+	// }
+	sort_rest(stack_a, stack_b);
 }

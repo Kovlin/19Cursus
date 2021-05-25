@@ -6,7 +6,7 @@
 /*   By: rlinkov <rlinkov@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/18 15:59:23 by rlinkov           #+#    #+#             */
-/*   Updated: 2021/05/21 18:41:37 by rlinkov          ###   ########.fr       */
+/*   Updated: 2021/05/25 14:51:17 by rlinkov          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,6 +51,5 @@ void    sort_stack(t_stack *stack_a, t_stack *stack_b)
     else if (stack_a->size <= 100)
         sort_100_or_less(stack_a, stack_b);
     else
-        sort_100_or_less(stack_a, stack_b);
-    
+        sort_rest(stack_a, stack_b);
 }
