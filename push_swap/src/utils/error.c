@@ -6,14 +6,14 @@
 /*   By: rlinkov <rlinkov@student.s19.be>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/14 12:00:16 by rlinkov           #+#    #+#             */
-/*   Updated: 2021/05/14 12:01:13 by rlinkov          ###   ########.fr       */
+/*   Updated: 2021/05/25 17:18:57 by rlinkov          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void    handle_error()
+void	handle_error(void)
 {
-    write(2, "Error\n", 7);
-    exit(EXIT_FAILURE);
+	write(2, "Error\n", 7);
+	exit(EXIT_FAILURE);
 }

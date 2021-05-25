@@ -6,7 +6,7 @@
 /*   By: rlinkov <rlinkov@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/10 15:51:29 by rlinkov           #+#    #+#             */
-/*   Updated: 2021/05/18 15:25:36 by rlinkov          ###   ########.fr       */
+/*   Updated: 2021/05/25 17:19:31 by rlinkov          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,16 +19,16 @@ static int	ft_is_white_space(char c)
 	return (0);
 }
 
-int			is_number(char c)
+int	is_number(char c)
 {
 	if (c >= '0' && c <= '9')
-		return(1);
+		return (1);
 	else if (c != '\0')
 		handle_error();
 	return (0);
 }
 
-int			ft_atoi(const char *str)
+int	ft_atoi(const char *str)
 {
 	unsigned long	number;
 	int				signe;
