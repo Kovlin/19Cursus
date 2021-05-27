@@ -62,4 +62,4 @@ Vous trouverez our_mini_paint afin de vous aider à tester ainsi que des fichier
 
 Astuce:
 Si 2 points définis par (Xa, Ya) et (Xb, Yb)
-Pour calculer la distance entre les deux points il suffit d'utiliser la formule suivante: srqt((Xa - Xb) * (Xa - Xb) + (Ya - Yb) * (Ya - Yb))
+Pour calculer la distance entre les deux points il suffit d'utiliser la formule suivante: sqrt((Xa - Xb) * (Xa - Xb) + (Ya - Yb) * (Ya - Yb))
