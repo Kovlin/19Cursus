@@ -6,7 +6,7 @@
 /*   By: rlinkov <rlinkov@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/27 15:05:58 by rlinkov           #+#    #+#             */
-/*   Updated: 2021/05/27 17:01:44 by rlinkov          ###   ########.fr       */
+/*   Updated: 2021/05/28 10:29:27 by rlinkov          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,9 +85,9 @@ int in_circle(float x, float y, t_shape *shape)
     distance = sqrtf(powf(x - shape->x, 2.) + powf(y - shape->y, 2.));
     if (distance <= shape->radius)
     {
-        if (shape->radius - distance < 1.00000000) // si le point n'est pas sur le bord
+        if (shape->radius - distance < 1.00000000) // si le point est sur le bord
             return (2);
-        return (1); //si le point est sur le bord
+        return (1); //si le point n'est pas sur le bord
     }
     return (0); //quand pas dans le cercle
 }
@@ -105,7 +105,7 @@ void    draw_shape(char *drawing, t_shape *shape, t_zone *zone)
         while (x < zone->width)
         {
             is_it = in_circle((float)x, (float)y, shape);
-            if ((is_it && shape->type == 'C') || (is_it == 2 && shape->type == 'c'))
+            if ((is_it && shape->type == 'C') || (is_it == 2))
             {
                 drawing[(y * zone->width) + x] = shape->color;
             }
