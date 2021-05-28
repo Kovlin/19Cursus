@@ -6,7 +6,7 @@
 /*   By: rlinkov <rlinkov@student.s19.be>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/27 15:05:58 by rlinkov           #+#    #+#             */
-/*   Updated: 2021/05/28 00:08:05 by rlinkov          ###   ########.fr       */
+/*   Updated: 2021/05/28 00:08:52 by rlinkov          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -108,6 +108,7 @@ void draw_shape(char *drawing, t_zone *zone, t_shape *shape)
         while (x < zone->width)
         {
             is_in = in_rectangle((float)x, (float)y, shape);
+            // ((is_in == 2) || ((is_in == 1 && (rect->type == 'R'))))
             if ((is_in == 2) || ((is_in == 1 && (shape->type == 'R'))))
                 drawing[(y * zone->width) + x] = shape->color;
             x++;

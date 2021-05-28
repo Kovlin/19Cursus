@@ -109,7 +109,7 @@ void draw_shape(char *drawing, t_zone *zone, t_shape *shape)
         {
             is_in = in_rectangle((float)x, (float)y, shape);
             // ((is_in == 2) || ((is_in == 1 && (rect->type == 'R'))))
-            if (is_in || (is_in == 2 && shape->color == 'r'))
+            if ((is_in == 2) || ((is_in == 1 && (shape->type == 'R'))))
                 drawing[(y * zone->width) + x] = shape->color;
             x++;
         }
