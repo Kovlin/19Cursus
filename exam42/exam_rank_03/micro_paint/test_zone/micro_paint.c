@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   micro_paint.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rlinkov <rlinkov@student.42.fr>            +#+  +:+       +#+        */
+/*   By: rlinkov <rlinkov@student.s19.be>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/27 15:05:58 by rlinkov           #+#    #+#             */
-/*   Updated: 2021/05/27 18:49:29 by rlinkov          ###   ########.fr       */
+/*   Updated: 2021/05/28 00:08:05 by rlinkov          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,7 +56,7 @@ int clear_all(char *drawing, FILE *file, char *str)
     if (drawing)
         free(drawing);
     if (str)
-        handle_error(str);
+        return(handle_error(str));
     return (0);
 }
 
@@ -85,8 +85,9 @@ char *get_zone(t_zone *zone, FILE *file)
 
 int in_rectangle(float x, float y, t_shape *shape)
 {
-    if (shape->x <= x && x <= shape->width && shape->y <= y && y <= shape->height)
+    if (shape->x <= x && x <= shape->width + shape->x && shape->y <= y && y <= shape->height + shape->y)
     {
+        //x >= r.px && x <= r.px + r.xsize && y >= r.py && y <= r.py + r.ysize
         if (x - shape->x < 1.00000000 || y - shape->y < 1.00000000 || (shape->x + shape->width) - x < 1.000000000 || (shape->y + shape->height) - y < 1.00000000)
             return (2);
         return (1);
@@ -107,7 +108,7 @@ void draw_shape(char *drawing, t_zone *zone, t_shape *shape)
         while (x < zone->width)
         {
             is_in = in_rectangle((float)x, (float)y, shape);
-            if (is_in || (is_in == 2 && shape->color == 'r'))
+            if ((is_in == 2) || ((is_in == 1 && (shape->type == 'R'))))
                 drawing[(y * zone->width) + x] = shape->color;
             x++;
         }
@@ -122,7 +123,7 @@ int draw_shapes(char *drawing, t_zone *zone, FILE *file)
 
     while ((ret = fscanf(file, "%c %f %f %f %f %c\n", &shape.type, &shape.x, &shape.y, &shape.width, &shape.height, &shape.color)) == 6)
     {
-        if (shape.width < 0.00000000 || shape.height < 0.00000000 || (shape.type != 'r' && shape.type != 'R'))
+        if (shape.width <= 0.00000000 || shape.height <= 0.00000000 || (shape.type != 'r' && shape.type != 'R'))
             return (0);
         draw_shape(drawing, zone, &shape);
     }
