@@ -19,7 +19,7 @@ def print_state():
 	}
     list_arg = string.split(',')
     for x in list_arg:
-        if not x.isspace():
+        if not x.isspace() and len(x) != 0:
             x =  " ".join(x.split())
             to_print = x + " is neither a capital city nor a state"
             for key, value in capital_cities.items():
