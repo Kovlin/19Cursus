@@ -2,56 +2,30 @@
 <html>
   <head>
     <title>Contact form</title>
-    <script LANGUAGE="JavaScript" type="text/javascript">
-        function displayFormContents() {
-
-        var out = '';
-
-        out += 'Firstname = ' + document.getElementById('firstname').value + '\n';
-        out += 'Name = '      + document.getElementById('name').value      + '\n';
-        out += 'Phone = '     + document.getElementById('phone').value     + '\n';
-        out += 'Age = '       + document.getElementById('age').value       + '\n';
-        out += 'Email = '     + document.getElementById('email').value     + '\n';
-
-        out += 'Gender = ';
-        if (document.getElementById('gender_male').checked == true)
-            out += document.getElementById('gender_male').value;
-        if (document.getElementById('gender_female').checked == true)
-            out += document.getElementById('gender_female').value;
-        if (document.getElementById('gender_other').checked == true)
-            out += document.getElementById('gender_other').value;
-        out += '\n';
-
-        if (document.getElementById('student').checked == true)
-            out += 'Student at 42 = yes';
-        else
-            out += 'Student at 42 = no';
-
-        alert(out);
-}
+    <script src="popup.js"></script>
     </script>
   </head>
   <body>
     <form\>
         <label for="firstname">Firstname :</label>
-        <input type="text" id="firstname"><br>
+        <input type="text" id="firstname" required><br>
         <label for="name">Name :</label>
-        <input type="text" id="name"><br>
+        <input type="text" id="name" required><br>
         <label for="age">Age :</label>
-        <input type="number" id="age"><br>
+        <input type="number" id="age" required><br>
         <label for="phone">Phone :</label>
-        <input type="tel" id="phone"><br> 
-        <label for="mail">EMail :</label>
-        <input type="email" id="email"><br>
+        <input type="tel" id="phone" required><br> 
+        <label for="mail">Email :</label>
+        <input type="email" id="email" required><br>
         <label for="42student">Student at 42 ?</label>
-        <input type="checkbox" id="student"><br>
-        <input type="radio" id="gender_male" value="male" name="gender">
+        <input type="checkbox" id="student" required><br>
+        <input type="radio" id="gender_male" value="male" name="gender" checked>
         <label for="gender_male">Male</label>
         <input type="radio" id="gender_female" value="female" name="gender">
         <label for="gender_female">Female</label>
         <input type="radio" id="gender_other" value="other" name="gender">
         <label for="gender_other">Other</label><br>
-        <input type="submit" onclick="displayFormContents();">
+        <input type="submit" onclick="displayFormContents();" required>
       </form> 
   </body>
 </html>
