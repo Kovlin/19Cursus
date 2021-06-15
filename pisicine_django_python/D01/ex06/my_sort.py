@@ -1,3 +1,6 @@
+def take_second(elem):
+    return elem[1]
+
 def sort_dict():
     d = {
     'Hendrix' : '1942',
@@ -21,12 +24,10 @@ def sort_dict():
     'Thompson' : '1949',
     'Burton' : '1939',
     }
-    to_print = "Unknown State"
-    state = sys.argv[1]
-    if state in states:
-        if states[state] in capital_cities:
-            to_print = capital_cities[states[state]]
-    print (to_print)
+    new = sorted(d.items())
+    new.sort(key = take_second)
+    for elem in new:
+        print(elem[0])
 
 if __name__ == '__main__':
 	sort_dict()
