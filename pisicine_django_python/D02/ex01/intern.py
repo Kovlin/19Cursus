@@ -1,27 +1,35 @@
-def classe_interne():
+class Intern:
     
-    if len(sys.argv) != 2:
-        print("Enter one and only one argument")
-        sys.exit(1)
-    filepath = sys.argv[1]
-    if not os.path.exists(filepath):
-        print("File not found")
-        sys.exit(1)
-    if not os.path.isfile(filepath):
-        print("Path is not a file")
-    elif not filepath.endswith('.template'):
-        print("Wrong file extension")
-        sys.exit(1)
-    file = open(filepath, "r")
-    cv_content = file.read()
-    file.close()
-    cv_content = cv_content.format(title = settings.title, name = settings.name, 
-        surname = settings.surname, age = settings.age, job = settings.job)
-    file = open("rlinkov_cv.html", "w")
-    file.write(cv_content)
-    file.close()
+    class Coffee:
+        def __str__(self):
+            return "This is the worst coffee you ever tasted."
+
+    def __init__(self, Name="My name? I’m nobody, an intern, I have no name."):
+        self.Name = Name
+    
+    def __str__(self):
+        return self.Name
+
+    def work(self):
+        raise Exception("I’m just an intern, I can’t do that...")
+
+    def make_coffee(self):
+        return Intern.Coffee()
+
+def test_intern():
+    
+    intern = Intern()
+    mark = Intern("Mark")
+
+    print(intern)
+    print(mark)
+
+    try :
+        mark.work()
+    except Exception as e:
+        print(e)
+    
+    print(mark.make_coffee())
 
 if __name__ == '__main__':
-	classe_interne()
-
-class Intern:
+    test_intern()
