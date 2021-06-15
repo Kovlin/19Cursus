@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <title>{title}</title>
+  </head>
+  <body>
+    <h1>{title}</h1>
+    <table>
+      <tr>
+        <th>Nom</th>
+        <td>{name}</td>
+      </tr>
+      <tr>
+        <th>Prénom</th>
+        <td>{surname}</td>
+      </tr>
+      <tr>
+        <th>Age</th>
+        <td>{age}</td>
+      </tr>
+      <tr>
+        <th>Profession</th>
+        <td>{job}</td>
+      </tr>
+    </table>
+  </body>
+</html>

@@ -1,0 +1,5 @@
+title = "rlinkov's resume"
+name = "Linkov"
+surname = "Romain"
+age = "26"
+job = "developper at 19 Coding School"
