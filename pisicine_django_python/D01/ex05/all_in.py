@@ -3,8 +3,6 @@ def print_state():
     if len(sys.argv) != 2:
         sys.exit(1)
     string = sys.argv[1]
-    if ",," in string:
-        sys.exit(1)
     states = {
 		"Oregon":"OR",
 		"Alabama":"AL",
