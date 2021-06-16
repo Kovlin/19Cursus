@@ -1,3 +1,5 @@
+#!/usr/bin/python3
+
 import random, beverages
 
 class CoffeeMachine():
@@ -9,9 +11,7 @@ class CoffeeMachine():
         
         name = "empty cup"
         price = 0.90
-        
-        def description(self):
-            return "An empty cup?! Gimme my money back!"
+        desc = "An empty cup?! Gimme my money back!"
     
     class BrokenMachineException(Exception):
         def __init__(self):

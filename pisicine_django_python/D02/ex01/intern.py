@@ -1,3 +1,5 @@
+#!/usr/bin/python3
+
 class Intern:
     
     class Coffee:

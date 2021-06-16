@@ -1,3 +1,5 @@
+#!/usr/bin/python3
+
 class HotBeverage:
 
     name = "hot beverage"
