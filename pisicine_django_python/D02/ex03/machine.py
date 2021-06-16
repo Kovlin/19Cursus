@@ -1,13 +1,14 @@
 #!/usr/bin/python3
 
-import random, beverages
+import random
+from beverages import HotBeverage, Coffee, Tea, Cappuccino, Chocolate
 
 class CoffeeMachine():
     
     def __init__(self):
         self.count = 0
 
-    class EmptyCup(beverages.HotBeverage):
+    class EmptyCup(HotBeverage):
         
         name = "empty cup"
         price = 0.90
@@ -37,7 +38,7 @@ def test_machine():
     coffeeMachine = CoffeeMachine()
     for _ in range(23):
         try:
-            print(coffeeMachine.serve(random.choice([beverages.Coffee(), beverages.Tea(), beverages.Cappuccino(), beverages.Chocolate()])))
+            print(coffeeMachine.serve(random.choice([Coffee(), Tea(), Cappuccino(), Chocolate()])))
         except coffeeMachine.BrokenMachineException as e:
             print(e)
             coffeeMachine.repair()
