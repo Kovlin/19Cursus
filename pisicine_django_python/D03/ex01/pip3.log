@@ -1,0 +1,16 @@
+Collecting git+https://github.com/jaraco/path
+  Cloning https://github.com/jaraco/path to /private/var/folders/zz/zyxvpxvq6csfxvn_n0007dmm001vd5/T/pip-req-build-u1sdqvi1
+  Installing build dependencies: started
+  Installing build dependencies: finished with status 'done'
+  Getting requirements to build wheel: started
+  Getting requirements to build wheel: finished with status 'done'
+    Preparing wheel metadata: started
+    Preparing wheel metadata: finished with status 'done'
+Building wheels for collected packages: path
+  Building wheel for path (PEP 517): started
+  Building wheel for path (PEP 517): finished with status 'done'
+  Created wheel for path: filename=path-16.0.0-py3-none-any.whl size=21319 sha256=571877e277455f621c308bcfe35045974ae2863bdeec0fb5e90c890c6d39534b
+  Stored in directory: /private/var/folders/zz/zyxvpxvq6csfxvn_n0007dmm001vd5/T/pip-ephem-wheel-cache-ypfkhzzb/wheels/5b/ea/22/4970534f02a9d568e6974a92d1bae7d30c249a02f02bf5677e
+Successfully built path
+Installing collected packages: path
+Successfully installed path-16.0.0
