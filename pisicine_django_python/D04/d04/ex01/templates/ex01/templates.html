@@ -5,6 +5,10 @@
     Ex01: Template engine
 {% endblock title %}
 
+{% block style %}
+    <link rel="stylesheet" type="text/css" href="{% static 'ex01/style2.css' %}">
+{% endblock style %}
+
 {% block content %}
     <h1>Templates</h1>
     <p>Créer des templates :

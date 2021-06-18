@@ -5,10 +5,11 @@
   <head>
     <meta charset="UTF-8" />
     <title>{% block title %}{% endblock title %}</title>
-    {% block style%}{% endblock style%}
+    {% block style%}<link rel="stylesheet" type="text/css" href="{% static 'ex01/style1.css' %}">{% endblock style%}
   </head>
   <body>
     <div>
+        {% include 'ex01/nav.html' %}
         {% block content %}
         {% endblock content %}
     </div>

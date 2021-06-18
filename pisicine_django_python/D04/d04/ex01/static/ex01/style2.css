@@ -1,6 +1,6 @@
 h1          {
     font-family:  "Roboto", Corbel, Avenir, "Lucida Grande", "Lucida Sans", sans-serif;
-    color: blue;
+    color: red;
     font-size: 92px;
     padding: 80px 60px;
     text-align: center;
@@ -9,5 +9,5 @@ h1          {
 }
 p  {
     font-family:Palatino, "Palatino Linotype", "Book Antiqua", "Hoefler Text", Georgia, "Lucida Bright", Cambria, Times, "Times New Roman", serif;
-    color:blue;
+    color:red;
 }
