@@ -1,0 +1,28 @@
+{% extends 'ex01/base.html' %}
+{% load static %}
+
+{% block title %}
+    Ex01: Template engine
+{% endblock title %}
+
+{% block content %}
+    <h1>Templates</h1>
+    <p>Créer des templates :
+        <ul>
+        <li>On fait un fichier html template de base (par ex base.html) qu'on met dans le repertoire templates de l'app'</li>
+        <li>On y inclus des blocs comme <p>&#123;% block mon_bloc %&#125;</p> <p>du html...</p> <p>&#123;% endblock %&#125;</p> </li>
+        <li>On inclus dans les templates à construire sur cette base &#123;% extends 'base.html' %&#125;</li>
+        <li>On configures une route vers le template à construire dans le fichier urls.py de l'app' qui pointe sur une vue</li>
+        <li>dans cette vue, on fait appel à la fonction render() en lui passant le template en parametre...</li>
+        </ul>
+        Ensuite, dans ce template à construire on inclus les différents blocs à réécrire du template de base en utilisant par exemple :
+        <ul>
+        <li>la réécriture d'un bloc en redefinissant <p>&#123;% block mon_bloc %&#125;</p> <p>Le html qui remplacera celui du template de base</p> <p>&#123;% endblock %&#125;</p></li> </li>
+        <li>on peut y inclure des variables avec &#123;&#123; ma_variable &#125;&#125;</li>
+        <li>des boucles avec &#123;% for xx in yy %&#125;&#123;% end for %&#125;</li>
+        <li>des conditions avec &#123;% if mon_parametre == 2 %&#125;&#123;% endif %&#125;</li>
+        <li>de l'inclusion d'un autre template avec &#123;% include 'autre/template.html' %&#125;</li>
+        </ul>
+    </p> 
+       </ul>
+{% endblock content %}

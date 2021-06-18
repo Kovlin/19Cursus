@@ -1,0 +1,18 @@
+{% extends 'ex01/base.html' %}
+{% load static %}
+
+{% block content %}
+    <h1>
+    Les templates en mode statique : 
+    </h1>
+    <p>Comment les créer :</p>
+    <ul>
+    <li>On crée un fichier qui servira de template qu'on place dans les templates de l'app</li>
+    <li>On configure le path dans urls.py de l'app pour qu'il pointe vers la fonction qui permmettra de l'afficher dans views.py</li>
+    <li>On appelle la fonction render dans views.py avec les paramètres request et le chemin vers le html pour afficher la page</li>
+    </ul>
+{% endblock content %}
+
+{% block title %}
+    Ex01: Display process of a static page.
+{% endblock title %}
