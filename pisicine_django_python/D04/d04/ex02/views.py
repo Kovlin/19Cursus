@@ -8,7 +8,7 @@ def form(request):
     try:
         f = open(settings.LOGFILE, 'r')
         historic = [line for line in f.readlines() if line != '\n']
-        lst = [line.split(']')[1].strip() for line in historic if line != '\n']
+        lst = [line.replace('[', "").replace("'", "").replace(']', "") for line in historic if line != '\n']
         f.close()
     except:
         historic = []
