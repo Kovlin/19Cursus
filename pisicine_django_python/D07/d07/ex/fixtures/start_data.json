@@ -80,5 +80,29 @@
 			"synopsis": "Because I work with Django",
 			"content": "Integer imperdiet metus id elementum pharetra. Maecenas tincidunt ex sit amet nunc congue, laoreet porttitor quam faucibus. Proin non luctus sapien. Aenean aliquet suscipit massa eget lacinia. Ut eu justo ut quam congue tempus nec vitae nisi. Sed vestibulum dui vitae mauris accumsan, vel blandit eros porttitor. Proin varius malesuada ex, vitae posuere justo pharetra quis. Mauris tortor magna, vestibulum ut dapibus non, luctus eu elit. Phasellus egestas justo lorem, ut scelerisque neque vestibulum scelerisque. Phasellus maximus finibus posuere. Aliquam et risus lorem. Aenean ultrices ipsum ex, quis malesuada risus vehicula a. Nullam blandit fringilla magna at mattis. Maecenas ut quam porta, suscipit nulla ut, laoreet felis. Fusce eget dictum lectus."
 		}
+	},
+
+	{
+		"model": "ex.userfavoritearticle",
+		"pk": 5,
+		"fields": {
+            "title": "Why am I so tired ?",
+			"author": 1,
+			"created": "2020-01-01T23:28:56.782Z",
+			"synopsis": "Because I work with Django",
+			"content": "Integer imperdiet metus id elementum pharetra. Maecenas tincidunt ex sit amet nunc congue, laoreet porttitor quam faucibus. Proin non luctus sapien. Aenean aliquet suscipit massa eget lacinia. Ut eu justo ut quam congue tempus nec vitae nisi. Sed vestibulum dui vitae mauris accumsan, vel blandit eros porttitor. Proin varius malesuada ex, vitae posuere justo pharetra quis. Mauris tortor magna, vestibulum ut dapibus non, luctus eu elit. Phasellus egestas justo lorem, ut scelerisque neque vestibulum scelerisque. Phasellus maximus finibus posuere. Aliquam et risus lorem. Aenean ultrices ipsum ex, quis malesuada risus vehicula a. Nullam blandit fringilla magna at mattis. Maecenas ut quam porta, suscipit nulla ut, laoreet felis. Fusce eget dictum lectus."
+		}
+	},
+
+	{
+		"model": "ex.userfavoritearticle",
+		"pk": 5,
+		"fields": {
+            "title": "Why am I so tired ?",
+			"author": 1,
+			"created": "2020-01-01T23:28:56.782Z",
+			"synopsis": "Because I work with Django",
+			"content": "Integer imperdiet metus id elementum pharetra. Maecenas tincidunt ex sit amet nunc congue, laoreet porttitor quam faucibus. Proin non luctus sapien. Aenean aliquet suscipit massa eget lacinia. Ut eu justo ut quam congue tempus nec vitae nisi. Sed vestibulum dui vitae mauris accumsan, vel blandit eros porttitor. Proin varius malesuada ex, vitae posuere justo pharetra quis. Mauris tortor magna, vestibulum ut dapibus non, luctus eu elit. Phasellus egestas justo lorem, ut scelerisque neque vestibulum scelerisque. Phasellus maximus finibus posuere. Aliquam et risus lorem. Aenean ultrices ipsum ex, quis malesuada risus vehicula a. Nullam blandit fringilla magna at mattis. Maecenas ut quam porta, suscipit nulla ut, laoreet felis. Fusce eget dictum lectus."
+		}
 	}
 ]

@@ -1,29 +1,23 @@
-{% extends 'ex/base.html' %}
+{% extends 'ex/base.html' %} {% block title %}
 
-{% block title %}Articles{% endblock title %}
+{{ user.username }}'s Publications{% endblock title %}
 
 {% block content %}
-
+<h1>{{ user.username }}'s Publications</h1>
 <div>
-  <h1>Articles</h1>
-  <h3>Share your writings</h3>
   <div>
     <table>
       <tr>
         <th>title</th>
         <th>synopsis</th>
-        <th>author</th>
         <th>created</th>
-        {% comment %} <th>when</th> {% endcomment %}
         <th></th>
       </tr>
       {% for article in object_list %}
       <tr>
         <td>{{ article.title|truncatechars:20 }}</td>
         <td>{{ article.synopsis|truncatechars:20 }}</td>
-        <td>{{ article.author }}</td>
         <td>{{ article.created }}</td>
-        {% comment %} <td>{{ article.created|timesince}}</td> {% endcomment %}
         <td>
     	  <a href="{% url 'articles_detail' article.id %}">Read</a>
         </td>
@@ -32,4 +26,4 @@
     </table>
   </div>
 </div>
-{% endblock %}
+{% endblock content %}
