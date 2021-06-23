@@ -1,0 +1,40 @@
+<!--<nav class="navbar  bg-light">
+    <a href="{% url 'index' %}">  HOME </a>
+
+    <p> Hello {{ current_user }}</p>
+
+    <ul class="navbar-nav mr-auto">
+        <li class="nav-item active">
+          <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item">
+            <a href="{% url 'register' %}">  REGISTER </a>
+        </li>
+    </ul>
+
+</nav>-->
+
+<nav class="navbar navbar-default">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="{% url 'index' %}">
+        Life Pro Tips
+      </a>
+    </div>
+    <ul class="nav navbar-nav ">
+        {% if user.is_authenticated %}
+            <li class="col-3"><a href="{% url 'logout' %}">logout</a></li>
+        {% else %}
+            <li><a href="{% url 'login' %}">login</a></li>-->
+            <li class="col-3"><a href="{% url 'register' %}">register</a></li>
+        {% endif %}
+    </ul>
+    <ul class="nav navbar-nav " style="float:right">
+            {% if user.is_authenticated %}
+            <li> <a>Hello {{ user.username }}</a></li>
+            {% else %}
+            <li><a class="">Hello {{ current_user }}</a></li>
+            {% endif %}
+    </ul>
+  </div>
+</nav>

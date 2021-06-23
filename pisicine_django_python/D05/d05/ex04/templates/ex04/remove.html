@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Remove ex05_movies</title>
+	<meta charset="UTF-8">
+</head>
+<body>
+    <div >
+		<label for="movie-select">Choose a movie to remove:</label>
+		<form name="buttons" action="" method="post">
+        	{% csrf_token %}
+				<select name="Key">
+				{% for info in Films %}
+					<option value="{{ info.1 }}">{{ info.0 }}</option>
+				{% endfor %}
+                <input id="remove" name="btn_remove" type="submit" value="remove">
+				</select>
+    	</form>
+    </div>
+</body>
+</html>

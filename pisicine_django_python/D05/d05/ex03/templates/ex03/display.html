@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Display ex03_movies</title>
+    <meta charset="UTF-8">
+</head>
+<body>
+    <div >
+        <table>
+            <tbody>
+                <tr>
+                    <td>
+                        <p>Titre</p>
+                    <td>
+                    <td>
+                        <p>Episode</p>
+                    <td>
+                    <td>
+                        <p>Synopsis</p>
+                    <td>
+                    <td>
+                        <p>Director</p>
+                    <td>
+                    <td>
+                        <p>Producer</p>
+                    <td>
+                    <td>
+                        <p>Realease date</p>
+                    <td>
+                </tr>
+                {% for info in Films %}
+                        <tr>
+                            <td>
+                                <p> {{ info.title }} </p>
+                            <td>
+                            <td>
+                                <p> {{ info.episode_nb }} </p>
+                            <td>
+                            <td>
+                                {% if info.opening_crawl == None %}
+                                    <p>No data available</p>
+                                {% else %}
+                                    <p> {{ info.opening_crawl }} </p>
+                                {% endif %}
+                            <td>
+                            <td>
+                                <p> {{ info.director }} </p>
+                            <td>
+                            <td>
+                                <p> {{ info.producer }} </p>
+                            <td>
+                            <td>
+                                <p> {{ info.releasr_date }} </p>
+                            <td>
+                        </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>
