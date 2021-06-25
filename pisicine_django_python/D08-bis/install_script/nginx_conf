@@ -2,8 +2,8 @@ server {
     listen 443 ssl;
     listen [::]:443 ssl;
 
-    ssl_certificate /Users/ncolin/d08/ssl/d08.crt;
-	ssl_certificate_key /Users/ncolin/d08/ssl/d08.key;
+    ssl_certificate /Users/rlinkov/d08/ssl/d08.crt;
+	ssl_certificate_key /Users/rlinkov/d08/ssl/d08.key;
 
     client_max_body_size 75M;
 
@@ -11,10 +11,10 @@ server {
     charset     utf-8;
 
     location /media  {
-        alias /Users/ncolin/d08/media; 
+        alias /Users/rlinkov/d08/media; 
     }
     location /static {
-        alias /Users/ncolin/d08/static; 
+        alias /Users/rlinkov/d08/static; 
     }
     
     location / {
