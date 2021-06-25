@@ -1,0 +1,102 @@
+[
+    { "model": "auth.user",
+        "pk": 1,
+        "fields": {
+            "username": "romain",
+            "password": "pbkdf2_sha256$260000$jb1MN6kbzDR1gTACL2TI4D$vlNyCO4ysDZ03zSeqIbZiQmz/DEeGcY8E8NXycLQaaw="
+        }
+	},
+
+    { "model": "auth.user",
+        "pk": 2,
+        "fields": {
+            "username": "geralt",
+            "password": "pbkdf2_sha256$260000$9rSJYWlahOxwvg1pXZ5Yc5$MjZELwuJ9KuUxhPTcCz7tmLTvhyKJWPw/Chf0FBa9Sk="
+        }
+	},
+
+    { "model": "auth.user",
+        "pk": 3,
+        "fields": {
+            "username": "ciri",
+            "password": "pbkdf2_sha256$260000$7WBZcXteI5laf3OeY32A6T$Fx5deEdiZ88I8YQaXg23wcqLL2oawJfwCimawCcxr+A="
+        }
+	},
+
+    { "model": "ex.article",
+        "pk": 1,
+        "fields": {
+            "title": "How to teleport",
+			"author": 3,
+			"created": "2020-01-01T23:28:56.782Z",
+			"synopsis": "Learn how to teleport",
+			"content": "Duis laoreet a massa eu congue. Cras laoreet nisi lorem, eu pulvinar enim aliquam et. Quisque lobortis sapien tellus, non scelerisque tortor ornare ac. Curabitur sem elit, placerat sit amet maximus vitae, tincidunt elementum nibh. Cras eget luctus elit. Sed ac enim eget nulla ultricies fringilla. Vivamus in metus in augue pulvinar gravida a et urna. Maecenas porta nisl augue, sit amet iaculis tellus viverra vitae. Donec in magna ut nisi tristique convallis eu nec erat. Sed et ex ac felis placerat commodo. Mauris nec interdum orci. Aliquam in ex sapien. Nulla erat neque, aliquam at pellentesque eu, imperdiet vel libero."
+        }
+	},
+
+	{
+		"model": "ex.article",
+		"pk": 2,
+		"fields": {
+            "title": "How to slay monsters",
+			"author": 2,
+			"created": "2020-01-01T23:28:56.782Z",
+			"synopsis": "Learn how to kill monsters",
+			"content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris eleifend erat velit, quis mattis velit finibus ut. Phasellus vel turpis feugiat, sollicitudin ante at, dignissim nisi. Curabitur mattis semper lacus, eu ornare eros malesuada a. Duis venenatis tortor ut iaculis mollis. Cras mollis velit vel iaculis porttitor. Sed vel dictum justo. Vestibulum ullamcorper id nibh a eleifend. Donec ullamcorper tristique lacus id suscipit."
+		}
+	},
+
+	{
+		"model": "ex.article",
+		"pk": 3,
+		"fields": {
+            "title": "How to work with Django",
+			"author": 1,
+			"created": "2020-01-01T23:28:56.782Z",
+			"synopsis": "Still don't know",
+			"content": "Nunc tempor leo sit amet vehicula ornare. Mauris ut neque elementum, aliquam sem at, blandit diam. Vivamus cursus, arcu sed varius scelerisque, ipsum dui eleifend felis, id cursus sem felis eget magna. Vivamus at aliquet ligula. Suspendisse sodales ipsum sed erat luctus pulvinar. Nulla vehicula nunc at congue dictum. Vestibulum pulvinar nulla et tellus gravida maximus. Etiam semper turpis nunc, eu posuere diam ultrices ut. Morbi a tellus nibh. Fusce purus erat, cursus dapibus nulla non, dignissim posuere purus. In eget pellentesque est. Ut sed ornare lacus. Morbi mollis orci ac diam placerat ultricies."
+		}
+	},
+
+	{
+		"model": "ex.article",
+		"pk": 4,
+		"fields": {
+            "title": "How to understand Django",
+			"author": 1,
+			"created": "2020-01-01T23:28:56.782Z",
+			"synopsis": "I don't get it",
+			"content": "Morbi fermentum, nunc vel euismod tempor, arcu arcu congue tellus, vitae venenatis libero diam ut arcu. In sagittis lacinia neque, a fringilla quam efficitur id. Aliquam facilisis justo vitae magna condimentum, sed pretium massa imperdiet. Fusce sed ex eu ante molestie consectetur. Vestibulum fringilla lectus non magna mattis, accumsan semper leo placerat. Maecenas nisi ante, consectetur tristique quam a, fermentum bibendum neque. Nullam lacinia aliquam placerat. Nam non tincidunt elit. Vestibulum urna justo, pellentesque ac dui sed, ullamcorper pharetra sapien. Morbi rutrum, diam sed auctor commodo, lectus felis fringilla lectus, non pellentesque nisl sapien quis arcu. Donec congue et ex sagittis euismod. Praesent interdum rutrum cursus. Donec non semper mi. Aliquam accumsan dolor eu quam tempor laoreet sodales vel lacus. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Donec tincidunt pharetra elementum."
+		}
+	},
+
+	{
+		"model": "ex.article",
+		"pk": 5,
+		"fields": {
+            "title": "Why am I so tired ?",
+			"author": 1,
+			"created": "2020-01-01T23:28:56.782Z",
+			"synopsis": "Because I work with Django",
+			"content": "Integer imperdiet metus id elementum pharetra. Maecenas tincidunt ex sit amet nunc congue, laoreet porttitor quam faucibus. Proin non luctus sapien. Aenean aliquet suscipit massa eget lacinia. Ut eu justo ut quam congue tempus nec vitae nisi. Sed vestibulum dui vitae mauris accumsan, vel blandit eros porttitor. Proin varius malesuada ex, vitae posuere justo pharetra quis. Mauris tortor magna, vestibulum ut dapibus non, luctus eu elit. Phasellus egestas justo lorem, ut scelerisque neque vestibulum scelerisque. Phasellus maximus finibus posuere. Aliquam et risus lorem. Aenean ultrices ipsum ex, quis malesuada risus vehicula a. Nullam blandit fringilla magna at mattis. Maecenas ut quam porta, suscipit nulla ut, laoreet felis. Fusce eget dictum lectus."
+		}
+	},
+
+	{
+		"model": "ex.userfavouritearticle",
+		"pk": 1,
+		"fields": {
+            "user": 1,
+			"article": 4
+		}
+	},
+
+	{
+		"model": "ex.userfavouritearticle",
+		"pk": 2,
+		"fields": {
+            "user": 1,
+			"article": 5
+		}
+	}
+]

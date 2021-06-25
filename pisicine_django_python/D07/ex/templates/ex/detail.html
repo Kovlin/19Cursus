@@ -1,0 +1,21 @@
+{% extends 'ex/base.html' %}
+{% load bootstrap3 %}
+{% block title %} {{ object.title }} {% endblock title %}
+{% load i18n %}
+{% block content %}
+{% include 'ex/nav.html' %}
+<div>
+  <h1>{{ object.title }}</h1>
+  <div>
+    <div>
+      <h3>{{ object.author }}</h3>
+      <h5>{{ object.created }}</h5>
+    </div>
+  </div>
+  <div>
+    <blockquote>{{ object.synopsis }}</blockquote>
+    <div>{{ object.content }}</div>
+  </div>
+  {% include 'ex/add_to_favourites.html' %}
+</div>
+{% endblock %}

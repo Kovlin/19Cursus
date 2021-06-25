@@ -1,0 +1,49 @@
+{% load static %} 
+{% load bootstrap3 %}
+{% load i18n %}
+<nav style="padding-left: 20px; margin: 10px 20px"  class="navbar navbar-inverse">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <ul class="nav navbar-nav navbar-right">
+            <li>
+                <a class="navbar-brand" href="{% url 'home' %}">
+                    <span style="margin-left:-22px; font-size:20px" class="glyphicon glyphicon-book " aria-hidden="true"></span>
+                </a>
+            </li>   
+            <li class="active">
+                <a href="{% url 'articles' %}"> {% trans 'Last Articles' %} </a>
+            </li>
+            {% if not user.is_authenticated %}
+                <li><a href="{% url 'register' %}">{% trans 'Register' %}</a></li>
+            {% else %}
+            <li><a href="{% url 'favourites' %}">{% trans 'Favourites' %}</a></li>
+            <li><a href="{% url 'publication' %}">{% trans 'Publications' %}</a></li>
+            {% endif %}
+        </ul>
+    </div>
+    <div class="container-fluid">
+        <ul class="nav navbar-nav navbar-right">
+            {% if user.is_authenticated %}
+            <li >
+              <a href="#">Logged as {{request.user.username}}<span class="sr-only"></span></a>
+            </li>
+            <li >
+              <a href="{% url 'logout' %}">{% trans 'Logout' %}<span class="sr-only"></span></a>
+            </li>
+            {% else %}
+            <li>
+              <form id="login_form" action="{% url 'login' %}" class="navbar-form navbar-left" method="POST">
+                <form action="{% url 'login' %}" method="POST">
+                    {% csrf_token %}
+                    {{login_form}}
+                {% buttons %}
+                <button type="submit" class="btn btn-default">{% trans 'Login' %}</button>
+                {% endbuttons %}
+              </form>
+            </li>
+            {% endif %}
+          </ul>
+        </div>
+      </div>
+    </div>
+    </nav>

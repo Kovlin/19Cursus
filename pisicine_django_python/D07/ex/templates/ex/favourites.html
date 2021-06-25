@@ -1,0 +1,17 @@
+{% extends 'ex/base.html' %}
+{% load bootstrap3 %}
+{% block title %}Favoris{% endblock title %}
+{% block content %}
+{% load i18n %}
+{% include 'ex/nav.html' %}
+<div>
+  <h1>{{ user.username }}'s favourites</h1>
+  <div>
+		<ul>
+		    {% for article in object_list %}
+				<li><a href="{% url 'articles_detail' article.id %}"> {{article.article.title}}</a></li>
+			{% endfor %}
+		</ul>
+  </div>
+</div>
+{% endblock %}

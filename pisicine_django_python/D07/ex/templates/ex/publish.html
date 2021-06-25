@@ -1,0 +1,21 @@
+{% extends 'ex/base.html' %}
+{% load bootstrap3 %}
+{% block title %}Publish{% endblock title %}
+{% load i18n %}
+{% block content %}
+{% include 'ex/nav.html' %}
+<div>
+  <h1>{% trans 'Publish' %}</h1>
+  <div>
+	<form action="" method="post">
+		{% csrf_token %}
+		{{ form.as_p }}
+		{% if user.is_authenticated %}
+			<input type="submit" value="publish">
+		{% else %}
+			<p>{% trans 'You have to log in to publish new articles' %}</p>
+		{% endif %}
+	</form>
+  </div>
+</div>
+{% endblock %}

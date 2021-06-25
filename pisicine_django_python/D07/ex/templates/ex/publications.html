@@ -1,0 +1,32 @@
+{% extends 'ex/base.html' %} {% block title %}
+{% load bootstrap3 %}
+{{ user.username }}'s Publications{% endblock title %}
+{% load i18n %}
+{% block content %}
+{% include 'ex/nav.html' %}
+<h1>{{ user.username }}'s Publications</h1>
+<div>
+  <div>
+    <table>
+      <tr>
+        <th>{% trans 'title' %}</th>
+        <th>{% trans 'synopsis' %}</th>
+        <th>{% trans 'created' %}</th>
+        <th></th>
+      </tr>
+      {% for article in object_list %}
+      <tr>
+        <td>{{ article.title|truncatechars:20 }}</td>
+        <td>{{ article.synopsis|truncatechars:20 }}</td>
+        <td>{{ article.created }}</td>
+        <td>
+    	  <a href="{% url 'articles_detail' article.id %}">{% trans 'Read' %}</a>
+        </td>
+      </tr>
+      {% endfor %}
+    </table>
+    </br>
+    <a href="{% url 'publish' %}">{% trans 'Publish new article' %}</a>
+  </div>
+</div>
+{% endblock content %}
