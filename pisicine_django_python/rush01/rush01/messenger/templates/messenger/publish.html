@@ -1,0 +1,21 @@
+{% extends 'messenger/base.html' %}
+{% load bootstrap3 %}
+{% block title %}Message{% endblock title %}
+{% load i18n %}
+{% block content %}
+{% include 'messenger/nav.html' %}
+<div>
+  <h1 style="padding-left: 20px; margin: 10px 20px">{% trans 'Post messages' %}</h1>
+  <div style="padding-left: 20px; margin: 10px 20px">
+	<form id="login_form" action="" method="post">
+		{% csrf_token %}
+		{{ form.as_p }}
+		{% if user.is_authenticated %}
+			<input type="submit" value="post">
+		{% else %}
+			<p>{% trans 'You have to post message' %}</p>
+		{% endif %}
+	</form>
+  </div>
+</div>
+{% endblock %}

@@ -1,0 +1,23 @@
+{% extends 'messenger/base.html' %}
+{% load bootstrap3 %}
+{% block title %}Profile{% endblock title %}
+{% block content %}
+{% load i18n %}
+{% include 'messenger/nav.html' %}
+
+<div>
+  <h1 style="padding-left: 20px; margin: 10px 20px">{{ user.username }}'s profile</h1>
+  <div style="padding-left: 20px; margin: 10px 20px">
+  {% include 'messenger/profile_info.html' %}
+	<form class="form form" method="post" enctype="multipart/form-data">
+		{% csrf_token %}
+		{% bootstrap_form form %}
+		{% if user.is_authenticated %}
+			<input type="submit" value="Update Profile">
+		{% else %}
+			<p>{% trans 'You have to log in to update your profile' %}</p>
+		{% endif %}
+	</form>
+  </div>
+</div>
+{% endblock %}

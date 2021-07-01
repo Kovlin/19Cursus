@@ -1,0 +1,17 @@
+{% extends 'messenger/base.html' %}
+{% load bootstrap3 %}
+{% block title %}Login{% endblock title %}
+{% load i18n %}
+{% block content %}
+<div>
+  <h1>{% trans 'Login' %}</h1>
+  {% include 'messenger/nav.html' %}
+  <div>
+	<form action="/login/" method="post">
+		{% csrf_token %}
+		{% bootstrap_form form  %}
+		<input type="submit" value="Submit">
+	</form>
+  </div>
+</div>
+{% endblock %}

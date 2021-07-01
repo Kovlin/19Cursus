@@ -1,0 +1,32 @@
+{% extends 'messenger/base.html' %} {% block title %}
+{% load bootstrap3 %}
+{{ user.username }}'s Publications{% endblock title %}
+{% load i18n %}
+{% block content %}
+{% include 'messenger/nav.html' %}
+<h1 style="padding-left: 20px; margin: 10px 20px">{{ user.username }}'s Publications</h1>
+<div style="padding-left: 20px; margin: 10px 20px">
+  <div>
+    <table class="table">
+      <tr>
+        <th>{% trans 'Send by' %}</th>
+        </br>
+        <th>{% trans 'Received by' %}</th>
+        <th>{% trans 'content' %}</th>
+        <th>{% trans 'Time' %}</th>
+        <th></th>
+      </tr>
+      {% for message in object_list %}
+      <tr>
+        <td>{{ message.sender|truncatechars:20 }}</td>
+        <td>{{ message.receiver|truncatechars:20 }}</td>
+        <td>{{ message.content }}</td>
+        <td>{{ message.created|timesince}}</td>
+      </tr>
+      {% endfor %}
+    </table>
+    </br>
+    <a href="{% url 'publish' %}">{% trans 'Send new message' %}</a>
+  </div>
+</div>
+{% endblock content %}

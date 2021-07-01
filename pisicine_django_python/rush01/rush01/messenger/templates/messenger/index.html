@@ -1,0 +1,25 @@
+{% extends 'messenger/base.html' %}
+{% load bootstrap3 %}
+{% load i18n %}
+{% block title %}Messenger{% endblock title %}
+
+{% block content %}
+
+<div>
+    <h1 style="display: inline-block ; margin-left: 10px">Messenger</h1>
+    <h3 style="display: inline-block; margin-left: 10px; color: rgb(125, 125, 125)">
+        {% trans 'All your conversations' %}
+    </h3>
+    <hr>
+  {% include 'messenger/nav.html' %}
+  <div class="table-responsive" style="padding-left: 20px;" >
+    <table class="table table-hover">
+    {% if not user.is_authenticated %}
+      <h4>Login to see your discussions</h4>
+    {% else %}
+      <h4><a href="{% url 'discussions' %}">Click to see your discussions</a></h4>
+    {% endif %}
+    </table>
+  </div>
+</div>
+{% endblock %}
